@@ -15,6 +15,7 @@
 @color3: #2AABE2;             // solid blue (cerulean)
 @color4: #000000;             // footer
 @color5: #333333;             // box background color med-gray
+@color6: #EDEDED;             // very light grey
 @bordercolor: darken(@color3, 20%);
 
 
@@ -55,6 +56,7 @@
 // * {
 //   outline: 1px dotted red;
 // }
+
 
 body {
   width: 100%;
@@ -181,13 +183,33 @@ div#home {
 
 // ADMIN CONTENT STYLES ======================================================== 
 
-div.wrapper {
+div#adminwrapper {
   clear: both;
-  .vertical-container;
+//  .vertical-container;
   width: 100%;
-  height: 490px;
-  background-color: transparent;
+  height: 1000px;
+  
+//  ng-scope {
+//    
+//  }
+  
+  div#adminnested {
+    clear: both;background: linear-gradient(135deg, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 51%, rgba(209,209,209,1) 100%); 
+    height: 655px;
+    width: 95.5%;
+    margin-top: 30px;
+    margin-left: -10px;
+    padding: 20px 40px;
+    display: flex;  
 
+    div#content {
+      flex: 1;
+      padding: 20px;
+      background-color: @color1;
+      color: @color2;
+    }
+  }
+  
   div#admincontent {
     width: 90%;
     margin-right: 30px auto;   
@@ -195,23 +217,14 @@ div.wrapper {
     
     #row1 {
       .rows;
-      background-repeat: no-repeat;
-      background-size: cover;
-//      filter: grayscale(100%);
-//      -webkit-filter: grayscale(100%);
       flex: 1;   
     }
 
     #row2 {
       .rows;
-       background-repeat: no-repeat;
-      background-size: cover;
-//      filter: grayscale(100%);
-//      -webkit-filter: grayscale(100%);
       flex: 1;           
     }
-
-    
+        
   /* General images styles */
     .view {
       width: 300px;
@@ -265,10 +278,7 @@ div.wrapper {
         left: 0
       }
     }
-
     
-    /* end general image styles */
-
     
     /* image transition styles */
 
@@ -295,9 +305,7 @@ div.wrapper {
         transition: all 0.2s ease-in-out;
       } 
     }
-    
-    /* end image transition styles */    
-    
+        
     
     /* reverse transitions */
     
@@ -320,11 +328,8 @@ div.wrapper {
       transform: translateY(0px);
       transition-delay: 0.3s;
     }
-        
-    /* end reverse transitions */
     
     
-
     /* background images */
    #box1 {
      background-image: url("../images/mtns1.jpg");
@@ -343,7 +348,7 @@ div.wrapper {
     }
 
     #box5 {
-      background-image: url("../images/mtns5.jpg");
+      background-image: url("../images/mtns5.1.jpg");
     }
 
     #box6 {
@@ -359,15 +364,58 @@ div.wrapper {
 
 
 
+
+
 // STUDENT CONTENT STYLES ========================================================  
 
-div#studentscontent {
+
+div#studentswrapper {
+  
+ width: 100%;
+ height: 490px;
+  margin-left: 40px;
+  
   h2 {
     color: @color1;
+    font-family: @font1;
     text-transform: uppercase;
+    text-align: center;
+    }
 
+  div#studentscontent {
+    clear: both;
+    width: 95%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+
+    #list {
+      flex: 1;
+      background-color: @color6;
+      font-color: @color2;
+      margin-right: 20px;
+      padding: 20px;
+      height: 400px;
+      border: 10px solid @color1;
+      box-shadow: 1px 1px 2px #e6e6e6;
+      overflow: scroll;
+    }
+
+    #opensurvey {
+      flex: 4;
+      background-color: @color6;
+      font-color: @color2;
+      padding: 20px;
+      height: 400px;
+      border: 10px solid @color1;
+      box-shadow: 1px 1px 2px #e6e6e6;
+      overflow: scroll; 
+    }
   }
+  
 }
+// end studentswrapper
 
 
 

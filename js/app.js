@@ -14,7 +14,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('admin', {
       url: '/admin',
       templateUrl: 'js/templates/admin2.html',
-      controller: 'adminCtrl'
+      controller: 'adminCtrl'   // necessary? essentially contains a menu system for navigating between admin pages
     })
 
           .state('admin.topic', {

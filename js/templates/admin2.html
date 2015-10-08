@@ -3,7 +3,7 @@
   -show #admincontent after logged in
   -hide #admincontent on logout -->
 
-<div class="wrapper">
+<div id="adminwrapper">
 
     <!-- {{ adminmessage }} -->
 
@@ -15,7 +15,7 @@
           <h4>Create</h4>
           <p>Add instructors and mentors <br />
             to the available topics</p>
-          <a href="topic" class="info">Topic</a>
+          <a ui-sref="admin.topic" class="info">Topic</a>  <!-- need ui-sref -->
       </div>
       </div>
       <div id="box2" class="view">
@@ -23,7 +23,7 @@
           <h4>Create</h4>
           <p>Add lecture subjects to <br />
           </b>the available subjects</p>
-          <a href="subject" class="info">Subject</a>
+          <a ui-sref="admin.subject" class="info">Subject</a>
         </div>
       </div>
       <div id="box3" class="view">
@@ -31,7 +31,7 @@
           <h4>Create</h4>
           <p>Create a new <br />
             recipient group</p>
-          <a href="group" class="info">Group</a>
+          <a ui-sref="admin.group" class="info">Group</a>
         </div>
       </div>
     </div><!-- end row1 -->
@@ -42,7 +42,7 @@
           <h4>Create</h4>
           <p>Create users and add <br />
             them to a specific group</p>
-          <a href="users" class="info">Users</a>
+          <a ui-sref="admin.users" class="info">Users</a>
         </div>
       </div>
       <div id="box5" class="view">
@@ -50,7 +50,7 @@
           <h4>Create</h4>
           <p>Create a survey to send <br />
             to a specific group</p>
-          <a href="template" class="info">Template</a>
+          <a ui-sref="admin.template" class="info">Template</a>
         </div>
       </div>
       <div id="box6" class="view">
@@ -58,11 +58,16 @@
           <h4>View</h4>
           <p>View results of <br />
             completed surveys</p>
-          <a href="surveys" class="info">Surveys</a>
+          <a ui-sref="admin.surveys" class="info">Surveys</a>
         </div>
       </div>
     </div><!-- end row2 -->
     
-  </div><!-- end admin content -->
+    </div><!-- end admin content -->
   
+<!--  nested views appear below-->
+  <div id="adminnested">
+    <div id="content" ui-view></div>
+  </div>
 </div><!-- end wrapper -->
+
