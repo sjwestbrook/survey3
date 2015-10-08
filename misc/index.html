@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DevMountain Survey System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--
+  use links or import css files?
+  <link href='//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+-->
+
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+  <header>
+    <div id="logo">
+      <a href="#">
+        <img src="images/logowhiteblue.png" alt="Home" title="Home" width="188px" height="35px"/>
+      </a>
+    </div>
+    <div id="login">
+      <ul>
+        <li><a href="#admin" class="button">Admin</a></li>     <!-- ui-sref requires ui-router-->
+        <li><a href="#students" class="button">Students</a></li>  <!-- ui-sref requires ui-router-->
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- buttons to the left, 30% -->
+    <div id="mast">
+      <div class="nav">
+        <nav role="navigation">
+          <ul class="nav navbar-nav"><!-- keep or revise these classes -->
+            <li>
+              <a href="#topic" class="button">Create Topic</a>
+            </li>
+            <li>
+              <a href="#subject" class="button">Create Subject</a>
+            </li>
+            <li>
+              <a href="#group" class="button">Create Group</a>
+            </li>
+            <li>
+              <a href="#user" class="button">Create User</a>
+            </li>
+            <li>
+              <a href="#template" class="button">Create Template</a>
+            </li>
+            <li>
+              <a href="#surveys" class="button">View Surveys</a>
+            </li>
+          </ul>
+        </nav>
+      </div><!-- end nav -->
+    </div><!-- mast -->
+
+
+    <!-- main content/work area, 65% -->
+    <div id="main">
+      <!-- <p>PLACEHOLDER</p> -->
+      <div id="workspace">
+        <p>PLACEHOLDER - inner</p>
+
+        routes will go here - creating topics, subjects, recipient groups, users, templates; viewing surveys
+
+        <div></div>
+
+      </div>
+    </div> <!-- end main -->
+  </div> <!-- end page -->
+
+  <footer>
+    <div class="container">
+      <ul>
+        <li>PLACEHOLDER</li>
+        <li class="copyright">&copy; 2015</li>
+      </ul>
+    </div><!-- end container -->
+  </footer>
+
+<script src="js/bundle.js"></script>
+
+</body>

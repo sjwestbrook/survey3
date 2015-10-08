@@ -1,0 +1,17 @@
+&:hover {
+  background-color: lighten(@color3, 10%);
+}
+
+// this class hides anything because the element it's applied to will take up no space
+.smoosh {
+  display: none;
+  line-height: 0;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  color: transparent;
+  background: transparent;
+  border: none;
+  outline: none;
+  height: 0;
+  width: 0;
+}

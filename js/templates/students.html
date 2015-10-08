@@ -1,0 +1,45 @@
+<div id="studentscontent">
+
+  <!-- student login here
+    -hide #studentscontent until logged in
+    -show #studentscontent after logged in
+    -hide #studentscontent on logout -->
+
+  <!-- {{ studentsmessage }} -->
+
+  <h2>Complete &nbsp; Surveys</h2>
+
+  <div ui-view></div>
+
+
+  <!-- using named ui-views will ignore templates, templateUrls, etc -->
+
+  <!-- list of surveys to take
+  <div ui-view="surveylist"></div>
+
+  survey being completed
+  <div ui-view="survey"></div> -->
+
+  <!-- Example with named views:
+  $stateProvider
+  .state('inbox', {
+    views: {
+      'filters': {
+        template: '<h4>Filter inbox</h4>',
+        controller: function($scope) {}
+      },
+      'mailbox': {
+        templateUrl: 'partials/mailbox.html'
+      },
+      'priority': {
+        template: '<h4>Priority inbox</h4>',
+        resolve: {
+          facebook: function() {
+            return FB.messages();
+          }
+        }
+      }
+    }
+  }); -->
+
+</div>

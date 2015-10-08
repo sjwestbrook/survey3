@@ -1,0 +1,78 @@
+Take the most recent working back end (minus Ryan's current front end) and make my front end. Make it match up to the endpoints below.
+Focus on LESS and Webpack. Make responsive if time allows. Make an edit page if time allows (e.g. remove a student form a cohort if time allows.).
+
+
+
+ADMIN SECTION
+Make a survey with swappable parts
+
+TEMPLATES  -- first page
+Name
+Topic
+Subject - whatever was taught that day
+Recipient Group
+Date
+Questions
+
+potential layout: 5 buttons, with a dynamic list of viewable surveys
+e.g. uitilize components from  http://www.keenthemes.com/preview/conquer/index.html
+- create list of topics ?
+  - create list of instructors ?
+  - create list of mentors ?
+
+- create list of subjects (ahead of time, so available in dropdown in the future)
+
+- create recipient groups
+- create users (add users to existing recipient groups after the fact)
+
+- create a survey template
+
+- view surveys
+  - select topic and session
+    - view results for that survey
+
+
+TOPIC - can add a list of topics  -- second page
+"how did Jarod do?"  Jarod must be replaceable - use an escape sequence eg $$instructor_name$$
+Jarod
+Michael
+Jeremy
+
+SUBJECT - what was taught that day
+
+DATE
+
+QUESTIONS
+-use directives to add questions?
+
+RECIPIENT GROUP - can add a list of groups  -- 3rd page
+EX. DM6
+  -Sarah (and email address)
+  -Ryan (and email address)
+  -all other cohort members
+
+Now go into a screen with a dropdown  -- 4th page
+-pick a template (instructor, mentor, self-assessment, group-assessment)
+-pick the topic (eg Jarod if it's an instructor survey)
+-pick a cohort
+-click send
+
+
+
+
+
+USER SECTION / STUDENT VIEW
+
+-log in and see which surveys i'm being asked to take  -- 1ST PAGE
+- only shows surveys not yet taken - currently must refresh screen to view updates
+
+-click on a survey --> 2ND PAGE
+  -expand to show question, or go to new page with question and answer options, and "DONE"
+
+
+OTHER ADMIN VIEW
+-select topic and session
+-view survey results - questions down the size with answers filling in horizontally
+  -view a list of topics to pick from
+    -provides list of surveys
+    -click on survey to view individual results
