@@ -1,4 +1,4 @@
-var app = angular.module('surveyApp', ['ui.router']);  // , 'formly', 'formlyBootstrap'
+var app = angular.module('surveyApp', ['ui.router', 'formly', 'formlyBootstrap']); 
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
