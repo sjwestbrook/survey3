@@ -7,7 +7,7 @@ app.controller('mainCtrl', function($scope,$stateParams,$state) {
 
 
 
-//======================================================================
+//===========================================
 
 
 app.controller('homeCtrl', function($scope,$stateParams,$state) {
@@ -49,9 +49,10 @@ app.controller('topicCtrl', function($scope,$stateParams,$state) {
     }
   ]
 
-  // function definition -- ??
+  // function definition
   function onSubmit() {
-    //http request to post to server ??;
+    //http request to post to server
+    http.post('/api/topic?id=' + topic_id);  // syntax? id?
   }
 
 });
@@ -88,7 +89,8 @@ app.controller('subjectCtrl', function($scope,$stateParams,$state) {
   ]
   
   function onSubmit() {
-    //http request to post to server ??;
+    //http request to post to server
+    http.post('/api/topic?id=' + subjectName);  // syntax? id?
   }
   
 });
@@ -119,7 +121,8 @@ app.controller('groupCtrl', function($scope,$stateParams,$state) {
   ]
   
   function onSubmit() {
-    //http request to post to server ??;
+    //http request to post to server
+    http.post('/api/recipientGroups?id=' + groupName);  // syntax? id?
   }
 
 });
@@ -150,7 +153,8 @@ app.controller('usersCtrl', function($scope,$stateParams,$state) {
   ]
   
   function onSubmit() {
-    //http request to post to server ??;
+    //http request to post to server
+    http.post('/api/recipientGroups?id=' + users);  // syntax? id?
   }
   
 });
@@ -285,7 +289,5 @@ app.controller('studentsCtrl', function($scope,$stateParams,$state) {
   //function onSubmit() {
     //http request to post to server ??;
   //}
-
-});
   
 });
