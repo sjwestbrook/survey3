@@ -35,88 +35,78 @@
 </section> -->
 
 <div class="wrapper">
-  <section class="blocks clear">
-    
+  <section class="blocks clear">    
     <div class="col-left left">
-      <span id="box1" class="b-topic view">
-        <div class="mask">
-          <h4>Create</h4>
-          <p>Add instructors and mentors <br />
-            to the available topics</p>
-          <a ui-sref="admin.topic" class="info">Topic</a>  
-        </div>
-      </span>
-      <span id="box3" class="b-filler view">
-        <div class="mask"></div> <!-- necessary? -->
-      </span>      
-      <span id="box5" class="b-users view">
-        <div class="mask">
-          <h4>Create</h4>
-          <p>Create users and add <br />
-            them to a specific group</p>
-          <a ui-sref="admin.users" class="info">Users</a>
-        </div>
-      </span>
-      <span id="box7" class="b-template view">
-       <div class="mask">
+      <div id="box1" class="b-topic">
+        <h4>Create</h4>
+        <p>Add instructors and mentors <br />
+          to the available topics</p>
+        <a ui-sref="admin.topic" class="info">Topic</a>  
+      </div>
+      <div id="box3" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <a ui-sref="#" >#</a>   
+      </div>      
+      <div id="box5" class="b-users">
+        <h4>Create</h4>
+        <p>Create users and add <br />
+          them to a specific group</p>
+        <a ui-sref="admin.users" class="info">Users</a>
+      </div>
+      <div id="box7" class="b-template">
         <h4>Create</h4>
         <p>Create a survey to send <br />
           to a specific group</p>
         <a ui-sref="admin.template" class="info">Template</a>
       </div>
-      </span>
-      <span id="box9" class="b-filler view">
-        <div class="mask"></div> <!-- necessary? -->
-      </span>
+      <div id="box9" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <a ui-sref="#" >#</a> 
+      </div>
     </div> <!-- end col-left -->    
     
     
     <div class="col-mid">
-      <span id="box2" class="b-subject view">
-        <div class="mask">
-          <h4>Create</h4>
-          <p>Add lecture subjects to <br />
-            the available subjects</p>
-          <a ui-sref="admin.subject" class="info">Subject</a>
-        </div>
-      </span>      
-      <span id="box4" class="b-group view">
-      
-        <div class="mask">
-          <h4>Create</h4>
-          <p>Create a recipient <br />
-            group (cohort)</p>
-          <a ui-sref="admin.template" class="info">Group</a>
-        </div>
-    </span>      
-    <span id="box6" class="b-filler view">
-      <div class="mask"></div> <!-- necessary? -->
-    </span>      
-    <span id="box8" class="b-createsurvey view">
-      <div class="mask">
-        <h4>Send</h4>
-        <p>Send a survey to <br />
-          a specific group</p>
-        <a ui-sref="admin.createsurvey" class="info">Survey</a>
-      </div>
-    </span>      
-    <span id="box10" class="b-surveys view">
-      <div class="mask">
+      <div id="box2" class="b-subject">
+        <h4>Create</h4>
+        <p>Add lecture subjects to <br />
+          the available subjects</p>
+        <a ui-sref="admin.subject" class="info">Subject</a>
+      </div>      
+      <div id="box4" class="b-group">
+        <h4>Create</h4>
+        <p>Create a recipient <br />
+          group (cohort)</p>
+        <a ui-sref="admin.template" class="info">Group</a>
+    </div>      
+    <div id="box6" class="b-filler">
+      <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <a ui-sref="#" >#</a> 
+    </div>      
+    <div id="box8" class="b-createsurvey">
+      <h4>Send</h4>
+      <p>Send a survey to <br />
+        a specific group</p>
+      <a ui-sref="admin.createsurvey" class="info">Survey</a>
+    </div>      
+    <div id="box10" class="b-surveys">
         <h4>View</h4>
         <p>View results of <br />
           completed surveys</p>
         <a ui-sref="admin.surveys" class="info">Surveys</a>
-      </div>
-    </span> 
-    </div><!-- end col-mid -->  
-    
-    <!-- lg screen: nested views to left of boxes -->
-    <div id="work" class="col-right right">
-      <div id="content" ui-view></div>
-    </div>
+    </div> 
+    </div><!-- end col-mid -->    
   </section> <!-- end blocks -->
   
-  
- 
+   <!-- lg screen: nested views to left of boxes -->
+    <div id="work" class="col-right left">
+      <div id="content" ui-view></div>
+    </div>
   
 </div> <!-- end wrapper -->
