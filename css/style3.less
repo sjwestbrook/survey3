@@ -2,7 +2,7 @@
   LESS stylesheet
   Sarah Westbrook
   Personal Project
-  10-2-15
+  10-2-15; 10-10-15
 */
 
 // VARIABLES, MIXINS, FUNCTIONS ================================================
@@ -52,10 +52,10 @@
 
 
 // GLOBAL STYLES ===============================================================
-//
-// * {
-//   outline: 1px dotted red;
-// }
+
+ * {
+   outline: 1px dotted red;
+ }
 
 
 body {
@@ -81,6 +81,14 @@ div.wrapper.ng-binding.ng-scope {
 
 .clear {
   clear: both;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 .attribution {
@@ -184,54 +192,49 @@ div#home {
 
 // ADMIN CONTENT STYLES ======================================================== 
 
-div#adminwrapper {
-  .clear;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-          justify-content: center;  
+div.wrapper {
+  height: auto;
+//  width: 100%;
+ // border: 30px solid #fff;
+
   
-  div#admincontent {
-    width: 90%;
-    margin-right: 30px auto;   
-    
-    
-    #row1 {
-      .rows;
-      flex: 1;   
+  section {
+    .col-left {
+      .left;
+      width: 24%; 
     }
+    
+    .col-mid {
+      .left;
+      width: 24%; 
+    }
+    
+    .col-right {
+      .right;
+      width: 48%; 
+    }
+    
+    
+  }
+  
+} 
+// end wrapper styles
 
-    #row2 {
-      .rows;
-      flex: 1;           
-    }
-    
-    #row3 {
-      .rows;
-      flex: 1;           
-    }
-        
-    
-    div#adminnested {
-//      clear: both;
-      .clear;
-//      background: linear-gradient(135deg, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 51%, rgba(209,209,209,1) 100%); 
-//      height: 500px;
-      width: 40%;
-      margin-top: 30px;
-      margin-left: 30px;
-      padding: 20px 40px;
-      display: flex;  
 
-      div#content {
-        flex: 1;
-        padding: 20px;
-        background-color: @color1;
-        color: @color2;
-      }
-    }
-    
-  /* General images styles */
+// BLOCKS-IMAGES =====================================
+
+// General images styles =============================
+
+//    .filler {
+//      width: 300px;
+//      height: 200px;
+//      margin: 10px;
+//      border: 10px solid @color1;
+//      overflow: hidden;
+//      text-align: center;
+//      box-shadow: 1px 1px 2px #e6e6e6;
+//    }
+
     .view {
       width: 300px;
       height: 200px;
@@ -286,7 +289,7 @@ div#adminwrapper {
     }
     
     
-    /* image transition styles */
+    // image transition styles =============================
 
     .view {
       .mask { 
@@ -313,7 +316,7 @@ div#adminwrapper {
     }
         
     
-    /* reverse transitions */
+    // reverse transitions =============================
     
     .view:hover .mask { 
       opacity:1; 
@@ -346,28 +349,43 @@ div#adminwrapper {
     }
 
     #box3 {
-      background-image: url("../images/mtns3.jpg");
+      background-image: url("../images/mtn7.jpg");
     }
 
     #box4 {
-      background-image: url("../images/mtns4.jpg");
+      background-image: url("../images/mtns3.jpg");
     }
 
     #box5 {
-      background-image: url("../images/mtns5.1.jpg");
+      background-image: url("../images/mtns4.jpg");
     }
 
     #box6 {
+      background-image: url("../images/mtn8.jpg");
+    }
+
+    #box7 {
+      background-image: url("../images/mtns5.1.jpg");
+    }
+
+    #box8 {
       background-image: url("../images/mtns6.jpg");
     }    
+
+    #box9 {
+      background-image: url("../images/mtn9.jpg");
+    }
+
+    #box10 {
+      background-image: url("../images/mtn10.jpg");
+    }
+
     /* end background images */
+
+
+
+
     
-  }
-  // end #admincontent styles
-
-}
-// end admin content styles
-
 
 
 

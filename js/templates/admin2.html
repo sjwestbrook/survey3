@@ -3,87 +3,120 @@
   -show #admincontent after logged in
   -hide #admincontent on logout -->
 
-<div id="adminwrapper">
+<!-- THIS IS A DROPDOWN MENU - COME BACK LATER IF POSSIBLE 
+<section class="menuwrapper">
+  <nav id="mainmenu" class style="height: 0px;">
+    <ul class="nav menu">
+      <li class="item-101 current active">
+        <a href="/">Create Topic</a>
+      </li>
+      <li class="item-101 current active">
+        <a href="/">Create Subject</a>
+      </li>
+      <li class="item-101 current active">
+        <a href="/">Create Group</a>
+      </li>
+      <li class="item-101 current active">
+        <a href="/">Create Users</a>
+      </li>
+      <li class="item-101 current active">
+        <a href="/">Create Template</a>
+      </li>
+      <li class="item-101 current active">
+        <a href="/">Send Survey</a>
+      </li>
+      <li class="item-101 current active">
+        <a href="/">View Surveys</a>
+      </li>
+    </ul> -->
+    <!-- down-pointing arrow that opens menu -->
+    <!--<a href="#" class="sprite menutoggle kellum">menu></a>
+  </nav>
+</section> -->
 
-    <!-- {{ adminmessage }} -->
-
-  <div id="admincontent">
+<div class="wrapper">
+  <section class="blocks clear">
     
-    <div id="row1">
-      <div id="box1" class="view">
+    <div class="col-left left">
+      <span id="box1" class="b-topic view">
         <div class="mask">
           <h4>Create</h4>
           <p>Add instructors and mentors <br />
             to the available topics</p>
-          <a ui-sref="admin.topic" onclick="" class="info">Topic</a>  <!-- need ui-sref -->
-      </div>
-      </div>
-      <div id="box2" class="view">
-        <div class="mask">
-          <h4>Create</h4>
-          <p>Add lecture subjects to <br />
-          </b>the available subjects</p>
-          <a ui-sref="admin.subject" class="info">Subject</a>
+          <a ui-sref="admin.topic" class="info">Topic</a>  
         </div>
-      </div>
-      <div id="box3" class="view">
-        <div class="mask">
-          <h4>Create</h4>
-          <p>Create a new <br />
-            recipient group</p>
-          <a ui-sref="admin.group" class="info">Group</a>
-        </div>
-      </div>
-    </div><!-- end row1 -->
-    
-    <div id="row2">
-      <div id="box4" class="view">
+      </span>
+      <span id="box3" class="b-filler view">
+        <div class="mask"></div> <!-- necessary? -->
+      </span>      
+      <span id="box5" class="b-users view">
         <div class="mask">
           <h4>Create</h4>
           <p>Create users and add <br />
             them to a specific group</p>
           <a ui-sref="admin.users" class="info">Users</a>
         </div>
+      </span>
+      <span id="box7" class="b-template view">
+       <div class="mask">
+        <h4>Create</h4>
+        <p>Create a survey to send <br />
+          to a specific group</p>
+        <a ui-sref="admin.template" class="info">Template</a>
       </div>
-      <div id="box5" class="view">
+      </span>
+      <span id="box9" class="b-filler view">
+        <div class="mask"></div> <!-- necessary? -->
+      </span>
+    </div> <!-- end col-left -->    
+    
+    
+    <div class="col-mid">
+      <span id="box2" class="b-subject view">
         <div class="mask">
           <h4>Create</h4>
-          <p>Create a survey to send <br />
-            to a specific group</p>
-          <a ui-sref="admin.template" class="info">Template</a>
+          <p>Add lecture subjects to <br />
+            the available subjects</p>
+          <a ui-sref="admin.subject" class="info">Subject</a>
         </div>
-      </div>
-      <div id="box6" class="view">
+      </span>      
+      <span id="box4" class="b-group view">
+      
         <div class="mask">
-          <h4>View</h4>
-          <p>View results of <br />
-            completed surveys</p>
-          <a ui-sref="admin.surveys" class="info">Surveys</a>
+          <h4>Create</h4>
+          <p>Create a recipient <br />
+            group (cohort)</p>
+          <a ui-sref="admin.template" class="info">Group</a>
         </div>
+    </span>      
+    <span id="box6" class="b-filler view">
+      <div class="mask"></div> <!-- necessary? -->
+    </span>      
+    <span id="box8" class="b-createsurvey view">
+      <div class="mask">
+        <h4>Send</h4>
+        <p>Send a survey to <br />
+          a specific group</p>
+        <a ui-sref="admin.createsurvey" class="info">Survey</a>
       </div>
-    </div><!-- end row2 -->
-
-  <div id="row3">
-      <div id="box7" class="view">
-        <div class="mask">
-          <h4>Send</h4>
-          <p>Send a survey to <br />
-            a specific group</p>
-          <a ui-sref="admin.users" class="info">Survey</a>
-        </div>
+    </span>      
+    <span id="box10" class="b-surveys view">
+      <div class="mask">
+        <h4>View</h4>
+        <p>View results of <br />
+          completed surveys</p>
+        <a ui-sref="admin.surveys" class="info">Surveys</a>
       </div>
-    </div><!-- end row3 -->
-
-
-    <!--  nested views appear below-->
-    <div id="adminnested">
+    </span> 
+    </div><!-- end col-mid -->  
+    
+    <!-- lg screen: nested views to left of boxes -->
+    <div id="work" class="col-right right">
       <div id="content" ui-view></div>
     </div>
-
-    </div><!-- end admin content -->
+  </section> <!-- end blocks -->
   
-
-
-
-</div><!-- end wrapper -->
-
+  
+ 
+  
+</div> <!-- end wrapper -->
