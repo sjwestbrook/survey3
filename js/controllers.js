@@ -7,7 +7,7 @@ app.controller('mainCtrl', function($scope,$stateParams,$state) {
 
 
 
-//===========================================
+// HOME ===========================================
 
 
 app.controller('homeCtrl', function($scope,$stateParams,$state) {
@@ -23,7 +23,15 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 
 app.controller('adminCtrl', function($scope,$stateParams,$state) {
 
-  $scope.adminmessage = "hi admin, please log in";
+//  $scope.adminmessage = "hi admin, please log in";
+  
+//  SET UP AUTH
+//    - show login form when switching to admin view
+//    - hide main content until authenticated  
+//    - after authentication
+//      - show main content
+//      - show logout button
+      
 
 });
 
@@ -45,7 +53,10 @@ app.controller('topicCtrl', function($scope,$stateParams,$state) {
   $scope.fields = [
     {
       type: 'input',
-      key: 'topicName'
+      key: 'topicName',
+      templateOptions: {
+        label: 'Topic'
+      }
     }
   ]
 
@@ -63,8 +74,6 @@ app.controller('topicCtrl', function($scope,$stateParams,$state) {
 
 app.controller('subjectCtrl', function($scope,$stateParams,$state) {
 
-  //$scope.message = "subject";
-  
   $scope.onSubmit = onSubmit;
 
   $scope.model = {};
@@ -72,19 +81,31 @@ app.controller('subjectCtrl', function($scope,$stateParams,$state) {
   $scope.fields = [
     {
       type: 'select',  
-      key: 'topicName'
+      key: 'topicName',
+      templateOptions: {
+        label: 'Topic'
+      }
     },
     {
       type: 'input',   
-      key: 'subjects.subjectName'
+      key: 'subjects.subjectName',
+      templateOptions: {
+        label: 'Subject'
+      }
     },
     {
       type: 'input',  // date picker requires ui.bootstrap
-      key: 'subjects.date'
+      key: 'subjects.date',
+      templateOptions: {
+        label: 'Date'
+      }
     },
     {
       type: 'select', 
-      key: 'subjects.recipientGroup'      
+      key: 'subjects.recipientGroup',
+      templateOptions: {
+        label: 'Group'
+      }
     }
   ]
   
@@ -101,22 +122,29 @@ app.controller('subjectCtrl', function($scope,$stateParams,$state) {
 
 app.controller('groupCtrl', function($scope,$stateParams,$state) {
 
-//  $scope.message = "group";
-  
   $scope.model = {};
   
   $scope.fields = [
     {
       type: 'input', 
-      key: 'groupName'  // lands with recipientGroup?
+      key: 'groupName',  // lands with recipientGroup?
+      templateOptions: {
+        label: 'Group'
+      }
     },
     {                   // can add users to a group when a group is first created
       type: 'input',   
-      key: 'users.name'
+      key: 'users.name',
+      templateOptions: {
+        label: 'User Name'
+      }
     },
     {
       type: 'input',  
-      key: 'users.email'
+      key: 'users.email',
+      templateOptions: {
+        label: 'User Email Address'
+      }
     }
   ]
   
@@ -133,22 +161,29 @@ app.controller('groupCtrl', function($scope,$stateParams,$state) {
 
 app.controller('usersCtrl', function($scope,$stateParams,$state) {
 
-//  $scope.message = "users";
-
   $scope.model = {};
   
   $scope.fields = [
     {
       type: 'select', 
-      key: 'subjects.recipientGroup'  // populated by groupName?
+      key: 'subjects.recipientGroup',  // populated by groupName?
+      templateOptions: {
+        label: 'Group'
+      }
     },
     {                 // can add users to an existing group
       type: 'input',   
-      key: 'users.name'
+      key: 'users.name',
+      templateOptions: {
+        label: 'User Name'
+      }
     },
     {
       type: 'input',  
-      key: 'users.email'
+      key: 'users.email',
+      templateOptions: {
+        label: 'User Email Address'
+      }
     }
   ]
   
@@ -165,54 +200,91 @@ app.controller('usersCtrl', function($scope,$stateParams,$state) {
 
 app.controller('templateCtrl', function($scope,$stateParams,$state) {
 
-//  $scope.message = "template";
-
   $scope.model = {};
   
   $scope.fields = [
     {
       type: 'input', 
-      key: 'name'  
+      key: 'name',
+      templateOptions: {
+        label: 'Survey Name'
+      }
     },
     {                         
       type: 'input',   
-      key: 'description'
+      key: 'description',
+      templateOptions: {
+        label: 'Survey Description'
+      }
     },
     {
       type: 'input',  
-      key: 'varNames'
+      key: 'varNames',
+      templateOptions: {
+        label: 'Variables'
+      }
     },
     {
       type: 'input',  
-      key: 'questions.titleText'
+      key: 'questions.titleText',
+      templateOptions: {
+        label: 'Question Title Text'
+      }
     },
     {
       type: 'input',  
-      key: 'questions.helpText'
+      key: 'questions.helpText',
+      templateOptions: {
+        label: 'Question Help Text'
+      }
+    },
+    {
+      type: 'radio',  
+      key: 'questions.questionType',
+      templateOptions: {
+        label: 'Question Type'
+      }
+//      "templateOptions": {
+//        "label": "Have you tried EmberJs yet?",
+//        "options": [
+//          {
+//            "name": "Multiple Choice",
+//            "value": "..."
+//          },
+//          {
+//            "name": "...",
+//            "value": "..."
+//          },
+//          {
+//            "name": "...",
+//            "value": "no"
+//          }
+//        ]
+//      } 
     },
     {
       type: 'input',  
-      key: 'questions.questionType'
-    },
-    {
-      type: 'input',  
-      key: 'questions.answers'
+      key: 'questions.answers',
+      templateOptions: {
+        label: 'Answers'
+      }
     }
   ]
   
   function onSubmit() {
-    //http request to post to server ??;
+    //http request to post to server
+    http.post('/api/surveyTemplates?id=' + name);  // syntax? id?
   }
   
 });
 
 
 
-// SEND SURVEY ==============================
+// CREATE & SEND SURVEY ========================
 
 // keys correct?
 
-app.controller('surveysCtrl', function($scope,$stateParams,$state) {
+app.controller('createSurveyCtrl', function($scope,$stateParams,$state) {
 
 //  $scope.message = "send surveys";
   
@@ -221,39 +293,81 @@ app.controller('surveysCtrl', function($scope,$stateParams,$state) {
   $scope.fields = [
     {
       type: 'input', 
-      key: 'name'     // public name  ??
+      key: 'publicName',   // public name, ParsedSurveyModel?
+      templateOptions: {
+        label: 'Public Survey Name'
+      }
     },
     {                         
       type: 'select',   
-      key: 'topicName'
+      key: 'topicName',
+      templateOptions: {
+        label: 'Topic'
+      }
     },
     {
       type: 'select',  
-      key: 'subjects.subjectName'
+      key: 'subjects.subjectName',
+      templateOptions: {
+        label: 'Subject'
+      }
     },
     {
       type: 'select',  
-      key: 'name'  // select survey template  ??
+      key: 'name',  // select survey template  ??
+      templateOptions: {
+        label: 'Select Survey Template'
+      }
     },
     {
       type: 'input',  
-      key: 'varNames'
+      key: 'varNames',
+      templateOptions: {
+        label: 'Replacement value for $$name$$'
+      }
     }
   ]
   
   function onSubmit() {
     //http request to post to server ??;
+    http.post('/api/parsedSurveys?id=' + name);  // syntax? id?
   }
 
 });
 
 
 
-// VIEW SURVEYS ==============================
+// VIEW SURVEY RESULTS ========================
 
 app.controller('surveysCtrl', function($scope,$stateParams,$state) {
 
 //  $scope.message = "view surveys";
+  
+  $scope.model = {};
+  
+  $scope.fields = [
+    {
+      type: 'select', 
+      key: 'topicName',
+      templateOptions: {
+        label: 'Topic'
+      }
+    },
+    {                         
+      type: 'select',   
+      key: 'subjects.subjectName',
+      templateOptions: {
+        label: 'Subject'
+      }
+    }
+  ]  
+  
+  function onSubmit() {
+    // http request to get completed surveys from server
+    // all parsed surveys ?
+    // results array on topic modal
+    http.get('/api/parsedSurveys?id=' + subjects.results);  // syntax? id?
+  }
 
 });
 
@@ -264,30 +378,11 @@ app.controller('surveysCtrl', function($scope,$stateParams,$state) {
 
 app.controller('studentsCtrl', function($scope,$stateParams,$state) {
 
-  // works
-  // $scope.studentsmessage = "hi student, please log in";
-
-  $scope.model = {};
+  // need to show results array (ng-repeat, or ui-router equivalent) when a particular survey is selected
   
-  $scope.fields = [
-    {
-      type: 'select', 
-      key: 'topicName'     // public name  ??
-    },
-    {                         
-      type: 'select',   
-      key: 'subjects.subjectName'
-    },
-    // necessary?
-    {
-      type: 'select',  
-      key: 'subjects.recipient group'
-    }
-  ]
   
-  // necessary? need to show results array (ng-repeat, or ui-router equivalent) when a particular topic/subject combo is selected
-  //function onSubmit() {
-    //http request to post to server ??;
-  //}
+  function onSubmit() {  // change function name
+    http.get('/api/parsedSurveys?id=' + subjects.results);  // syntax? id?
+  }
   
 });

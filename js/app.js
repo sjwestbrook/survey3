@@ -52,6 +52,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'js/templates/surveys.html',
             controller: 'surveysCtrl'
           })
+  
+          .state('admin.createsurvey', {
+            url: '/createsurvey',
+            templateUrl: 'js/templates/createsurvey.html',
+            controller: 'createSurveyCtrl'
+          })
 
     .state('students', {
       url: '/students',

@@ -157,12 +157,13 @@ footer {
 
 
 
-// ============================== ROUTE STYLES =============================
+// ROUTE STYLES=========================================
 
 // HOME.HTML STYLES ======================================================== 
 
 div#home {
-  clear: both;
+//  clear: both;
+  .clear;
   //background: linear-gradient(rgb(42, 171, 226) 10%, rgb(60, 158, 200) 90%);
   width: 98%;
 
@@ -184,34 +185,11 @@ div#home {
 // ADMIN CONTENT STYLES ======================================================== 
 
 div#adminwrapper {
-  clear: both;
-  height: 800px;
+  .clear;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: center;
-          justify-content: center;
-  
-//  ng-scope {
-//    
-//  }
-  
-//  div#adminnested {
-//    clear: both;
-//    background: linear-gradient(135deg, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 51%, rgba(209,209,209,1) 100%); 
-//    height: 655px;
-    //width: 95.5%;
-//    margin-top: 30px;
-//    margin-left: 30px;
-//    padding: 20px 40px;
-//    display: flex;  
-
-//    div#content {
-//      flex: 1;
-//      padding: 20px;
-//      background-color: @color1;
-//      color: @color2;
-//    }
-//  }
+          justify-content: center;  
   
   div#admincontent {
     width: 90%;
@@ -227,7 +205,32 @@ div#adminwrapper {
       .rows;
       flex: 1;           
     }
+    
+    #row3 {
+      .rows;
+      flex: 1;           
+    }
         
+    
+    div#adminnested {
+//      clear: both;
+      .clear;
+      background: linear-gradient(135deg, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 51%, rgba(209,209,209,1) 100%); 
+      height: 500px;
+      width: 95.5%;
+      margin-top: 30px;
+      margin-left: 30px;
+      padding: 20px 40px;
+      display: flex;  
+
+      div#content {
+        flex: 1;
+        padding: 20px;
+        background-color: @color1;
+        color: @color2;
+      }
+    }
+    
   /* General images styles */
     .view {
       width: 300px;
@@ -386,7 +389,7 @@ div#studentswrapper {
     }
 
   div#studentscontent {
-    clear: both;
+    .clear;
     width: 95%;
     display: flex;
     flex-wrap: nowrap;

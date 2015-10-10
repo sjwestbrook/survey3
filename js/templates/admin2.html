@@ -15,7 +15,7 @@
           <h4>Create</h4>
           <p>Add instructors and mentors <br />
             to the available topics</p>
-          <a ui-sref="admin.topic" class="info">Topic</a>  <!-- need ui-sref -->
+          <a ui-sref="admin.topic" onclick="" class="info">Topic</a>  <!-- need ui-sref -->
       </div>
       </div>
       <div id="box2" class="view">
@@ -62,14 +62,28 @@
         </div>
       </div>
     </div><!-- end row2 -->
-    
+
+  <div id="row3">
+      <div id="box7" class="view">
+        <div class="mask">
+          <h4>Send</h4>
+          <p>Send a survey to <br />
+            a specific group</p>
+          <a ui-sref="admin.users" class="info">Survey</a>
+        </div>
+      </div>
+    </div><!-- end row3 -->
+
+
+    <!--  nested views appear below-->
+    <div id="adminnested">
+      <div id="content" ui-view></div>
+    </div>
+
     </div><!-- end admin content -->
   
-<!--<hr>-->
 
-<!--  nested views appear below-->
-  <div id="adminnested">
-    <div id="content" ui-view></div>
-  </div>
+
+
 </div><!-- end wrapper -->
 
