@@ -3,103 +3,61 @@
   -show #admincontent after logged in
   -hide #admincontent on logout -->
 
-<!-- THIS IS A DROPDOWN MENU - COME BACK LATER IF POSSIBLE 
-<section class="menuwrapper">
-  <nav id="mainmenu" class style="height: 0px;">
-    <ul class="nav menu">
-      <li class="item-101 current active">
-        <a href="/">Create Topic</a>
-      </li>
-      <li class="item-101 current active">
-        <a href="/">Create Subject</a>
-      </li>
-      <li class="item-101 current active">
-        <a href="/">Create Group</a>
-      </li>
-      <li class="item-101 current active">
-        <a href="/">Create Users</a>
-      </li>
-      <li class="item-101 current active">
-        <a href="/">Create Template</a>
-      </li>
-      <li class="item-101 current active">
-        <a href="/">Send Survey</a>
-      </li>
-      <li class="item-101 current active">
-        <a href="/">View Surveys</a>
-      </li>
-    </ul> -->
-    <!-- down-pointing arrow that opens menu -->
-    <!--<a href="#" class="sprite menutoggle kellum">menu></a>
-  </nav>
-</section> -->
+
 
 <div class="wrapper">
   <section class="blocks clear">    
     <div class="col-left left">
-      <div id="box1" class="b-topic">
+      <div id="box1">
         <h4>Create</h4>
         <p>Add instructors and mentors <br />
           to the available topics</p>
-        <a ui-sref="admin.topic" class="info">Topic</a>  
+        <div><a ui-sref="admin.topic" class="info">Topic</a></div>  
       </div>
-      <div id="box3" class="b-filler">
-        <h4>###</h4>
-        <p>### <br />
-          ###</p>
-        <a ui-sref="#" >#</a>   
-      </div>      
-      <div id="box5" class="b-users">
+      <div id="box5">
         <h4>Create</h4>
         <p>Create users and add <br />
           them to a specific group</p>
-        <a ui-sref="admin.users" class="info">Users</a>
+        <div><a ui-sref="admin.users" class="info">Users</a></div>
       </div>
-      <div id="box7" class="b-template">
+      <div id="box7">
         <h4>Create</h4>
         <p>Create a survey to send <br />
           to a specific group</p>
-        <a ui-sref="admin.template" class="info">Template</a>
+        <div><a ui-sref="admin.template" class="info">Template</a></div>
       </div>
-      <div id="box9" class="b-filler">
-        <h4>###</h4>
-        <p>### <br />
-          ###</p>
-        <a ui-sref="#" >#</a> 
-      </div>
+      <div id="box3" class="b-filler">
+        <h4></h4>
+        
+        <div><a ui-sref="#" ></a></div>  
+      </div> 
     </div> <!-- end col-left -->    
     
     
     <div class="col-mid">
-      <div id="box2" class="b-subject">
+      <div id="box2">
         <h4>Create</h4>
         <p>Add lecture subjects to <br />
           the available subjects</p>
-        <a ui-sref="admin.subject" class="info">Subject</a>
+        <div><a ui-sref="admin.subject" class="info">Subject</a></div>
       </div>      
-      <div id="box4" class="b-group">
+      <div id="box4">
         <h4>Create</h4>
         <p>Create a recipient <br />
           group (cohort)</p>
-        <a ui-sref="admin.template" class="info">Group</a>
-    </div>      
-    <div id="box6" class="b-filler">
-      <h4>###</h4>
-        <p>### <br />
-          ###</p>
-        <a ui-sref="#" >#</a> 
-    </div>      
-    <div id="box8" class="b-createsurvey">
+        <div><a ui-sref="admin.group" class="info">Group</a></div>
+    </div>  
+    <div id="box8">
       <h4>Send</h4>
       <p>Send a survey to <br />
         a specific group</p>
-      <a ui-sref="admin.createsurvey" class="info">Survey</a>
+      <div><a ui-sref="admin.createsurvey" class="info">Survey</a></div>
     </div>      
-    <div id="box10" class="b-surveys">
-        <h4>View</h4>
-        <p>View results of <br />
+    <div id="box10">
+      <h4>View</h4>
+      <p>View results of <br />
           completed surveys</p>
-        <a ui-sref="admin.surveys" class="info">Surveys</a>
+      <div><a ui-sref="admin.surveys" class="info">Surveys</a></div>
     </div> 
     </div><!-- end col-mid -->    
   </section> <!-- end blocks -->
