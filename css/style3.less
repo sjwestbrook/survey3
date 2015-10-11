@@ -16,8 +16,10 @@
 @color4: #000000;             // footer
 @color5: #333333;             // box background color med-gray
 @color6: #EDEDED;             // very light grey
-@color7: #00001E;             // text shadow
-@bordercolor: darken(@color3, 20%);
+@color7: #66c3ea;             // button hover background
+@color8: #FE9916;             // box styles
+@bordercolor: #0069A0;
+@bordercolor2: #66c3ea;       // button hover border
 
 .clear {
   clear: both;
@@ -40,14 +42,19 @@
   font-size: 8px;
 }
 
-// .button {
-//   display: block;
-//   height: 30px;
-//   width: 120px;
-//   background: @color3;
-//   border: 1px solid @bordercolor;
-//   text-transform: uppercase;
-// }
+// logout etc? otherwise in templates
+.button {
+  height:30px; 
+  width:90px;   // or 100px ie 'submit'
+  background:#2AABE2; 
+  border: 1px solid #0069A0; 
+  font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; 
+  text-transform: uppercase; 
+  color: white; 
+  font-weight: bold; 
+  letter-spacing: 0.0625em
+}
+
 
 // center vertically -- http://learnlayout.com/flexbox.html
 // used on home page
@@ -61,23 +68,6 @@
           justify-content: center;
 }
 
-.bg {
-  color: @color4;
-  height: 175px;
-  background-size: cover;
-  border-bottom: 10px solid @color4;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-  -webkit-transition: all 1s ease;
-
-  &:hover {
-    filter: grayscale(0%);
-    filter: gray;
-    -webkit-filter: grayscale(0%);
-    filter: none;
-    transition: 0.25s ease;
-  }
-}
 
 .bg-lg {
   color: @color4;
@@ -96,40 +86,59 @@
   box-shadow: 1px 1px 2px @color2;
 }
 
+
+.bg {
+  color: @color4;
+  height: 175px;
+  background-size: cover;
+  border-bottom: 10px solid @color4;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: all 1s ease;
+  min-width: 186px;
+
+  &:hover {
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    transition: 0.25s ease;
+    
+    a {
+      color: @color8;
+      text-shadow: 1.5px 1.5px @color4;
+    }
+  }
+}
+
+
 .box-styles {
   h4 {
     color: @color4;
     font-size: @fontsize * 1.3;
     font-weight: bold;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 25px;
    }
   
    p {
-    color:  @color4;
-    background-color: rgba(255,255,255,0.8); 
+    color: @color1;
     font-style: italic;
-    font-weight:500;
+    font-weight:700;
     text-align: center;
-   .p-radius;
-      
+//    text-shadow: 1.5px 1.5px @color4;
+     background-color: rgba(0,0,0,0.5);
     }
   
     div {
       text-align: center;
       a {
         text-decoration: none;
-        color:  @color4;
+        color:  @color1;
         font-size: @fontsize * 1.5;
         font-weight: bold;
-        transition: font-size 0.3s ease;
-        
-        &:hover {
-//          color: saturate(@color3, 20%);
-          color: orange;
-          font-size: @fontsize * 1.6;
-          text-shadow: 1.5px 1.5px @color7;
-        }
+        text-shadow: 1.5px 1.5px @color4;
+        transition: color .2s linear;
       }
       
 //      .info {
@@ -273,19 +282,19 @@ div.wrapper {
       border-left: 10px solid @color4;
       
       div#box1 {
-       background-image: url("../images/mtns1.jpg");
+       background-image: url("../images/mtns1.1.jpg");
        .bg;
        .box-styles;
       }
       
       div#box3 {
-        background-image: url("../images/mtn7.jpg");
+        background-image: url("../images/mtn10.1.jpg");
         .bg;
         .box-styles;
       }
       
       div#box5 {
-        background-image: url("../images/mtns4.jpg");
+        background-image: url("../images/mtns4.1.jpg");
         .bg;
         .box-styles;
       }
@@ -312,7 +321,7 @@ div.wrapper {
       margin-right: 3%;
       
       div#box2 {
-        background-image: url("../images/mtn8.jpg");
+        background-image: url("../images/mtn8.1.jpg");
         .bg;
         .box-styles;
       }
@@ -330,18 +339,17 @@ div.wrapper {
       }
 
       div#box8 {
-        background-image: url("../images/mtns6.jpg");
+        background-image: url("../images/mtns6.1.jpg");
         .bg;
         .box-styles;
       }    
 
       div#box10 {
-        background-image: url("../images/mtn10.jpg");
+        background-image: url("../images/mtn7.1.jpg");
         .bg;
         .box-styles;
       }
     }
-    
     
     .col-right {
       width: 43%; 
@@ -359,7 +367,7 @@ div.wrapper {
 div#studentswrapper {
   
  width: 100%;
- height: 540px;
+ height: 536px;
  padding: 10px 20px;
  background-color: @color3;
  background-image: url("https://devmounta.in/img/aboutstudents.png");
@@ -367,7 +375,7 @@ div#studentswrapper {
   h2 {
     color: @color1;
     font-family: @font1;
-    font-size: @fot-size * 2;
+    font-size: @fontsize * 2;
     text-transform: uppercase;
     text-align: center;
     padding: 10px 0 20px 0;
@@ -393,7 +401,7 @@ div#studentswrapper {
     }
 
     #opensurvey {
-      flex: 4;
+      flex: 3;
       overflow: scroll;
       .studentsurveys;
     }
@@ -401,6 +409,21 @@ div#studentswrapper {
   
 }
 // end studentswrapper
+
+
+// MEDIA QUERIES ========================
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
