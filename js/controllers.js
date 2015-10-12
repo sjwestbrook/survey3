@@ -1,6 +1,5 @@
-app.controller('mainCtrl', function($scope,$stateParams,$state) {
-  //works
-  $scope.mainmessage = "hi main";
+app.controller('mainCtrl', 
+//  $scope.mainmessage = "hi main";
 
 });
 
@@ -11,7 +10,7 @@ app.controller('mainCtrl', function($scope,$stateParams,$state) {
 
 
 app.controller('homeCtrl', function($scope,$stateParams,$state) {
-  $scope.homemessage = "hi home";
+//  $scope.homemessage = "hi home";
 
 });
 
@@ -23,8 +22,6 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 
 app.controller('adminCtrl', function($scope,$stateParams,$state) {
 
-//  $scope.adminmessage = "hi admin, please log in";
-  
 //  SET UP AUTH
 //    - show login form when switching to admin view
 //    - hide main content until authenticated  
