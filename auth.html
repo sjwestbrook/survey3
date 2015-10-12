@@ -1,0 +1,55 @@
+<div class="auth-container">
+  <div class="auth">
+
+    <h2 style="font-weight: bold; color: #2AABE2;">Admin Login</h2>
+
+    <form id="adminauth">
+      <fieldset ng-hide="authData">
+        <div class="form-group" style="display: block">
+          <input app-dir type="email" class="form-control" placeholder="email" ng-model="email" />
+        </div>
+        <div class="form-group" style="display: block">
+          <input app-dir type="password" class="form-control" placeholder="password" ng-model="password" />
+        </div>
+        <button type="submit" ng-click="signIn()">Sign In</button>
+      </fieldset>
+
+      <span ng-show="authData">
+        <button type="submit" ng-click="logout()">Sign Out</button>
+      </span>
+    </form>
+
+  </div> <!-- end class auth -->
+  
+</div>  <!-- end class container -->
+
+
+
+
+
+
+
+<div class="auth-container">
+  <div class="auth">
+
+    <h2 style="font-weight: bold; color: #2AABE2;">Student Login</h2>
+
+    <form id="studentsauth">
+      <fieldset ng-hide="authData">
+        <div class="form-group" style="display: block">
+          <input app-dir type="email" class="form-control" placeholder="email" ng-model="email" />
+        </div>
+        <div class="form-group" style="display: block">
+          <input app-dir type="password" class="form-control" placeholder="password" ng-model="password" />
+        </div>
+        <button type="submit" ng-click="signIn()">Sign In</button>
+      </fieldset>
+
+      <span ng-show="authData">
+        <button type="submit" ng-click="logout()">Sign Out</button>
+      </span>
+    </form>
+
+  </div>  <!-- end class auth -->
+
+</div>  <!-- end class container -->

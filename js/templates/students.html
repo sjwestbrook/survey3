@@ -1,19 +1,21 @@
+
+
+<!-- if logged out, hide admin section -->
+<!-- if logged in, show admin section AND show logout button-->
+
+
+
+<!--<div id="studentswrapper" ng-show="authData">-->
+
 <div id="studentswrapper">
-
-  <!-- student login here
-    -hide #studentscontent until logged in
-    -show #studentscontent after logged in
-    -hide #studentscontent on logout -->
-
-  
   <h2>New &nbsp; Surveys</h2>
   
-<div id="studentscontent">
-  <div id="list">
-    <!-- ng-repeat (?) list of surveys -->
-  </div>
-  
-  <div id="opensurvey" ui-view></div>
+  <div id="studentscontent">
+    <div id="list">
+      <!-- ng-repeat (?) list of surveys -->
+    </div>
+
+    <div id="opensurvey" ui-view></div>
 
 </div>
   

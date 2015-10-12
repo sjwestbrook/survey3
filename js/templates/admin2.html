@@ -1,11 +1,17 @@
-<!-- admin login here
-  -hide #admincontent until logged in
-  -show #admincontent after logged in
-  -hide #admincontent on logout -->
 
 
 
-<div class="wrapper">
+
+
+<!-- if logged out, hide admin section -->
+<!-- if logged in, show admin section AND show logout button-->
+
+
+
+<!--<div class="wrapper" ng-show="authData">  -->
+
+<div class="wrapper">  
+  
   <section class="blocks clear">    
     <div class="col-left left">
       <div id="box1">
@@ -30,8 +36,7 @@
         <h4></h4>        
         <div><a ui-sref="#" ></a></div>  
       </div> 
-    </div> <!-- end col-left -->    
-    
+    </div> <!-- end col-left -->  
     
     <div class="col-mid">
       <div id="box2">
@@ -63,6 +68,16 @@
   
    <!-- lg screen: nested views to left of boxes -->
     <div id="work" class="col-right left">
+   
+   
+      <span class="logout" style="float: left; margin-top: 20px;">
+        <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ng-click="logout()">Sign Out</button>
+      </span>
+      
+      <br />
+      <br />
+      <br />
+      
       <div id="content" ui-view></div>
     </div>
   

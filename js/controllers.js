@@ -32,6 +32,7 @@ app.controller('adminCtrl', function($scope,$stateParams,$state) {
 //      - show main content
 //      - show logout button
       
+    $scope.login = false;
 
 });
 
