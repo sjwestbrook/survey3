@@ -21,6 +21,29 @@
 @bordercolor: #0069A0;
 @bordercolor2: #66c3ea;       // button hover border
 
+
+// FORMLY STYLES - DON'T WORK ? =====================
+.formly {
+  width: 50px;
+}
+
+.formly-field {
+  button {
+    height:30px; 
+    width:90px;   // or 100px ie 'submit'
+    background:#2AABE2; 
+    border: 1px solid #0069A0; 
+    font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; 
+    text-transform: uppercase; 
+    color: white; 
+    font-weight: bold; 
+    letter-spacing: 0.0625em
+  }
+}
+
+//===================================================
+
+
 .clear {
   clear: both;
 }
@@ -291,7 +314,7 @@ div#home {
 
 div.wrapper {
   height: auto;
-  min-width: 850px;
+//  min-width: 800px;
   
   h4 {
     padding: 10px;
@@ -301,7 +324,9 @@ div.wrapper {
   section {      
     .col-left {
       .left;
-      min-width: 215px; 
+      // stops overlapping images, but messes up the rest of the page
+      min-width: 230px; 
+//      max-width: 300px;
       border-left: 10px solid @color4;
       
       div#box1 {
@@ -338,7 +363,8 @@ div.wrapper {
     
     .col-mid {
       .left;
-      min-width: 215px;   
+      min-width: 230px;  
+//      max-width: 300px;
       border-left: 10px solid @color4;
       border-right: 10px solid @color4;
       margin-right: 3%;
@@ -375,7 +401,7 @@ div.wrapper {
     }
     
     .col-right {
-      min-width: 415px; 
+      min-width: 250px; 
     }    
     
   } // end section
@@ -387,7 +413,7 @@ div.wrapper {
 
 // STUDENT CONTENT STYLES =======================================================
 
-div#studentswrapper {
+div.studentswrapper {
   
  width: 100%;
  height: 536px;
@@ -405,7 +431,7 @@ div#studentswrapper {
     margin: 0;
     }
 
-  div#studentscontent {
+  div.studentscontent {
     .clear;
     width: 100%;
     display: flex;
@@ -413,17 +439,15 @@ div#studentswrapper {
     justify-content: space-around;
     align-items: stretch;
 
-    // font size of pulled surveys should be bold with contrasting background color
     #list {
       margin-right: 20px;
       flex: 1;
       background-image: url(../images/mtn11.jpg);
-//      opacity: 0.5;
       .studentsurveys;
       .bg-lg;
     }
 
-    #opensurvey {
+    #workspace {
       flex: 3;
       overflow: scroll;
       .studentsurveys;
@@ -435,12 +459,10 @@ div#studentswrapper {
 
 
 // MEDIA QUERIES ========================
-
-@media only screen 
-  and (min-device-width: 620px) 
-  and (max-device-width: 845px) {
-  
-}
+//
+//@media (min-device-width: 620px) and (max-device-width: 845px) {
+//  
+//}
 
 
 

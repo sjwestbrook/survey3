@@ -1,59 +1,29 @@
-
-
-<!-- if logged out, hide admin section -->
-<!-- if logged in, show admin section AND show logout button-->
-
+<!-- if logged out, hide student surveys section -->
+<!-- if logged in, show student surveys section AND show logout button-->
 
 
 <!--<div id="studentswrapper" ng-show="authData">-->
 
-<div id="studentswrapper">
+<div class="studentswrapper" style="position: relative;">
   <h2>New &nbsp; Surveys</h2>
   
-  <div id="studentscontent">
-    <div id="list">
-      <!-- ng-repeat (?) list of surveys -->
+  <span class="logout" style="float: left; margin-top: 20px;">
+    <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em; position: absolute; top: 20px; right: 20px;" ng-click="logout()">Sign Out</button>
+  </span>
+  
+
+  
+  <div class="studentscontent">
+    <div id="list">    
+      <!-- {{ message }}-->      
+      <!-- ng-repeat (?) list of surveys -- ui-view not correct -->      
+      <a ui-sref="students.opensurvey">survey 1</a>
     </div>
 
-    <div id="opensurvey" ui-view></div>
-
-</div>
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- using named ui-views will ignore templates, templateUrls, etc -->
-
-  <!-- list of surveys to take
-  <div ui-view="surveylist"></div>
-
-  survey being completed
-  <div ui-view="survey"></div> -->
-
-  <!-- Example with named views:
-  $stateProvider
-  .state('inbox', {
-    views: {
-      'filters': {
-        template: '<h4>Filter inbox</h4>',
-        controller: function($scope) {}
-      },
-      'mailbox': {
-        templateUrl: 'partials/mailbox.html'
-      },
-      'priority': {
-        template: '<h4>Priority inbox</h4>',
-        resolve: {
-          facebook: function() {
-            return FB.messages();
-          }
-        }
-      }
-    }
-  }); -->
+<!--    how to get surveys to open here need ui-sref in #list? configure that in the controller? (all surveys clicked have ui-sref="students.opensurvey" and open below?-->
+    <div id="workspace">
+      <!-- student takes survey here-->
+      <div id="opensurvey" ui-view></div>      
+    </div>
 
 </div>

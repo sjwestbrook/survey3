@@ -10,7 +10,7 @@ app.controller('mainCtrl', function($scope,$stateParams,$state) {
 
 
 app.controller('homeCtrl', function($scope,$stateParams,$state) {
-//  $scope.homemessage = "hi home";
+//  $scope.homemessage = "home";
 
 });
 
@@ -47,7 +47,6 @@ app.controller('topicCtrl', function($scope,$stateParams,$state) {
   // variable assignment
   $scope.model = {};
   
-  // specify fields as an array - all fields need a type, template, or templateURL
   $scope.fields = [
     {
       type: 'input',
@@ -59,9 +58,15 @@ app.controller('topicCtrl', function($scope,$stateParams,$state) {
   ]
 
   // function definition
-  function onSubmit() {
-    //http request to post to server
-    http.post('/api/topic?id=' + topic_id);  // syntax? id?
+  function onSubmit(topic) {   
+    return $http({
+      method: 'POST',
+      url: '/api/topic',
+      data: topic
+    }).then(function(resp){
+      return resp;
+    });
+    
   }
 
 });
@@ -107,9 +112,14 @@ app.controller('subjectCtrl', function($scope,$stateParams,$state) {
     }
   ]
   
-  function onSubmit() {
-    //http request to post to server
-    http.post('/api/topic?id=' + subjectName);  // syntax? id?
+  function onSubmit(subject) {
+    return $http({
+      method: 'POST',
+      url: '/api/topic',
+      data: subject
+    }).then(function(resp){
+      return resp;
+    });
   }
   
 });
@@ -146,9 +156,14 @@ app.controller('groupCtrl', function($scope,$stateParams,$state) {
     }
   ]
   
-  function onSubmit() {
-    //http request to post to server
-    http.post('/api/recipientGroups?id=' + groupName);  // syntax? id?
+  function onSubmit(group) {
+    return $http({
+      method: 'POST',
+      url: '/api/recipientGroups',
+      data: group
+    }).then(function(resp){
+      return resp;
+    });
   }
 
 });
@@ -185,9 +200,15 @@ app.controller('usersCtrl', function($scope,$stateParams,$state) {
     }
   ]
   
-  function onSubmit() {
-    //http request to post to server
-    http.post('/api/recipientGroups?id=' + users);  // syntax? id?
+  //correct url?
+  function onSubmit(users) {
+    return $http({
+      method: 'POST',
+      url: '/api/recipientGroups',
+      data: users
+    }).then(function(resp){
+      return resp;
+    });
   }
   
 });
@@ -269,9 +290,14 @@ app.controller('templateCtrl', function($scope,$stateParams,$state) {
     }
   ]
   
-  function onSubmit() {
-    //http request to post to server
-    http.post('/api/surveyTemplates?id=' + name);  // syntax? id?
+  function onSubmit(questions) {    
+     return $http({
+      method: 'POST',
+      url: '/api/surveyTemplates',
+      data: questions
+    }).then(function(resp){
+      return resp;
+    });
   }
   
 });
@@ -326,9 +352,14 @@ app.controller('createSurveyCtrl', function($scope,$stateParams,$state) {
     }
   ]
   
-  function onSubmit() {
-    //http request to post to server ??;
-    http.post('/api/parsedSurveys?id=' + name);  // syntax? id?
+  function onSubmit(survey) {
+    return $http({
+      method: 'POST',
+      url: '/api/parsedSurveys',
+      data: survey
+    }).then(function(resp){
+      return resp;
+    });
   }
 
 });
@@ -360,11 +391,19 @@ app.controller('surveysCtrl', function($scope,$stateParams,$state) {
     }
   ]  
   
-  function onSubmit() {
+  
+  // correct url?
+  function onSubmit(results) {
     // http request to get completed surveys from server
     // all parsed surveys ?
-    // results array on topic modal
-    http.get('/api/parsedSurveys?id=' + subjects.results);  // syntax? id?
+    // results array on topic modal    
+    return $http({
+      method: 'GET',
+      url: '/api/parsedSurveys?id=' + subjects.results,
+      data: results
+    }).then(function(resp){
+      return resp;
+    });
   }
 
 });
@@ -375,12 +414,23 @@ app.controller('surveysCtrl', function($scope,$stateParams,$state) {
 // MAIN STUDENTS CONTROLLER ============================================
 
 app.controller('studentsCtrl', function($scope,$stateParams,$state) {
+  
+  $scope.message = "students";
+  
+//  generate list of surveys that a student needs to take
 
-  // need to show results array (ng-repeat, or ui-router equivalent) when a particular survey is selected
+  // need to show takenBy array (ng-repeat, or ui-router equivalent) when a particular survey is selected
+  // if student's email shows in the takenBy array, don't list that survey
   
-  
-  function onSubmit() {  // change function name
-    http.get('/api/parsedSurveys?id=' + subjects.results);  // syntax? id?
+  // correct url? on load?
+  function getNewSurveys(newsurveys) {  
+    return $http({
+      method: 'GET',
+      url: '/api/parsedSurveys?id=' + takenBy,
+      data: newsurveys
+    }).then(function(resp){
+      return resp;
+    });
   }
   
 });

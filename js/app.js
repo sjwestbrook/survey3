@@ -14,7 +14,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('admin', {
       url: '/admin',
       templateUrl: 'js/templates/admin2.html',
-      controller: 'adminCtrl'   // necessary? essentially contains a menu system for navigating between admin pages
+      controller: 'adminCtrl'   // necessary? menu system for navigating between admin pages
     })
   
           .state('admin.topic', {
@@ -62,37 +62,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
           .state('admin.createsurvey.confirm-survey', {
             url: '/confirm-survey',
             templateUrl: 'js/templates/confirm-survey.html',
-//            controller: 'confirmSurveyCtrl'  // not yet created - necessary?
           })
   
           .state('admin.template.confirm-template', {
             url: '/confirm-template',
             templateUrl: 'js/templates/confirm-template.html',
-//            controller: 'confirmTemplateCtrl'   // not yet created - necessary?
           })
-//  
-//          ui-router can't transition to this state  
-//          .state('admin.template.confirm-template', {
-//            abstract: true,
-//            parent: 'admin.template',
-//            url: '',
-//            onEnter: ['$modal', '$state', function($modal, $state) {
-//              console.log('Open modal');
-//              $modal.open({
-//                 template: '<div>Hi</div>',
-//                 windowClass: 'right fade'
-//              }).result.finally(function() {
-//                $state.go('admin.template');
-//              });
-//            }]
-//          })
-//  
-
+  
     .state('students', {
       url: '/students',
       templateUrl: 'js/templates/students.html',
       controller: 'studentsCtrl'
     })
+
+          // open survey that the student has clicked on to complete
+          .state('students.opensurvey', {
+            url: '/opensurvey',
+            templateUrl: 'js/templates/opensurvey.html'
+          })
 
 });
 
@@ -103,7 +90,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 
-//
+// formly-form fields don't display in modal
 //
 //app.provider('modalState', function($stateProvider) {
 //  var provider = this;
@@ -123,6 +110,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 //            }
 //        });
 //      },
+//
+//      no 'x' or close button
 //      onExit: function() {
 //        if (modalInstance) {
 //            modalInstance.close();

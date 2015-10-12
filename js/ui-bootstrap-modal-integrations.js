@@ -9,14 +9,6 @@
   app.controller('MainCtrl', function MainCtrl(formlyVersion, $modal) {
     // vm or $scope
     var $scope = this;
-    // function assignment
-    // edits one specific item, not an entire form
-    $scope.edit = edit;
-
-    // variable assignment
-    $scope.author = getAuthor();
-    $scope.exampleTitle = 'AngularUI Bootstrap Modal';
-//     vm.env = getENV();
     
     // show survey results
     $scope.formFields = getFormFields();
@@ -61,21 +53,6 @@
         {testa: 'A Input 3', testb: 'B Input 3'}
       ];
     }
-
-//    function getAuthor() {
-//      return { // optionally fill in your info below :-)
-//        name: 'aabrook',
-//        url: 'https://github.com/aabrook'
-//      };
-//    }
-
-//    function getENV() {
-//      return {
-//        angularVersion: angular.version.full,
-//        formlyVersion: formlyVersion
-//      };
-//    }
-
 
   });
 
