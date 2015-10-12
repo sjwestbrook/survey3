@@ -1,4 +1,4 @@
-app.controller('mainCtrl', 
+app.controller('mainCtrl', function($scope,$stateParams,$state) {
 //  $scope.mainmessage = "hi main";
 
 });
