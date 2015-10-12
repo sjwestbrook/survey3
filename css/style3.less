@@ -291,7 +291,7 @@ div#home {
 
 div.wrapper {
   height: auto;
-  width: 98%;
+  min-width: 850px;
   
   h4 {
     padding: 10px;
@@ -301,7 +301,7 @@ div.wrapper {
   section {      
     .col-left {
       .left;
-      width: 26%; 
+      min-width: 215px; 
       border-left: 10px solid @color4;
       
       div#box1 {
@@ -338,7 +338,7 @@ div.wrapper {
     
     .col-mid {
       .left;
-      width: 26%;   
+      min-width: 215px;   
       border-left: 10px solid @color4;
       border-right: 10px solid @color4;
       margin-right: 3%;
@@ -375,43 +375,13 @@ div.wrapper {
     }
     
     .col-right {
-      width: 43%; 
+      min-width: 415px; 
     }    
     
   } // end section
   
 } // end wrapper styles
 
-
-
-// FORMLY FORMS ===============================
-
-.flex-form {
-  .display-flex {
-    display: flex;
-  }
-
-  .flex-1 {
-    flex: 1;
-  }
-
-  .flex-2 {
-    flex: 2;
-  }
-
-  [class*="flex-"] {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  [class*="flex-"]:first-child {
-    padding-left: 0;
-  }
-
-  [class*="flex-"]:nth-last-child(2) {
-    padding-right: 0;
-  }
-}
 
 
 
@@ -466,8 +436,11 @@ div#studentswrapper {
 
 // MEDIA QUERIES ========================
 
-
-
+@media only screen 
+  and (min-device-width: 620px) 
+  and (max-device-width: 845px) {
+  
+}
 
 
 

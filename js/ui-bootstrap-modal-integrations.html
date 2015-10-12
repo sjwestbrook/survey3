@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <body ng-app="formlyExample" ng-controller="MainCtrl as vm">
+    <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th ng-repeat="fieldDefinition in vm.formFields">{{ fieldDefinition.templateOptions.label }}</th>
+              <th>
+                <span class="pull-right" style="padding-left:12px;padding-right:12px;">Edit</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="model in vm.history">
+              <td ng-repeat="fieldDefinition in vm.formFields">{{ model[fieldDefinition.key] || '&nbsp;' }}</td>
+              <td><button class="btn btn-link pull-right" ng-click="vm.edit(model)">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-default" ng-click="vm.edit({}, true)">Add Row</button>
+    </div>
+
+    <!--
+    <div style="margin-top:30px">
+      <small>
+        This is an example for the
+        <a href="https://formly-js.github.io/angular-formly">angular-formly</a>
+        project made with ♥ by
+        <strong>
+          <span ng-if="!vm.author.name || !vm.author.url">
+            {{vm.author.name || 'anonymous'}}
+          </span>
+          <a ng-if="vm.author.url" ng-href="{{::vm.author.url}}">
+            {{vm.author.name}}
+          </a>
+        </strong>
+        <br />
+        This example is running angular version "{{vm.env.angularVersion}}" and formly version "{{vm.env.formlyVersion}}"
+      </small>
+    </div>
+    -->
+
+    <!-- Put custom templates here - 'ModalInstanceCtrl'-->
+    <script type="text/ng-template" id="myModalContent.html">
+      <div class="modal-header">
+        <h3 class="modal-title">I'm a modal!</h3>
+      </div>
+      <div class="modal-body">
+        <formly-form model="vm.formData.model" fields="vm.formData.fields" form="vm.form">
+        </formly-form>
+        <hr />
+        
+        <!-- shows the data as you enter it - not for survey project 
+        <label>
+          <input type="checkbox" ng-model="vm.showData" /> Show form data
+        </label>
+        <div ng-if="vm.showData">
+          <h2>Model Value</h2>
+          <pre>{{vm.formData.model | json}}</pre>
+          <h2>Fields <small>(note, functions are not shown)</small></h2>
+          <pre>{{vm.originalFields | json}}</pre>
+          <h2>Form</h2>
+          <pre>{{vm.form | json}}</pre>
+        </div>
+        -->
+        
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="vm.ok()">OK</button>
+        <button class="btn btn-warning" ng-click="vm.cancel()"> Cancel</button>
+      </div>
+      
+    </script>
+
+  </body>
+
+</html>
