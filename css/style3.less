@@ -261,6 +261,10 @@ body {
   width: 100%;
   position: relative;
   font-family: @font2;
+  
+  .ng-scope {
+    height: 100%;
+  }
 }
 
 div#maincontent {
@@ -285,16 +289,22 @@ header {
 
   div#login {
     float: right;
-    margin-right: 15px;
-    margin-bottom: 3px;
+    position: relative;
+//    margin-right: 15px;
+//    margin-bottom: 3px;
     padding-top: 25px;
+//    padding-right: 25px;
 
     ul {
       padding-right: 50px;
+      
 
       li {
         display: inline-block;
         padding: 0 15px;
+        float: right;
+        position: relative;
+        list-style: none;
 
         a {
           color: lighten(@color2, 10%);
@@ -466,8 +476,6 @@ div.studentswrapper {
  .clear;
  width: 100%;
 
-
-  
   div.studentscontent {
     
     .clear;
@@ -476,6 +484,15 @@ div.studentswrapper {
     border-left: 10px solid @color4;
     border-right: 10px solid @color4;
     margin-bottom: -30px;
+    
+    h3 {
+      font-weight: bold; 
+      font-weight: bold; 
+      color: @color4; 
+      font-family: @font1;
+      font-size: @fontsize * 1.8;
+//      text-transform: uppercase;
+    }
           
     h2 {
       color: @color1;
@@ -485,7 +502,7 @@ div.studentswrapper {
       font-weight: 700;
       text-transform: uppercase;
       text-align: center;
-      padding: 20px 0 20px 0;
+      padding: 20px;
       background-color: rgba(0,0,0,0.5);
     }
 
@@ -517,10 +534,14 @@ div.studentswrapper.ng-scope {
 
 // MEDIA QUERIES ========================
 //
-//@media (min-device-width: 620px) and (max-device-width: 845px) {
+//@media (min-width: 620px) and (max-width: 845px) {
 //  
 //}
 
+
+@media (max-width) {
+  
+}
 
 
 
