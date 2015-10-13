@@ -1,19 +1,13 @@
-
-
-
-
-
 <!-- if logged out, hide admin section -->
 <!-- if logged in, show admin section AND show logout button-->
-
-
 
 <!--<div class="wrapper" ng-show="authData">  -->
 
 <div class="wrapper">  
   
-  <section class="blocks clear">    
-    <div class="col-left left">
+  <div class="grid">
+    
+    <div class="grid-cell-left">
       <div id="box1">
         <h4>Create</h4>
         <p>Add instructors &amp; mentors <br />
@@ -33,43 +27,44 @@
         <div class="info"><a ui-sref="admin.template">Template</a></div>
       </div>
       <div id="box3" class="b-filler">
-        <h4></h4>        
-        <div><a ui-sref="#" ></a></div>  
+<!--        <img src="images/mtn10.2.jpg" />-->
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <div><a ui-sref="#">#</a></div> 
       </div> 
-    </div> <!-- end col-left -->  
+    </div><!-- end grid cell left -->
     
-    <div class="col-mid">
+    
+    <div class="grid-cell-mid">
       <div id="box2">
         <h4>Create</h4>
         <p>Add lecture subjects to <br />
           the available subjects</p>
         <div class="info"><a ui-sref="admin.subject">Subject</a></div>
-      </div>      
+      </div>   
       <div id="box4">
         <h4>Create</h4>
         <p>Create a recipient <br />
           group (cohort)</p>
         <div class="info"><a ui-sref="admin.group">Group</a></div>
-    </div>  
-    <div id="box8">
-      <h4>Send</h4>
-      <p>Send a survey to <br />
-        a specific group</p>
-      <div class="info"><a ui-sref="admin.createsurvey">Survey</a></div>
-    </div>      
-    <div id="box10">
-      <h4>View</h4>
-      <p>View results of <br />
-          completed surveys</p>
-      <div class="info"><a ui-sref="admin.surveys" >Surveys</a></div>
-    </div> 
-    </div><!-- end col-mid -->    
-  </section> <!-- end blocks -->
-  
-   <!-- lg screen: nested views to left of boxes -->
-    <div id="work" class="col-right left">
-   
-   
+      </div>  
+      <div id="box8">
+        <h4>Send</h4>
+        <p>Send a survey to <br />
+          a specific group</p>
+        <div class="info"><a ui-sref="admin.createsurvey">Survey</a></div>
+      </div>      
+      <div id="box10">
+        <h4>View</h4>
+        <p>View results of <br />
+            completed surveys</p>
+        <div class="info"><a ui-sref="admin.surveys" >Surveys</a></div>
+      </div> 
+    </div>
+    <!-- end grid cell left -->
+    
+    <div class="grid-cell-right">
       <span class="logout" style="float: left; margin-top: 20px;">
         <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ng-click="logout()">Sign Out</button>
       </span>
@@ -80,5 +75,6 @@
       
       <div id="content" ui-view></div>
     </div>
+  </div>
   
-</div> <!-- end wrapper -->
+</div>  <!-- end wrapper -->

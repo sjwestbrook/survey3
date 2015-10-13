@@ -98,7 +98,6 @@ div.auth {
   button {
     .button;
   }
-//  background-image: url("https://devmounta.in/img/aboutstudents.png");
 }
 
 
@@ -114,11 +113,18 @@ div.auth {
           justify-content: center;
 }
 
+.flex {
+   display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
 .bg-lg {
   color: @color4;
   background-size: cover;
-  border-bottom: 10px solid @color4;
+//  border-bottom: 10px solid @color4;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
 }
@@ -127,21 +133,22 @@ div.auth {
   background-color: @color6;
   font-color: @color2;      
   padding: 20px;
-  height: 420px;
-  border: 10px solid @color4;
-  box-shadow: 1px 1px 2px @color2;
+  height: 600px;
+//  border: 10px solid @color4;
+//  box-shadow: 1px 1px 2px @color2;
 }
 
 
 .bg {
   color: @color4;
-  height: 175px;
+  height: auto;
+  width: 100%;
   background-size: cover;
   border-bottom: 10px solid @color4;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   -webkit-transition: all 1s ease;
-  min-width: 186px;
+  
 
   &:hover {
     filter: grayscale(0%);
@@ -156,7 +163,7 @@ div.auth {
     }
   }
 }
-
+// end bg styles (admin image background)
 
 .box-styles {
   h4 {
@@ -164,7 +171,7 @@ div.auth {
     font-size: @fontsize * 1.3;
     font-weight: bold;
     text-align: center;
-    padding-top: 25px;
+    padding-top: 10px;
    }
   
    p {
@@ -172,12 +179,12 @@ div.auth {
     font-style: italic;
     font-weight:700;
     text-align: center;
-//    text-shadow: 1.5px 1.5px @color4;
-     background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5);
     }
   
     div {
       text-align: center;
+      padding-bottom: 10px;
       a {
         text-decoration: none;
         color:  @color1;
@@ -186,17 +193,61 @@ div.auth {
         text-shadow: 1.5px 1.5px @color4;
         transition: color .2s linear;
       }
-      
-//      .info {
-//        .p-radius;
-//        background-color: rgba(255,255,255,0.8);
-//        &:hover {
-//          color: orange;
-//        }
-//      }
     }
 } // end box styles
 
+.filler-box-styles {
+   h4 {
+    color: transparent;
+    font-size: @fontsize * 1.3;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+   }
+  
+   p {
+    color: transparent;
+    font-style: italic;
+    font-weight:700;
+    text-align: center;
+    }
+  
+    div {
+      text-align: center;
+      padding-bottom: 10px;
+      a {
+        text-decoration: none;
+        color:  transparent;
+        font-size: @fontsize * 1.5;
+        font-weight: bold;
+        text-shadow: 1.5px 1.5px @color4;
+      }
+    }
+}
+
+.filler-box-bg {
+  height: auto;
+  width: 100%;
+  background-size: cover;
+  border-bottom: 10px solid @color4;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: all 1s ease;
+  
+
+  &:hover {
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    transition: 0.25s ease;
+    
+//    a {
+//      color: @color8;
+//      text-shadow: 1.5px 1.5px @color4;
+//    }
+  }
+}
 
 
 // GLOBAL STYLES ===============================================================
@@ -251,7 +302,6 @@ header {
           letter-spacing: 2px;
           font-family: @font1;
 
-
           &:hover {
             transition: .5s ease;
             color: @color3;
@@ -267,6 +317,7 @@ header {
 
 // FOOTER STYLES ========================================================
 footer {
+//  position: relative;
   background-image: url("https://devmounta.in/img/aboutstudents.png");
   
   div.container {
@@ -280,6 +331,9 @@ footer {
     padding: 15px 0 10px 0;
     display: table;
     margin: 0 auto;
+//    position: absolute;
+//    bottom: 0;
+//    left: 0;
   }
 }
 // end footer styles
@@ -317,59 +371,48 @@ div.wrapper {
 //  min-width: 800px;
   
   h4 {
-    padding: 10px;
+    padding: 5px;
     margin: 0;
   }
-
-  section {      
-    .col-left {
-      .left;
-      // stops overlapping images, but messes up the rest of the page
-      min-width: 230px; 
-//      max-width: 300px;
-      border-left: 10px solid @color4;
-      
-      div#box1 {
+  
+  .grid {
+    .flex;  
+  
+  .grid-cell-left {
+     flex: 1;
+     border-left: 10px solid @color4;
+    
+     div#box1 {
        background-image: url("../images/mtns1.1.jpg");
        .bg;
        .box-styles;
       }
-      
+
       div#box3 {
         background-image: url("../images/mtn10.1.jpg");
-        .bg;
-        .box-styles;
+        .filler-box-bg;
+        .filler-box-styles;        
       }
-      
+
       div#box5 {
         background-image: url("../images/mtns4.1.jpg");
         .bg;
         .box-styles;
       }
-      
+
       div#box7 {
         background-image: url("../images/mtns2.jpg");
         .bg;
         .box-styles;
       }
-      
-      div#box9 {
-        background-image: url("../images/mtn9.jpg");
-        .bg;
-        .box-styles;
-      }     
     }
+   // end grid-cell-left
+  
+  .grid-cell-mid {
+     flex: 1;
+     border-left: 10px solid @color4;
     
-    
-    .col-mid {
-      .left;
-      min-width: 230px;  
-//      max-width: 300px;
-      border-left: 10px solid @color4;
-      border-right: 10px solid @color4;
-      margin-right: 3%;
-      
-      div#box2 {
+     div#box2 {
         background-image: url("../images/mtn8.1.jpg");
         .bg;
         .box-styles;
@@ -398,65 +441,79 @@ div.wrapper {
         .bg;
         .box-styles;
       }
-    }
-    
-    .col-right {
-      min-width: 250px; 
-    }    
-    
-  } // end section
+  }
   
-} // end wrapper styles
-
-
-
+    .grid-cell-right {
+      flex: 2;
+      background-image: url("https://devmounta.in/img/aboutstudents.png");
+      border-left: 10px solid @color4;
+      border-right: 10px solid @color4;  
+      padding-left: 30px;
+    }
+    // end grid-cell-right
+  }
+  // end grid
+  
+} 
+// end wrapper 
+  
+  
+  
 
 // STUDENT CONTENT STYLES =======================================================
 
 div.studentswrapper {
-  
+ .clear;
  width: 100%;
- height: 536px;
- padding: 10px 20px;
- background-color: @color3;
- background-image: url("https://devmounta.in/img/aboutstudents.png");
-  
-  h2 {
-    color: @color1;
-    font-family: @font1;
-    font-size: @fontsize * 2;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 10px 0 20px 0;
-    margin: 0;
-    }
 
+
+  
   div.studentscontent {
+    
     .clear;
     width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: stretch;
+    .flex;
+    border-left: 10px solid @color4;
+    border-right: 10px solid @color4;
+    margin-bottom: -30px;
+          
+    h2 {
+      color: @color1;
+      text-shadow: 1.5px 1.5px @color4;
+      font-family: @font1;
+      font-size: @fontsize * 2;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 20px 0 20px 0;
+      background-color: rgba(0,0,0,0.5);
+    }
 
     #list {
-      margin-right: 20px;
       flex: 1;
-      background-image: url(../images/mtn11.jpg);
+      background-image: url(../images/waterfall.jpg);
       .studentsurveys;
       .bg-lg;
+      border-right: 10px solid @color4;
+      border-bottom: 10px solid @color4;
     }
 
     #workspace {
-      flex: 3;
+      flex: 2;
       overflow: scroll;
       .studentsurveys;
+      border-bottom: 10px solid @color4;
+      background-color: @color3;
+ background-image: url("https://devmounta.in/img/aboutstudents.png");
     }
   }
   
 }
 // end studentswrapper
 
+div.studentswrapper.ng-scope {
+  
+}
 
 // MEDIA QUERIES ========================
 //

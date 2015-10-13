@@ -3,27 +3,36 @@
 
 
 <!--<div id="studentswrapper" ng-show="authData">-->
+    <div class="studentswrapper" style="position: relative;">
 
-<div class="studentswrapper" style="position: relative;">
-  <h2>New &nbsp; Surveys</h2>
+  
+  <div class="studentscontent">    
+
+<!--  <h2>New &nbsp; Surveys</h2>-->
   
   <span class="logout" style="float: left; margin-top: 20px;">
-    <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em; position: absolute; top: 20px; right: 20px;" ng-click="logout()">Sign Out</button>
+    <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em; position: absolute; top: 20px; right: 50px;" ng-click="logout()">Sign Out</button>
   </span>
   
-
-  
-  <div class="studentscontent">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+    
+      
     <div id="list">    
       <!-- {{ message }}-->      
-      <!-- ng-repeat (?) list of surveys -- ui-view not correct -->      
+      <!-- ng-repeat (?) list of surveys -- ui-view not correct -->
+        <h2>New &nbsp; Surveys</h2>
+      
       <a ui-sref="students.opensurvey">survey 1</a>
     </div>
 
 <!--    how to get surveys to open here need ui-sref in #list? configure that in the controller? (all surveys clicked have ui-sref="students.opensurvey" and open below?-->
     <div id="workspace">
       <!-- student takes survey here-->
-      <div id="opensurvey" ui-view></div>      
+      <div id="opensurvey" ui-view>  </div>      
     </div>
 
 </div>
