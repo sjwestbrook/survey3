@@ -1,15 +1,19 @@
 <div id="opensurvey" style="width: 80%;">
 
   <h3>Complete the Survey</h3>
-<!--
-  <formly-form model="model" fields="fields">
--->
+<!--  ask Ryan how he incorporated formly into his student side -->
+  
+<!--   <formly-form model="model" fields="fields">-->
   
 <!--  ui view removes the submit button-->
 <!--  <div ui-view></div>-->
   
+  
+<!--  ng-click function names-->
+  <!-- reset and submit buttons - functions, etc -->
   <button type="submit" ng-click="onSubmit(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
-<!--
-  </formly-form>
--->
+  
+  <button type="button" ng-click="options.resetModel()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Reset</button>
+  
+<!--  </formly-form> -->
 </div>

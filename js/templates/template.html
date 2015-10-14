@@ -5,9 +5,71 @@
     
     <button type="submit" ng-click="onSubmit(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ui-sref="admin.template.confirm-template">Send</button>
     
-    <!--    shows template structure-->
     <div ui-view></div>
     
   </formly-form>
 
 </div>
+
+
+
+<!--
+<div id="template" style="width: 90%;">
+
+<h2 style="font-weight: bold; color: black;">Create a Template</h2>
+
+<form >     
+  <div class="form-group">
+    <label for="surveyname">Survey Name</label>
+    <input type="text" class="form-control" id="surveyname" ng-model="survey.surveyname" required />
+  </div>
+  <div class="form-group">
+    <label for="description">Survey Description</label>
+    <input type="text" class="form-control" id="description" ng-model="template.description" required />
+  </div>
+  
+  <div class="form-group">
+    <label for="variables">Variables</label>
+    <input type="text" class="form-control" id="variables" ng-model="template.variables" required />
+  </div>
+  
+
+  <div class="form-group" style="font-weight: bold; font-size: 18px;">Questions</div>
+  <div class="form-group">
+    <label for="titletext">Question Title Text</label>
+    <input type="text" class="form-control" id="titletext" ng-model="template.titletext" required />
+  </div>
+  <div class="form-group">
+    <label for="helptext">Question Help Text</label>
+    <input type="text" class="form-control" id="helptext" ng-model="template.helptext" required />
+  </div>
+  <div class="form-group">
+    <label>Question Type</label>
+    <label>
+      <input type="radio" ng-model="template.questiontype" value="multiple choice">Multiple choice
+    </label>
+    <label>
+      <input type="radio" ng-model="template.questiontype" value="checkbox">Checkbox
+    </label>
+    <label>
+      <input type="radio" ng-model="template.questiontype" value="short">Short answer
+    </label>
+    
+  </div>
+  <div class="form-group">
+    <label for="answers">Answers</label>
+    <input type="text" class="form-control" id="answers" ng-model="template.answers" required />
+  </div>
+  
+  <div id="buttons">
+    <div id="buttons">
+      <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+      <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
+    </div>       
+  </div>    
+  
+</form> 
+</div>
+
+
+-->

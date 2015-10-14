@@ -4,26 +4,63 @@
   <formly-form model="model" fields="fields">    
     <button type="submit" ng-click="submit(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ui-sref="admin.createsurvey.confirm-survey">Send</button>
     
-<!--    shows survey data-->
     <div ui-view></div>
     
   </formly-form>
 
-  
-  
-  <!-- confirm survey contents - modal? -->
-  <!-- class="col-right left" -->
-  <!-- 
-  <div id="confirm">    
-    <div id="content" ui-view></div> 
-  
-    <span class="logout" style="float: left; margin-top: 20px;">
-      <button type="submit" style="height:30px; width:100px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Confirm</button>
-    </span>
-  
-  </div>
--->
-  
-  
-  
 </div>
+
+
+
+<!--
+
+<div id="createsurvey" style="width: 90%;">
+  <h2 style="font-weight: bold; color: black;">Send a Survey</h2>
+  
+  <form >     
+    <div class="form-group">
+      <label for="surveyname">Survey Name</label>
+      <input type="text" class="form-control" id="surveyname" ng-model="survey.surveyname" required />
+    </div>
+    <div class="form-group" id="topic">
+      <label>Topic</label>
+      <select ng-model="survey.topic" required >
+        <option value="WI">WI</option>
+        <option value="MN">MN</option>
+        <option value="IA">IA</option>
+      </select>
+    </div>
+    <div class="form-group" id="subject">
+      <label>Subject</label>
+      <select ng-model="survey.subject" required >
+        <option value="WI">WI</option>
+        <option value="MN">MN</option>
+        <option value="IA">IA</option>
+      </select>
+    </div>
+    <div class="form-group" id="template">
+      <label>Template</label>
+      <select ng-model="survey.template" required >
+        <option value="WI">WI</option>
+        <option value="MN">MN</option>
+        <option value="IA">IA</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="variable">Replacement value for $$name$$</label>
+      <input type="text" class="form-control" id="variable" ng-model="survey.variable" required /> 
+    </div>
+    
+    <div id="buttons">
+      <div id="buttons">
+        <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+        <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
+      </div>       
+    </div>    
+    
+  </form> 
+</div>
+
+
+
+-->

@@ -29,7 +29,7 @@ app.controller('adminCtrl', function($scope,$stateParams,$state) {
 //      - show main content
 //      - show logout button
       
-    $scope.login = false;
+//    $scope.login = false;
 
 });
 
@@ -66,16 +66,6 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state) {
 //    console.log('test');    
     return $http.post('api/topic', topic);
   }
-  
-//    return $http({
-//      method: 'POST',
-//      url: '/api/topic',
-//      data: topic
-//    }).then(function(resp){
-//      return resp;
-//    });
-//    
-//  }
 
 });
 
@@ -91,15 +81,21 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state) {
   
   $scope.getTopics = function(topics) {
     $http.get('api/topic').then(function(res) {
-      return res;
+      $scope.topicsArray = res.data;
     });
   }
+  $scope.getTopics();
+  $scope.topicsArray = [];
+  
   
   $scope.getGroups = function(groups) {
     $http.get('api/recipientGroups').then(function(res) {
-      return res;
+      $scope.fieldsSelect = res.data;
     });
   }
+  $scope.getGroups();
+  
+  $scope.fieldsSelect = [];
   
   $scope.model = {};
   
@@ -109,7 +105,7 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state) {
       key: 'topicName',
       templateOptions: {
         label: 'Topic',
-        options: $scope.getTopics()
+        options: $scope.topicsArray
       }
     },
     {
@@ -120,7 +116,7 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state) {
       }
     },
     {
-      type: 'input',  // date picker requires ui.bootstrap
+      type: 'input',  
       key: 'date',
       templateOptions: {
         label: 'Date'
@@ -131,7 +127,8 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state) {
       key: 'recipientGroup',
       templateOptions: {
         label: 'Group',
-        options: $scope.getGroups()
+        // wants an array, not a function
+        options: $scope.fieldsSelect
       }
     }
   ]
@@ -209,6 +206,7 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state) {
   
   $scope.onSubmit = onSubmit;
   
+  // user group id?
   $scope.getGroups = function() {
     $http.get('api/recipientGroups').then(function(res) {
       return res;
@@ -455,8 +453,8 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state) {
   ]  
   
   
-  function onSubmit(results) {  
-     return $http.get('api/parsedSurveys', results);
+  function onSubmit() {  
+     return $http.get('api/parsedSurveys');
   }
   
 //  function onSubmit(results) {
@@ -482,8 +480,10 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state) {
 // GET SURVEYS =========================================
 
 app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
+
+  $scope.onSubmit = onSubmit;
   
-  $scope.message = "students";
+  $scope.model = {};
     
   //  generate list of surveys that a student needs to take
   // need to show takenBy array when a particular survey is selected (ng-repeat, or ui-router/formly equivalent?)
@@ -498,9 +498,9 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
   }
   
   
-  // SET UP FOR ON LOAD
-  function onSubmit(newsurveys) {  
-     return $http.get('api/parsedSurveys', newsurveys);
+  // SET UP FOR ON LOAD ?
+  function onSubmit() {  
+     return $http.get('api/parsedSurveys');
   }
   
 //  function getNewSurveys(newsurveys) {  
