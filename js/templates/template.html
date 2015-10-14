@@ -1,19 +1,4 @@
-<div id="template" style="width: 90%;">
-  <h2 style="font-weight: bold; color: black;">Create a Template</h2>
-  
-  <formly-form model="model" fields="fields">
-    
-    <button type="submit" ng-click="onSubmit(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ui-sref="admin.template.confirm-template">Send</button>
-    
-    <div ui-view></div>
-    
-  </formly-form>
 
-</div>
-
-
-
-<!--
 <div id="template" style="width: 90%;">
 
 <h2 style="font-weight: bold; color: black;">Create a Template</h2>
@@ -21,7 +6,7 @@
 <form >     
   <div class="form-group">
     <label for="surveyname">Survey Name</label>
-    <input type="text" class="form-control" id="surveyname" ng-model="survey.surveyname" required />
+    <input type="text" class="form-control" id="surveyname" ng-model="template.surveyname" required />
   </div>
   <div class="form-group">
     <label for="description">Survey Description</label>
@@ -35,14 +20,17 @@
   
 
   <div class="form-group" style="font-weight: bold; font-size: 18px;">Questions</div>
+  
   <div class="form-group">
     <label for="titletext">Question Title Text</label>
     <input type="text" class="form-control" id="titletext" ng-model="template.titletext" required />
   </div>
+  
   <div class="form-group">
     <label for="helptext">Question Help Text</label>
     <input type="text" class="form-control" id="helptext" ng-model="template.helptext" required />
   </div>
+  
   <div class="form-group">
     <label>Question Type</label>
     <label>
@@ -53,9 +41,9 @@
     </label>
     <label>
       <input type="radio" ng-model="template.questiontype" value="short">Short answer
-    </label>
-    
+    </label>    
   </div>
+  
   <div class="form-group">
     <label for="answers">Answers</label>
     <input type="text" class="form-control" id="answers" ng-model="template.answers" required />
@@ -63,13 +51,11 @@
   
   <div id="buttons">
     <div id="buttons">
-      <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+      <button type="submit" ng-click="addTemplate(template)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+      
       <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
     </div>       
   </div>    
   
 </form> 
 </div>
-
-
--->

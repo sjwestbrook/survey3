@@ -62,9 +62,9 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state) {
   // submits topic
   // add 'clear fields'
   
-  function onSubmit(topic) {  
+//  function onSubmit(topic) {  
 //    console.log('test');    
-    return $http.post('api/topic', topic);
+//    return $http.post('api/topic', topic);
   }
 
 });
@@ -80,7 +80,7 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state) {
   $scope.onSubmit = onSubmit;
   
   $scope.getTopics = function(topics) {
-    $http.get('api/topic').then(function(res) {
+    $http.get('/api/topic').then(function(res) {
       $scope.topicsArray = res.data;
     });
   }
@@ -319,8 +319,8 @@ app.controller('templateCtrl', function($http, $scope,$stateParams,$state) {
     }
   ]
   
-  function onSubmit(questions) {  
-     return $http.post('api/surveyTemplates', questions);
+  function onSubmit(template) {  
+     return $http.post('api/surveyTemplates', template);
   }
 //     return $http({
 //      method: 'POST',
@@ -338,6 +338,7 @@ app.controller('templateCtrl', function($http, $scope,$stateParams,$state) {
 // CREATE & SEND SURVEY ========================
 
 // keys correct?
+// add Group dropdown?
 
 app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state) {
 
@@ -345,20 +346,20 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state) {
    
   $scope.onSubmit = onSubmit;
   
-  $scope.getTopics = function(topics) {
+  $scope.getTopics = function() {
     $http.get('api/topic').then(function(res) {
       return res;
     });
   }
   
   // get subject off of topic?
-  $scope.getSubjects = function(subjects) {
+  $scope.getSubjects = function() {
     $http.get('api/topic').then(function(res) {
       return res;
     });
   }
   
-  $scope.getTemplates = function(templates) {
+  $scope.getTemplates = function() {
     $http.get('api/surveyTemplates').then(function(res) {
       return res;
     });

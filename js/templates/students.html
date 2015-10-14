@@ -22,11 +22,13 @@
           
   <div id="list">          
     <!-- ng-repeat (?) list of surveys -->
-      <h2>New &nbsp; Surveys</h2>
+    
+    <h2>New &nbsp; Surveys</h2>
     <a ui-sref="students.opensurvey" style="color: black; font-weight: bold; font-size: 16px; background-color: white;">survey 1</a>
   </div>
 
 <!--    how to get surveys to open here need ui-sref in #list? configure that in the controller? (all surveys clicked have ui-sref="students.opensurvey" and open below?-->
+    
   <div id="workspace">
     <!-- student takes survey here-->
     <div id="opensurvey" ui-view>  </div>      

@@ -1,66 +1,44 @@
-<div id="createsurvey" style="width: 90%;">
-  <h2 style="font-weight: bold; color: black;">Send a Survey</h2>
+<div id="template" style="width: 90%;">
+
+<h2 style="font-weight: bold; color: black;">Send a Survey</h2>
+
+<form >     
   
-  <formly-form model="model" fields="fields">    
-    <button type="submit" ng-click="submit(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ui-sref="admin.createsurvey.confirm-survey">Send</button>
-    
-    <div ui-view></div>
-    
-  </formly-form>
-
-</div>
-
-
-
-<!--
-
-<div id="createsurvey" style="width: 90%;">
-  <h2 style="font-weight: bold; color: black;">Send a Survey</h2>
+  <div class="form-group">
+    <label for="surveyname">Public Survey Name</label>
+    <input type="text" class="form-control" id="surveyname" ng-model="survey.surveyname" required />
+  </div>
   
-  <form >     
-    <div class="form-group">
-      <label for="surveyname">Survey Name</label>
-      <input type="text" class="form-control" id="surveyname" ng-model="survey.surveyname" required />
-    </div>
-    <div class="form-group" id="topic">
-      <label>Topic</label>
-      <select ng-model="survey.topic" required >
-        <option value="WI">WI</option>
-        <option value="MN">MN</option>
-        <option value="IA">IA</option>
-      </select>
-    </div>
-    <div class="form-group" id="subject">
-      <label>Subject</label>
-      <select ng-model="survey.subject" required >
-        <option value="WI">WI</option>
-        <option value="MN">MN</option>
-        <option value="IA">IA</option>
-      </select>
-    </div>
-    <div class="form-group" id="template">
-      <label>Template</label>
-      <select ng-model="survey.template" required >
-        <option value="WI">WI</option>
-        <option value="MN">MN</option>
-        <option value="IA">IA</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="variable">Replacement value for $$name$$</label>
-      <input type="text" class="form-control" id="variable" ng-model="survey.variable" required /> 
-    </div>
+  <div class="form-group">
+    <label>Select Topic</label>
+    <select ng-model="survey.topic" required  ng-options="topic.topicName for topic in topicsArray">
+    </select>
+  </div>  
+  
+  <div class="form-group">
+    <label>Select Subject</label>
+    <select ng-model="survey.subject" required  ng-options="topic.subject.subjectName for subject in subjectsArray">
+    </select>
+  </div>  
+  
+  <div class="form-group">
+    <label>Select Template</label>
+    <select ng-model="survey.subject" required  ng-options="survey.templateName for template in templateArray">
+    </select>
+  </div>  
     
+  <div class="form-group">
+    <label for="variables">Variable Replacements</label>
+    <input type="text" class="form-control" id="variables" ng-model="template.variables" required />
+  </div>
+  
+  <div id="buttons">
     <div id="buttons">
-      <div id="buttons">
-        <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
-        <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
-      </div>       
-    </div>    
-    
-  </form> 
+      <button type="submit" ng-click="addSurvey(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+      
+      <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
+    </div>       
+  </div>    
+  
+</form> 
 </div>
-
-
-
--->

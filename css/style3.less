@@ -194,7 +194,8 @@ div.auth {
         transition: color .2s linear;
       }
     }
-} // end box styles
+} 
+// end box styles
 
 .filler-box-styles {
    h4 {
@@ -220,7 +221,6 @@ div.auth {
         color:  transparent;
         font-size: @fontsize * 1.5;
         font-weight: bold;
-        text-shadow: 1.5px 1.5px @color4;
       }
     }
 }
@@ -239,15 +239,8 @@ div.auth {
     filter: grayscale(0%);
     filter: gray;
     -webkit-filter: grayscale(0%);
-    filter: none;
-    transition: 0.25s ease;
-    
-//    a {
-//      color: @color8;
-//      text-shadow: 1.5px 1.5px @color4;
-//    }
-  }
-}
+    filter: none;    
+ }
 
 
 // GLOBAL STYLES ===============================================================
@@ -262,9 +255,9 @@ body {
   position: relative;
   font-family: @font2;
   
-  .ng-scope {
-    height: 100%;
-  }
+//  .ng-scope {
+//    height: 100%;
+//  }
 }
 
 div#maincontent {
@@ -290,10 +283,7 @@ header {
   div#login {
     float: right;
     position: relative;
-//    margin-right: 15px;
-//    margin-bottom: 3px;
     padding-top: 25px;
-//    padding-right: 25px;
 
     ul {
       padding-right: 50px;
@@ -491,7 +481,6 @@ div.studentswrapper {
       color: @color4; 
       font-family: @font1;
       font-size: @fontsize * 1.8;
-//      text-transform: uppercase;
     }
           
     h2 {
@@ -521,38 +510,9 @@ div.studentswrapper {
       .studentsurveys;
       border-bottom: 10px solid @color4;
       background-color: @color3;
- background-image: url("https://devmounta.in/img/aboutstudents.png");
+      background-image: url("https://devmounta.in/img/aboutstudents.png");
     }
-  }
-  
+  }  
+  // end student content
 }
-// end studentswrapper
-
-div.studentswrapper.ng-scope {
-  
-}
-
-// MEDIA QUERIES ========================
-//
-//@media (min-width: 620px) and (max-width: 845px) {
-//  
-//}
-
-
-@media (max-width) {
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+// end wrapper
