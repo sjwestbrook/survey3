@@ -57,6 +57,7 @@ templateUrl: 'js/templates/topic.html',
             controller: 'templateCtrl'
           })
   
+  
           // send a survey
           .state('admin.createsurvey', {
             url: '/createsurvey',
@@ -65,14 +66,10 @@ templateUrl: 'js/templates/topic.html',
             resolve: {
               topics: function(topicServ){
                 return topicServ.getTopics();
-              }
-            },
-            resolve: {
+              },
               subjects: function(subjectServ){
                 return subjectServ.getSubjects();
-              }
-            },
-            resolve: {
+              },
               templates: function(templateServ){
                 return templateServ.getTemplates();
               }
@@ -87,6 +84,9 @@ templateUrl: 'js/templates/topic.html',
             resolve: {
               topics: function(topicServ){
                 return topicServ.getTopics();
+              },
+              subjects: function(subjectServ){
+                return subjectServ.getSubjects();
               }
             }
           })
@@ -111,11 +111,11 @@ templateUrl: 'js/templates/topic.html',
   
     .state('students', {
       url: '/students',
-      resolve: {
-        topics: ['studentsServ', 'http', function(studentsServ, $http) {
-          return studentsServ.addCompletedSurvey();
-        }]
-      },
+//      resolve: {
+//        newSurveys: function(surveysServ){
+//          return surveysServ.getSurveys();
+//        }
+//      },
       templateUrl: 'js/templates/students.html',
       controller: 'studentsCtrl'
     })

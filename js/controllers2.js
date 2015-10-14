@@ -41,8 +41,6 @@ app.controller('adminCtrl', function($scope,$stateParams,$state) {
 
 // CREATE TOPIC ===================================
 app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicServ) {
-
-  $scope.model = {};
   
   $scope.addTopic = function() {
     topicServ.addTopic($scope.topic);
@@ -83,11 +81,9 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicS
 
 app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupServ) {
   
-  $scope.model = {};  
-  
    $scope.addGroup = function() {
-      groupServ.addGroup($scope.model);
-      console.log($scope.modal);
+      groupServ.addGroup($scope.group);
+      console.log($scope.group);
    }
    
 });
@@ -110,7 +106,7 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
   $scope.model = {}; 
    
    $scope.addUser = function() {
-      userServ.addUser($scope.model);
+      userServ.addUser($scope.user);
    }
   
 });
@@ -121,10 +117,9 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
 
 app.controller('templateCtrl', function($http, $scope,$stateParams,$state, templateServ) {
   
-  $scope.model = {};
-  
   $scope.addTemplate = function() {
-      templateServ.addTemplate($scope.model);
+      templateServ.addTemplate($scope.template);
+    console.log($scope.template);
    }
   
 });
@@ -136,13 +131,15 @@ app.controller('templateCtrl', function($http, $scope,$stateParams,$state, templ
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, template) {
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates) {
    
-  //  console.log(1111111, topics.data)
+//    console.log(1111111, topics.data)
+//     console.log(1111111, subjects.data)
+//      console.log(1111111, templates.data)
   
   $scope.topicsArray = topics.data;
   $scope.subjectsArray = subjects.data;
-  $scope.templatesArray = template.data;
+  $scope.templatesArray = templates.data;
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
@@ -157,17 +154,14 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })
   }
   
-  //not field select?
   $scope.getTemplates = function() {
     templateServ.getTemplates().then(function(res) {
       $scope.templatesArray = res.data;       
     })
   }
   
-  $scope.model = {};  
-  
   $scope.addSurvey = function() {
-      createdSurveyServ.addSurvey($scope.model);
+      createdSurveyServ.addSurvey($scope.survey);
    }
     
 });
@@ -176,11 +170,13 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 
 // VIEW SURVEY RESULTS ========================
 
-app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topics) {
+app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topics, subjects) {
   
-  //  console.log(1111111, topics.data)
+//  console.log(1111111, topics.data)
+//  console.log(1111111, subjects.data)
   
   $scope.topicsArray = topics.data;
+  $scope.subjectsArray = subjects.data;
   
 //  $scope.model = {};
   
@@ -214,9 +210,9 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topics
 
 // GET SURVEYS =========================================
 
-app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, studentsServ) {
+app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
   
-  
+  // inject studentsServ
   
   //  display list of surveys yet to take on page load
   // not field select?
@@ -229,8 +225,6 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, stude
     })
   }
   
-   
-  $scope.model = {};
   
   //  student submits completed survey
 

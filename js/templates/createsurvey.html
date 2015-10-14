@@ -23,7 +23,7 @@
   
   <div class="form-group">
     <label>Select Template</label>
-    <select ng-model="survey.subject" required  ng-options="survey.templateName for template in templateArray">
+    <select ng-model="survey.template" required  ng-options="template.templateName for template in templateArray">
     </select>
   </div>  
     
@@ -34,7 +34,7 @@
   
   <div id="buttons">
     <div id="buttons">
-      <button type="submit" ng-click="addSurvey(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+      <button type="submit" ng-click="addSurvey(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
       
       <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
     </div>       
