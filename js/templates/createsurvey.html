@@ -2,34 +2,40 @@
 
 <h2 style="font-weight: bold; color: black;">Send a Survey</h2>
 
-<form >     
+<form name="createSurveyForm">     
   
   <div class="form-group">
     <label for="surveyname">Public Survey Name</label>
-    <input type="text" class="form-control" id="surveyname" ng-model="survey.surveyname" required />
+    <input type="text" class="form-control" id="surveyname" ng-model="survey.name" required />
   </div>
   
   <div class="form-group">
     <label>Select Topic</label>
-    <select class="form-control" ng-model="survey.topic" required  ng-options="topic.topicName for topic in topicsArray">
+    <select class="form-control" ng-model="topic.topicName" required  ng-options="topic.topicName for topic in topicsArray">
     </select>
   </div>  
   
   <div class="form-group">
     <label>Select Subject</label>
-    <select class="form-control" ng-model="survey.subject" required  ng-options="topic.subject.subjectName for subject in subjectsArray">
+    <select class="form-control" ng-model="topic.subjects" required  ng-options="subjects.subjectName for subject in subjectsArray">
     </select>
   </div>  
   
   <div class="form-group">
+    <label>Select Group</label>
+    <select class="form-control" ng-model="group.groupName" required  ng-options="group.groupName for group in groupsArray">
+    </select>
+  </div> 
+  
+  <div class="form-group">
     <label>Select Template</label>
-    <select class="form-control" ng-model="survey.template" required  ng-options="template.templateName for template in templateArray">
+    <select class="form-control" ng-model="survey.template" required  ng-options="template.name for template in templateArray">
     </select>
   </div>  
     
   <div class="form-group">
     <label for="variables">Variable Replacements</label>
-    <input type="text" class="form-control" id="variables" ng-model="template.variables" required />
+    <input type="text" class="form-control" id="variables" ng-model="template.varNames" required />
   </div>
   
   <div id="buttons">

@@ -45,6 +45,7 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicSer
   $scope.addTopic = function() {
     topicServ.addTopic($scope.topic);
     console.log($scope.topic)
+    $scope.topic = '';
   }
     
 });
@@ -65,12 +66,18 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicS
       topicServ.getTopics().then(function(res){
         $scope.topicsArray = res.data;
         console.log($scope.topicsArray)
+        
       })                            
     }
- 
-   $scope.addSubject = function() {
-      subjectServ.addSubject($scope.subject);
-      console.log($scope.subject);
+
+   
+   $scope.updateTopic = function() {
+     console.log($scope.topic);
+     topicServ.updateTopic($scope.topic, $scope.subjects).then(function(res){
+       console.log(res);
+     });
+     $scope.topicsArray = '';
+     $scope.subjects = '';
    }
   
 
@@ -82,8 +89,9 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicS
 app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupServ) {
   
    $scope.addGroup = function() {
-      groupServ.addGroup($scope.group);
-      console.log($scope.group);
+     groupServ.addGroup($scope.group);
+     console.log($scope.group);
+     $scope.group = '';
    }
    
 });
@@ -93,7 +101,7 @@ app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupSer
 
 app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupServ, userServ, groups) {
   
-  console.log(1111111111, groups.data);
+//  console.log(1111111111, groups.data);
 
   $scope.groupsArray = groups.data;
   
@@ -102,25 +110,78 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
         $scope.groupsArray = res.data;        
       })
     }
-   
-  $scope.model = {}; 
-   
-   $scope.addUser = function() {
-      userServ.addUser($scope.user);
+
+   // doesn't work
+   $scope.updateGroup = function() {
+     console.log($scope.group);
+     groupServ.updateGroup($scope.group, $scope.users).then(function(res){
+       console.log(res);
+     });
+     $scope.groupsArray = '';
+     $scope.users = '';
    }
-  
+   
 });
 
 
 
 // CREATE TEMPLATE ==========================
 
-app.controller('templateCtrl', function($http, $scope,$stateParams,$state, templateServ) {
+app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, templateServ) {
+  
+  $scope.template = {};
+  $scope.template.questions = [{}];
+//  $scope.template.questions.answers = [];
+  
+  // add/remove variables
+  $scope.template.varNames = [''];
+  
+  $scope.addNewVar = function() {
+    $scope.template.varNames.push('');
+    console.log($scope.template.questions);
+  };
+    
+  $scope.removeVar = function() {
+    $scope.template.varNames.pop();
+    console.log($scope.template.questions);
+  };
+  
+  
+  // add/remove questions
+  $scope.addQuestion = function() {
+    $scope.template.questions.push({
+      titleText: $scope.titleText,
+      helpText: $scope.helpText,
+      questionType: $scope.questionType
+    })
+    console.log($scope.template.questions);
+  };
+    
+  $scope.removeQuestion = function() {
+    $scope.template.questions.pop('');
+    console.log($scope.template.questions);
+  };
+  
+  
+  
+  // add/remove answers 
+  $scope.addAnswer = function() {
+    $scope.questions.push('');
+    console.log($scope.template.questions);
+  };
+    
+  $scope.removeAnswer = function() {
+    $scope.questions.pop();
+    console.log($scope.template.questions);
+  };
+  
+  
   
   $scope.addTemplate = function() {
-      templateServ.addTemplate($scope.template);
+    templateServ.addTemplate($scope.template);
     console.log($scope.template);
-   }
+    $scope.template = '';
+   };
   
 });
 
@@ -131,7 +192,7 @@ app.controller('templateCtrl', function($http, $scope,$stateParams,$state, templ
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates) {
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates, groups) {
    
 //    console.log(1111111, topics.data)
 //     console.log(1111111, subjects.data)
@@ -139,6 +200,7 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
   
   $scope.topicsArray = topics.data;
   $scope.subjectsArray = subjects.data;
+  $scope.groupsArray = groups.data;
   $scope.templatesArray = templates.data;
   
   $scope.getTopics = function() {
@@ -147,13 +209,20 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })                            
   }
   
-  // how to access subjects, not topics?
+  // how to access subjects?
   $scope.getSubjects = function() {
     subjectServ.getSubjects().then(function(res) {
       $scope.subjectsArray = res.data;       
     })
   }
+    
+  $scope.getGroups = function() {
+    groupServ.getGroups().then(function(res) {
+      $scope.groupsArray = res.data;        
+    })
+  }
   
+  // doesn't work, no options
   $scope.getTemplates = function() {
     templateServ.getTemplates().then(function(res) {
       $scope.templatesArray = res.data;       
@@ -161,7 +230,12 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
   }
   
   $scope.addSurvey = function() {
-      createdSurveyServ.addSurvey($scope.survey);
+    createdSurveyServ.addSurvey($scope.survey);
+    $scope.topicsArray = '';
+    $scope.subjectsArray = '';
+    $scope.groupsArray = '';
+    $scope.templatesArray = '';
+    $scope.survey = '';
    }
     
 });
@@ -178,18 +252,16 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topics
   $scope.topicsArray = topics.data;
   $scope.subjectsArray = subjects.data;
   
-//  $scope.model = {};
-  
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;
     })                            
   }
   
-  //not field select?
-  $scope.getTemplates = function() {
-    subjectServ.getTemplates().then(function(res) {
-      $scope.fieldsSelect = res.data;       
+  // how to access subjects?
+  $scope.getSubjects = function() {
+    subjectServ.getSubjects().then(function(res) {
+      $scope.subjectsArray = res.data;       
     })
   }
   
@@ -230,6 +302,7 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
 
   $scope.addCompletedSurvey = function() {
     studentsServ.addCompletedSurvey($scope.model);
+    // empty the div 
   }
   
   

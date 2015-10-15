@@ -15,19 +15,19 @@
 <div id="users" style="width: 90%;">
   <h2 style="font-weight: bold; color: black;">Create Users</h2>
   
-  <form>     
+  <form name="usersForm">     
     <div class="form-group" id="users">
       <label>Group</label>
-      <select class="form-control" ng-model="group.groupname" required ng-options="group.groupName for topic in topicsArray">
+      <select class="form-control" ng-model="group.groupName" required ng-options="group.groupName for group in groupsArray">
       </select>
     </div>
     <div class="form-group">
       <label for="user">User Name</label>
-      <input type="username" class="form-control" id="username" ng-model="user.username" required />
+      <input type="username" class="form-control" id="username" ng-model="users.name" required />
     </div>
     <div class="form-group">
       <label for="useremail">User Email</label>
-      <input type="text" class="form-control" id="useremail" ng-model="user.useremail" required />
+      <input type="text" class="form-control" id="useremail" ng-model="users.email" required />
     </div>
     
     
@@ -37,7 +37,7 @@
     
     <div id="buttons">
       <div id="buttons">
-        <button type="submit" ng-click="addUser(model)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+        <button type="submit" ng-click="updateGroup(users)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
         <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Reset</button>
       </div>       
     </div>    

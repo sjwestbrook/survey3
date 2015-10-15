@@ -20,6 +20,12 @@ app.service('topicServ', function($http){
     return $http.post('api/topic', topic);
   }
   
+  // 'add subject'
+  this.updateTopic = function(topic, subjects) {
+    console.log(topic);
+    return $http.put('api/topic?id=' + topic.topicName._id, subjects);
+  }
+  
   this.getTopics = function() {
     return $http.get('/api/topic');             }
 });
@@ -29,10 +35,8 @@ app.service('topicServ', function($http){
 
 
 app.service('subjectServ', function($http){
-  
-  this.addSubject = function(subject) {
-    return $http.post('api/topic', subject);
-  }  
+ 
+// add subject = update topic
   
 // access results array in topic model
   this.getSubjects = function() {
@@ -51,6 +55,12 @@ app.service('groupServ', function($http){
     return $http.post('api/recipientGroups', groups);
   } 
   
+  // adding users
+  this.updateGroup = function(group, users) {
+    console.log(group);
+    return $http.put('api/recipientGroups?id=' + group.groupName._id, users);
+  }
+  
   this.getGroups = function() {
     return $http.get('api/recipientGroups');
   }
@@ -58,15 +68,10 @@ app.service('groupServ', function($http){
 });
 
     
-    
-    
+
     
 
 app.service('userServ', function($http){
-  
-  this.addUser = function(user) {
-    return $http.post('api/recipientGroups', user);
-  } 
   
   this.getUsers = function() {
     return $http.get('api/recipientGroups');
@@ -75,8 +80,6 @@ app.service('userServ', function($http){
 });
 
 
-
-    
     
 
 app.service('templateServ', function($http){
@@ -125,6 +128,7 @@ app.service('surveysServ', function($http){
 //app.service('studentsServ', function($http){
 //  
 //  // how does this go to the correct survey results?
+// update (not add) survey results?
 //  this.addCompletedSurvey = function(survey) {
 //    return $http.post('api/parsedSurveys', survey);
 //  } 
