@@ -15,10 +15,10 @@
 <div id="users" style="width: 90%;">
   <h2 style="font-weight: bold; color: black;">Create Users</h2>
   
-  <form >     
+  <form>     
     <div class="form-group" id="users">
       <label>Group</label>
-      <select ng-model="group.groupname" required ng-options="group.groupName for topic in topicsArray">
+      <select class="form-control" ng-model="group.groupname" required ng-options="group.groupName for topic in topicsArray">
       </select>
     </div>
     <div class="form-group">
@@ -29,6 +29,11 @@
       <label for="useremail">User Email</label>
       <input type="text" class="form-control" id="useremail" ng-model="user.useremail" required />
     </div>
+    
+    
+    
+    
+    
     
     <div id="buttons">
       <div id="buttons">
