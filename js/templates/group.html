@@ -2,7 +2,18 @@
   
   <h2 style="font-weight: bold; color: black;">Create a Group</h2>
   
+  <div class="form-group">
+    <label>Select Topic</label>
+    <select class="form-control" ng-model="selectedTopic" required  ng-options="topic.topicName for topic in topicsArray" >
+    </select>
+  </div>  
   
+  <div class="form-group">
+    <label>Select Subject</label>
+    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject as (subject.subjectName + ', ' + (subject.date |date) + ', ' + subject.recipientGroup.groupName) for subject in selectedTopic.subjects">
+    </select>
+    <!-- ng-options shows 'subject name, date, recipient group' in dropdown -->
+  </div>
   
   
   <form name="groupForm">     

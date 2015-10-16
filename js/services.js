@@ -32,21 +32,21 @@ app.service('topicServ', function($http){
 });
 
     
-    
-
-
-app.service('subjectServ', function($http){
- 
-// add subject = update topic
-  
-// access results array in topic model
-  this.getSubjects = function() {
-    return $http.get('/api/topic');
-  }                                                 
-});
-    
-    
-    
+//    
+//
+//
+//app.service('subjectServ', function($http){
+// 
+//// add subject = update topic
+//  
+//// access results array in topic model
+//  this.getSubjects = function() {
+//    return $http.get('/api/topic');
+//  }                                                 
+//});
+//    
+//    
+//    
     
     
 
@@ -140,3 +140,8 @@ app.service('surveysServ', function($http){
 //  }
 //  
 //});
+
+
+app.service('studentData', function() {
+  
+})

@@ -30,9 +30,6 @@ templateUrl: 'js/templates/topic.html',
             resolve: {
               topics: function(topicServ){
                 return topicServ.getTopics();
-              },
-              groups: function(groupServ){
-                return groupServ.getGroups();
               }
             }
           })
@@ -40,7 +37,12 @@ templateUrl: 'js/templates/topic.html',
           .state('admin.group', {
             url: '/group',
             templateUrl: 'js/templates/group.html',
-            controller: 'groupCtrl'
+            controller: 'groupCtrl',
+            resolve: {
+              topics: function(topicServ){
+                return topicServ.getTopics();
+              }
+            }
           })
 
           .state('admin.users', {
@@ -69,9 +71,6 @@ templateUrl: 'js/templates/topic.html',
             resolve: {
               topics: function(topicServ){
                 return topicServ.getTopics();
-              },
-              subjects: function(subjectServ){
-                return subjectServ.getSubjects();
               },
               templates: function(templateServ){
                 return templateServ.getTemplates();

@@ -20,8 +20,6 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 // PARENT ADMIN CONTROLLER ============================================
 
 
-app.controller('adminCtrl', function($scope,$stateParams,$state) {
-
 //  SET UP AUTH
 //    - show login form when switching to admin view
 //    - hide main content until authenticated  
@@ -58,36 +56,25 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicSer
 // CREATE SUBJECT ===================================
 
 
-app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicServ, groupServ, topics, groups) {
-  
-  console.log($scope.topicsArray);  // undefined
-  console.log($scope.groupsArray);  // undefined
+app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicServ, topics) {
   
   $scope.topicsArray = topics.data;
-  $scope.groupsArray = groups.data;
-//  $scope.subjects = [];
+  $scope.subjects = [];
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;
-//      console.log($scope.topicsArray)
+      console.log($scope.topicsArray)
     });                            
-  }
-
-  $scope.getGroups = function() {
-    groupServ.getGroups().then(function(res) {
-      $scope.groupsArray = res.data;        
-    });
   }
 
    // add subject 
    $scope.updateTopic = function() {
-     console.log($scope.topic);
-     topicServ.updateTopic($scope.topic, $scope.subjects).then(function(res){
-       console.log(res);
+          console.log($scope.topic);
+     topicServ.updateTopic($scope.topic, $scope.subject).then(function(res){
+          console.log(res);
      });
      $scope.topicsArray = '';
-     $scope.groupsArray = '';
      $scope.subjects = '';
    }
 
@@ -96,7 +83,16 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicS
 
 // CREATE GROUP ===================================
 
-app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupServ) {
+app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupServ, topicServ, topics) {
+  
+  
+  $scope.topicsArray = topics.data;
+  
+  $scope.getTopics = function() {
+    topicServ.getTopics().then(function(res){
+      $scope.topicsArray = res.data;
+    })                            
+  }; 
   
    $scope.addGroup = function() {
      groupServ.addGroup($scope.group);
@@ -126,7 +122,8 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
       })
     };
 
- // add/remove users
+ // add/remove users -- not possible due to back end setup
+  // errors
   $scope.addUser = function() {
     $scope.groups.data.push({
       name: $scope.name,
@@ -219,7 +216,7 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates) {
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates) {
   
 
 //  console.log(1111111, topics.data)
@@ -270,7 +267,7 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 
 // VIEW SURVEY RESULTS ========================
 
-app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicServ, topics, subjectServ, subjects, surveysServ, survey) {
+app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicServ, topics, subjects, surveysServ, survey) {
   
 //  console.log(1111111, topics.data)
 //  console.log(1111111, subjects.data)
@@ -289,12 +286,6 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
   
   
   
-  // how to access subjects?
-//  $scope.getSubjects = function() {
-//    subjectServ.getSubjects().then(function(res) {
-//      $scope.subjectsArray = res.data;       
-//    })
-//  }
   
     
   //not field select?
