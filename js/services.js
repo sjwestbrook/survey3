@@ -27,7 +27,8 @@ app.service('topicServ', function($http){
   }
   
   this.getTopics = function() {
-    return $http.get('/api/topic');             }
+    return $http.get('/api/topic');  
+  }
 });
 
     
@@ -57,7 +58,7 @@ app.service('groupServ', function($http){
   
   // adding users
   this.updateGroup = function(group, users) {
-    console.log(group);
+//    console.log(group);
     return $http.put('api/recipientGroups?id=' + group.groupName._id, users);
   }
   

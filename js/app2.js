@@ -2,7 +2,7 @@ var app = angular.module('surveyApp', ['ui.router', 'formly', 'formlyBootstrap',
 
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("home");
+  $urlRouterProvider.otherwise('home');
   
 
   $stateProvider
@@ -30,6 +30,11 @@ templateUrl: 'js/templates/topic.html',
             resolve: {
               topics: function(topicServ){
                 return topicServ.getTopics();
+              },
+              resolve: {
+                groups: function(groupServ){
+                  return groupServ.getGroups();
+                }
               }
             }
           })
@@ -70,9 +75,9 @@ templateUrl: 'js/templates/topic.html',
               subjects: function(subjectServ){
                 return subjectServ.getSubjects();
               },
-               groups: function(groupServ){
-                return groupServ.getGroups();
-              },
+//               groups: function(groupServ){
+//                return groupServ.getGroups();
+//              },
               templates: function(templateServ){
                 return templateServ.getTemplates();
               }
