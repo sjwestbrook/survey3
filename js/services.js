@@ -40,10 +40,10 @@ app.service('subjectServ', function($http){
 // add subject = update topic
   
 // access results array in topic model
-//  this.getSubjects = function() {
-//    return $http.get('/api/topic');
-//  }                                                 
-//});
+  this.getSubjects = function() {
+    return $http.get('/api/topic');
+  }                                                 
+});
     
     
     
@@ -58,7 +58,7 @@ app.service('groupServ', function($http){
   
   // adding users
   this.updateGroup = function(group, users) {
-//    console.log(users);
+//    console.log(group);
     return $http.put('api/recipientGroups?id=' + group.groupName._id, users);
   }
   

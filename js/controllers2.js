@@ -222,30 +222,23 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 
 app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates) {
   
-  
-  // change 0 to a flexible input
-    console.log(1111111, topics.data[0].subjects)
-    console.log(1111111, topics.data)
+  console.log(1111111, topics.data[0].subjects)
+  console.log(1111111, topics.data)
+  console.log(1111111, templates.data)
     
-//     console.log(1111111, subjects.data)
-//      console.log(1111111, templates.data)
   
   $scope.topicsArray = topics.data;
+  // fix index 0
   $scope.subjectsArray = topics.data[0].subjects;
-  $scope.templatesArray = topics.data;
+  $scope.templatesArray = templates.data;
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;
     })                            
-  }
-  
-  // how to access subjects? 
-//  $scope.getSubjects = function() {
-//    subjectServ.getSubjects().then(function(res) {
-//      $scope.subjectsArray = res.data;       
-//    })
-//  }
+  };
+ 
+ 
       
   // doesn't work, no options
   $scope.getTemplates = function() {
@@ -254,25 +247,15 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })
   }
   
-  // add/remove answers 
-  $scope.addAnswer = function() {
-    $scope.questions.push('');
-    console.log($scope.template.questions);
-  };
-    
-//  $scope.removeAnswer = function() {
-//    $scope.questions.pop();
-//    console.log($scope.template.questions);
-//  };
-//  
-//  
-//  $scope.addSurvey = function() {
-//    createdSurveyServ.addSurvey($scope.survey);
-//    $scope.topicsArray = '';
-//    $scope.subjectsArray = '';
-//    $scope.templatesArray = '';
-//    $scope.survey = '';
-//   }
+  // add/remove variable replacements
+  
+  $scope.addSurvey = function() {
+    createdSurveyServ.addSurvey($scope.survey);
+    $scope.topicsArray = '';
+    $scope.subjectsArray = '';
+    $scope.templatesArray = '';
+    // clear variables
+   }
     
 });
 
@@ -286,8 +269,9 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 //  console.log(1111111, subjects.data)
   
   $scope.topicsArray = topics.data;
-  $scope.subjectsArray = subjects.data;
-  $scope.surveysArray = survey.data
+  // fix index 0
+  $scope.subjectsArray = topics.data[0].subjects;
+  
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
@@ -295,12 +279,15 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
     })                            
   }
   
+  
+  
+  
   // how to access subjects?
-  $scope.getSubjects = function() {
-    subjectServ.getSubjects().then(function(res) {
-      $scope.subjectsArray = res.data;       
-    })
-  }
+//  $scope.getSubjects = function() {
+//    subjectServ.getSubjects().then(function(res) {
+//      $scope.subjectsArray = res.data;       
+//    })
+//  }
   
     
   //not field select?

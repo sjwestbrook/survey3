@@ -11,7 +11,7 @@
   
   <div class="form-group">
     <label>Select Topic</label>
-    <select class="form-control" ng-model="topic.topicName" required  ng-options="topic.topicName for topic in topicsArray">
+    <select class="form-control" ng-model="topic.topicName" required  ng-options="topic.topicName for topic in topicsArray" ng-change="getSubjects()">
     </select>
   </div>  
   
@@ -23,7 +23,7 @@
   
   <div class="form-group">
     <label>Select Template</label>
-    <select class="form-control" ng-model="survey.template" required  ng-options="template.name for template in templateArray">
+    <select class="form-control" ng-model="template.name" required  ng-options="template.name for template in templatesArray">
     </select>
   </div>  
     
