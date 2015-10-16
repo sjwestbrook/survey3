@@ -128,7 +128,7 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
 
  // add/remove users
   $scope.addUser = function() {
-    $scope.group.users.push({
+    $scope.groups.data.push({
       name: $scope.name,
       email: $scope.email      
     });
@@ -222,8 +222,8 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates) {
   
 
-  console.log(1111111, topics.data)
-  console.log(1111111, templates.data)
+//  console.log(1111111, topics.data)
+//  console.log(1111111, templates.data)
     
   
   $scope.topicsArray = topics.data;
@@ -257,11 +257,11 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 //  };
   
   $scope.addSurvey = function() {
-    createdSurveyServ.addSurvey($scope.survey);
+    createSurveyServ.addSurvey($scope.survey);
+    console.log($scope.survey);
     $scope.topicsArray = '';
     $scope.subjectsArray = '';
     $scope.templatesArray = '';
-    // clear variables
    }
     
 });
