@@ -17,15 +17,9 @@
   
   <div class="form-group">
     <label>Select Subject</label>
-    <select class="form-control" ng-model="topic.subjects" required  ng-options="subjects.subjectName for subject in subjectsArray">
+    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject.subjectName for subject in subjectsArray">
     </select>
   </div>  
-  
-  <div class="form-group">
-    <label>Select Group</label>
-    <select class="form-control" ng-model="group.groupName" required  ng-options="group.groupName for group in groupsArray">
-    </select>
-  </div> 
   
   <div class="form-group">
     <label>Select Template</label>
@@ -35,9 +29,17 @@
     
   <div class="form-group">
     <label for="variables">Variable Replacements</label>
-    <input type="text" class="form-control" id="variables" ng-model="template.varNames" required />
+    <div>
+      <input type="text" class="form-control" id="variables" ng-model="template.replacement" ng-repeat="varReplace in template.questions track by $index"required />
+    </div>
+    <button ng-click="addReplacement()">Add Replacement</button>
+    <button ng-click="removeReplacement()">Remove Replacement</button> 
   </div>
   
+  
+  
+  
+<!-- doesn't work yet-->
   <div id="buttons">
     <div id="buttons">
       <button type="submit" ng-click="addSurvey(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
@@ -45,6 +47,6 @@
       <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
     </div>       
   </div>    
-  
+
 </form> 
 </div>

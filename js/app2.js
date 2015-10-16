@@ -31,10 +31,8 @@ templateUrl: 'js/templates/topic.html',
               topics: function(topicServ){
                 return topicServ.getTopics();
               },
-              resolve: {
-                groups: function(groupServ){
-                  return groupServ.getGroups();
-                }
+              groups: function(groupServ){
+                return groupServ.getGroups();
               }
             }
           })
@@ -75,9 +73,6 @@ templateUrl: 'js/templates/topic.html',
               subjects: function(subjectServ){
                 return subjectServ.getSubjects();
               },
-//               groups: function(groupServ){
-//                return groupServ.getGroups();
-//              },
               templates: function(templateServ){
                 return templateServ.getTemplates();
               }

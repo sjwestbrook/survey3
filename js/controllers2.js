@@ -80,15 +80,15 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicS
     });
   }
 
-   // doesn't work
+   // adding subject doesn't work
    $scope.updateTopic = function() {
      console.log($scope.topic);
      topicServ.updateTopic($scope.topic, $scope.subjects).then(function(res){
        console.log(res);
      });
-     $scope.topicsArray = '';
+//     $scope.topicsArray = '';
 //     $scope.groupsArray = '';
-     $scope.subjects = '';
+//     $scope.subjects = '';
    }
   
 
@@ -221,14 +221,18 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // add Group dropdown?
 
 app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates) {
-   
-//    console.log(1111111, topics.data)
+  
+  
+  // change 0 to a flexible input
+    console.log(1111111, topics.data[0].subjects)
+    console.log(1111111, topics.data)
+    
 //     console.log(1111111, subjects.data)
 //      console.log(1111111, templates.data)
   
   $scope.topicsArray = topics.data;
-  $scope.subjectsArray = subjects.data;
-  $scope.templatesArray = templates.data;
+  $scope.subjectsArray = topics.data[0].subjects;
+  $scope.templatesArray = topics.data;
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
@@ -236,12 +240,12 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })                            
   }
   
-  // how to access subjects?
-  $scope.getSubjects = function() {
-    subjectServ.getSubjects().then(function(res) {
-      $scope.subjectsArray = res.data;       
-    })
-  }
+  // how to access subjects? 
+//  $scope.getSubjects = function() {
+//    subjectServ.getSubjects().then(function(res) {
+//      $scope.subjectsArray = res.data;       
+//    })
+//  }
       
   // doesn't work, no options
   $scope.getTemplates = function() {
@@ -250,13 +254,25 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })
   }
   
-  $scope.addSurvey = function() {
-    createdSurveyServ.addSurvey($scope.survey);
-    $scope.topicsArray = '';
-    $scope.subjectsArray = '';
-    $scope.templatesArray = '';
-    $scope.survey = '';
-   }
+  // add/remove answers 
+  $scope.addAnswer = function() {
+    $scope.questions.push('');
+    console.log($scope.template.questions);
+  };
+    
+//  $scope.removeAnswer = function() {
+//    $scope.questions.pop();
+//    console.log($scope.template.questions);
+//  };
+//  
+//  
+//  $scope.addSurvey = function() {
+//    createdSurveyServ.addSurvey($scope.survey);
+//    $scope.topicsArray = '';
+//    $scope.subjectsArray = '';
+//    $scope.templatesArray = '';
+//    $scope.survey = '';
+//   }
     
 });
 

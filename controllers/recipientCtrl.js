@@ -18,7 +18,8 @@ module.exports = {
 	},
 
 	updateRecipientGroups: function(req, res) {
-		RecipientGroup.findByIdAndUpdate(req.query.id, req.body, function(err, data) {
+//    console.log (req.body);
+		RecipientGroup.findByIdAndUpdate(req.query.id, req.body, function(err, data) { 
 			if (err) {
 				res.error(500).send('broken');
 			} else {
