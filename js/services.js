@@ -126,20 +126,13 @@ app.service('surveysServ', function($http){
     
     
 // student - surveys to take
-//app.service('studentsServ', function($http){
-//  
-//  // how does this go to the correct survey results?
-// update (not add) survey results?
-//  this.addCompletedSurvey = function(survey) {
-//    return $http.post('api/parsedSurveys', survey);
-//  } 
-//  
-//  // filter to student (based on auth?), then not taken by that student
-//  this.getSurveys= function() {
-//    return $http.get('api/parsedSurveys');
-//  }
-//  
-//});
+app.service('studentsServ', function($http){
+  
+  this.getSurveys= function() {
+    return $http.get('/api/parsedSurveys/takenBy');
+  }
+
+});
 
 
 app.service('studentData', function() {

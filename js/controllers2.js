@@ -155,9 +155,15 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
 
 
 
+//uib modal bootstrap ui ==========================================
+//https://angular-ui.github.io/bootstrap/
+
+
 // CREATE TEMPLATE ==========================
 
 app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, templateServ) {
+  
+  
   
   $scope.template = {};
   $scope.template.questions = [{}];
@@ -211,6 +217,8 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
    };
   
 });
+
+
 
 
 
