@@ -26,6 +26,9 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 //    - after authentication
 //      - show main content
 //      - show logout button
+
+app.controller('adminCtrl', function($scope,$stateParams,$state) {
+
       
 //    $scope.login = false;
 
