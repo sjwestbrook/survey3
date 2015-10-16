@@ -16,12 +16,15 @@
   
   <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view --> 
   <div class="form-group">  
-     <label for="variables">Variables</label> 
-     <div ng-repeat="varName in template.varNames track by $index">
-     <input type="text" ng-model="template.varNames[$index]"  class="form-control"  id="varnames"   required  />
-       </div>
-     <button ng-click="addNewVar()">Add Variable</button>
-     <button ng-click="removeVar()">Remove Variable</button>
+    <label for="variables">Variables</label> 
+    <div ng-repeat="varName in template.varNames track by $index">
+      <input type="text" ng-model="template.varNames[$index]"  class="form-control"  id="varnames"   required  />
+    </div>
+    
+    <hr>
+    
+     <button ng-click="addNewVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+     <button ng-click="removeVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
   </div>
   
   
@@ -51,14 +54,22 @@
           <input type="radio" ng-model="template.questions[$index].questionType" value="short">Short answer
         </label>    
       </div>
+      
+<!--      <hr style="border-top: dashed 1px white;" /> -->
+      
       <div class="form-group">
         <label for="answer">Answer</label>
         <input type="text" class="form-control" id="answer" ng-model="question.answers" required />
       </div>
+      
+      <hr>
+      
     </div>  
     <!-- end section to repeat -->
-    <button ng-click="addQuestion()">Add Question</button>
-    <button ng-click="removeQuestion()">Remove Question</button> 
+  
+    <button ng-click="addQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+  
+    <button ng-click="removeQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
 
   
   <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view  --> 
@@ -72,6 +83,9 @@
     <button ng-click="removeAnswer()">Remove Answer</button>
   </div>
   -->
+  
+  <br />
+  <br />
   
   <div id="buttons">
       <button type="submit" ng-click="addTemplate(template)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>

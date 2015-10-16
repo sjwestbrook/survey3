@@ -61,7 +61,7 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicSer
 app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicServ, groupServ, topics, groups) {
   
   console.log($scope.topicsArray);  // undefined
-  console.log($scope.groupsArray);
+  console.log($scope.groupsArray);  // undefined
   
   $scope.topicsArray = topics.data;
   $scope.groupsArray = groups.data;
@@ -80,17 +80,16 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicS
     });
   }
 
-   // adding subject doesn't work
+   // add subject 
    $scope.updateTopic = function() {
      console.log($scope.topic);
      topicServ.updateTopic($scope.topic, $scope.subjects).then(function(res){
        console.log(res);
      });
-//     $scope.topicsArray = '';
-//     $scope.groupsArray = '';
-//     $scope.subjects = '';
+     $scope.topicsArray = '';
+     $scope.groupsArray = '';
+     $scope.subjects = '';
    }
-  
 
 });
 
@@ -222,32 +221,40 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 
 app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, subjectServ, templateServ, createSurveyServ, topics, subjects, templates) {
   
-  console.log(1111111, topics.data[0].subjects)
+
   console.log(1111111, topics.data)
   console.log(1111111, templates.data)
     
   
   $scope.topicsArray = topics.data;
-  // fix index 0
-  $scope.subjectsArray = topics.data[0].subjects;
   $scope.templatesArray = templates.data;
+  
+  $scope.template = {};
+  $scope.template.replacement = [{}];
+  
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;
     })                            
-  };
- 
- 
-      
-  // doesn't work, no options
+  }; 
+  
   $scope.getTemplates = function() {
     templateServ.getTemplates().then(function(res) {
       $scope.templatesArray = res.data;       
     })
   }
   
-  // add/remove variable replacements
+//  // add/remove variable replacements
+//  $scope.addReplacement = function() {
+//  $scope.template.replacement.push('');
+////    console.log($scope.template.questions);
+//  };
+//    
+//  $scope.removeReplacement = function() {
+//    $scope.template.replacement.pop();
+////    console.log($scope.template.questions);
+//  };
   
   $scope.addSurvey = function() {
     createdSurveyServ.addSurvey($scope.survey);

@@ -11,14 +11,15 @@
   
   <div class="form-group">
     <label>Select Topic</label>
-    <select class="form-control" ng-model="topic.topicName" required  ng-options="topic.topicName for topic in topicsArray" ng-change="getSubjects()">
+    <select class="form-control" ng-model="selectedTopic" required  ng-options="topic.topicName for topic in topicsArray" >
     </select>
   </div>  
   
   <div class="form-group">
     <label>Select Subject</label>
-    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject.subjectName for subject in subjectsArray">
+    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject as (subject.subjectName + ', ' + (subject.date |date) + ', ' + subject.recipientGroup.groupName) for subject in selectedTopic.subjects">
     </select>
+    <!-- //subject name, date, recipient group -->
   </div>  
   
   <div class="form-group">
@@ -26,16 +27,17 @@
     <select class="form-control" ng-model="template.name" required  ng-options="template.name for template in templatesArray">
     </select>
   </div>  
-    
+  
+   <!-- 
   <div class="form-group">
     <label for="variables">Variable Replacements</label>
     <div>
-      <input type="text" class="form-control" id="variables" ng-model="template.replacement" ng-repeat="varReplace in template.questions track by $index"required />
+      <input type="text" class="form-control" id="variables" ng-model="template.replacement" ng-repeat="replacement in template.replacement" required />
     </div>
     <button ng-click="addReplacement()">Add Replacement</button>
     <button ng-click="removeReplacement()">Remove Replacement</button> 
   </div>
-  
+  -->
   
   
   
