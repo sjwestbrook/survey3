@@ -1,25 +1,28 @@
-<div id="subject" style="width: 90%;">
+<div id="subject" style="width: 90%; margin-right: 0;">
   <h2 style="font-weight: bold; color: black;">View Survey Results</h2>
   
-  <form name="surveysForm">     
-    <div class="form-group" id="subject">
-      <label>Select Topic</label>
-      <select class="form-control" ng-model="topic.topicName" required  ng-options="topic.topicName for topic in topicsArray">
-      </select>
-    </div>
-    <div class="form-group" id="subject">
-      <label>Select Subject</label>
-      <select class="form-control" ng-model="topic.subjects" required  ng-options="subjects.subjectName for subject in subjectsArray">
-      </select>
-    </div>
+  <form name="surveysForm">   
     
+   <div class="form-group">
+    <label>Select Topic</label>
+    <select class="form-control" ng-model="selectedTopic" required  ng-options="topic.topicName for topic in topicsArray" >
+    </select>
+  </div>  
+  
+  <div class="form-group">
+    <label>Select Subject</label>
+    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject as (subject.subjectName + ', ' + (subject.date |date) + ', ' + subject.recipientGroup.groupName) for subject in selectedTopic.subjects">
+    </select>
+
+  </div>
+    
+  <div id="buttons">
     <div id="buttons">
-      <div id="buttons">
-        <button type="submit" ng-click="getSurveyResults(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
-        
-        <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
-      </div>       
-    </div>    
+      <button type="submit" ng-click="getSurveyResults(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+
+      <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
+    </div>       
+  </div>    
     
   </form> 
 </div>

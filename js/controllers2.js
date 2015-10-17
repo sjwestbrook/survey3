@@ -145,9 +145,10 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
 
 
   $scope.users = [
-    {name: 'Jane Doe', email: 'jane@test.com'},
-    {name: 'John Doe', email: 'john@test.com'},
-    {name: 'Jack Doe', email: 'jack@test.com'}
+    {}
+//    {name: 'Jane Doe', email: 'jane@test.com'},
+//    {name: 'John Doe', email: 'john@test.com'},
+//    {name: 'Jack Doe', email: 'jack@test.com'}
   ];
 
     $scope.addUser = function() {
@@ -306,18 +307,12 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 //  console.log(1111111, subjects.data)
   
   $scope.topicsArray = topics.data;
-  // fix index 0
-  $scope.subjectsArray = topics.data[0].subjects;
-  
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;
     })                            
-  }
-  
-  
-  
+  }  
   
   
     

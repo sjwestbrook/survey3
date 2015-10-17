@@ -92,23 +92,6 @@ templateUrl: 'js/templates/topic.html',
             }
           })
   
-          // confirm survey before sending
-          // display label and data entered by admin ?
-          // modal?
-          .state('admin.createsurvey.confirm-survey', {
-            url: '/confirm-survey',
-            templateUrl: 'js/templates/confirm-survey.html',
-          })
-  
-          // confirm template before saving
-          // display label and data entered by admin ?
-          // modal?
-          .state('admin.template.confirm-template', {
-            url: '/confirm-template',
-            templateUrl: 'js/templates/confirm-template.html',
-          })
-  
-  
   
     .state('students', {
       url: '/students',

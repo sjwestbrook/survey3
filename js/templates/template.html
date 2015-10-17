@@ -1,7 +1,7 @@
-<div class="body">
-<div class="wrapper">
+<div class="template">
+<div class="wrapper" style='width: 90%;'>
 
-  <div id="template" style="width: 90%;">
+  <div id="template" style="width: 100%; margin-right: 0;">
 
   <h2 style="font-weight: bold; color: black;">Create a Template</h2>
 
@@ -18,7 +18,7 @@
     <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view --> 
     <div class="form-group">  
       <label for="variables">Variables</label> 
-      <div ng-repeat="varName in template.varNames track by $index">
+      <div ng-repeat="varName in template.varNames track by $index" style="height: 35px;">
         <input type="text" ng-model="template.varNames[$index]"  class="form-control"  id="varnames"   required  />
       </div>
 
@@ -33,7 +33,7 @@
     <br />
 
   <!--    additional input sections to be repeated as necessary  -->
-      <div ng-repeat="question in template.questions track by $index">
+      <div ng-repeat="question in template.questions track by $index" style="height: 290px;">
         <div class="form-group">
           <label for="titletext">Question Title Text</label>
           <input type="text" class="form-control" id="titletext" ng-model="question.titleText" required />
@@ -70,18 +70,6 @@
 
       <button ng-click="removeQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
 
-
-    <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view  --> 
-    <!--
-    <div class="form-group" >
-      <label for="answers">Answers</label>
-      <div>
-        <input type="text" class="form-control" id="answers2" ng-model="question.answers" ng-repeat="question in template.questions track by $index" required />  
-      </div>
-      <button ng-click="addAnswer()">Add Answer</button>
-      <button ng-click="removeAnswer()">Remove Answer</button>
-    </div>
-    -->
 
     <br />
     <br />

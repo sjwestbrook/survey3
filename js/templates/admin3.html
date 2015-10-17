@@ -23,13 +23,120 @@
     </div><!-- end auth -->
 </div><!-- end auth container -->
   
+
+<!--  =====================================================  -->
+
   
+  <div class="body" ng-show="user == 'test'">
 
-<!--<div class="wrapper" ng-show="authData">  -->
+    <div class="sidebar">
 
+      <div class="boxes">
+        
+        <div id="box1" class="image">
+<!--          <img src="../../images/mtns1.1.jpg" />-->
+          <div class="text">
+            <h4>Create</h4>
+            <p>Add instructors &amp; <br />
+              mentors to the available topics</p>
+            <div class="info"><a ui-sref="admin.topic">Topic</a></div>  
+          </div>
+        </div>
+
+        <div id="box2" class="image">
+<!--          <img src="../../images/mtn8.1.jpg" />-->
+          <div class="text">
+            <h4>Create</h4>
+            <p>Add lecture subjects to <br />
+              the available subjects</p>
+            <div class="info"><a ui-sref="admin.subject">Subject</a></div>
+          </div>
+        </div> 
+
+        <div id="box3" class="image">
+<!--          <img src="../../images/mtns3.jpg" />-->
+          <div class="text">
+            <h4>Create</h4>
+            <p>Create a recipient <br />
+              group (cohort)</p>
+            <div class="info"><a ui-sref="admin.group">Group</a></div>
+          </div>
+        </div> 
+
+        <div id="box4" class="image">
+<!--          <img src="../../images/mtns4.1.jpg" />-->
+          <div class="text">
+            <h4>Create</h4>
+            <p>Create users and add <br />
+              them to a specific group</p>
+            <div class="info"><a ui-sref="admin.users">Users</a></div>
+          </div>
+        </div>      
+
+        <div id="box5" class="image">
+<!--          <img src="../../images/mtns2.jpg" />-->
+          <div class="text">
+            <h4>Create</h4>
+            <p>Create a survey to send <br />
+              to a specific group</p>
+            <div class="info"><a ui-sref="admin.template">Template</a></div>
+          </div>
+        </div>
+
+        <div id="box6" class="image">
+<!--          <img src="../../images/mtns6.1.jpg" />-->
+          <div class="text">
+            <h4>Send</h4>
+            <p>Send a survey to <br />
+              a specific group</p>
+            <div class="info"><a ui-sref="admin.createsurvey">Survey</a></div>
+          </div>
+        </div>  
+
+        <div id="box7" class="image">
+<!--          <img src="../../images/mtn7.1.jpg" />-->
+          <div class="text">
+            <h4>View</h4>
+            <p>View results of <br />
+                completed surveys</p>
+            <div class="info"><a ui-sref="admin.surveys" >Surveys</a></div>
+          </div>
+        </div>
+        
+      </div>  <!-- end boxes -->
+    </div>  <!-- end sidebar -->
+      
+      
+      
+
+    <div class="main">
+      
+      <span class="logout" style="float: left; margin-top: 20px;">
+        <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ng-click="logout()">
+          Sign Out
+        </button>
+      </span>
+      
+      <br />
+      <br />
+      <br />
+      
+      <div id="content" ui-view></div>
+      
+    </div> <!-- end main -->
+    
+    
+    
+
+</div>  <!-- end body -->
+  
+  
+<!--  ===================================================== -->
+  
+<!--  
 <div class="wrapper" ng-show="user == 'test'">  
   
-  <div class="grid">
+  <aside>
     
     <div class="grid-cell-left">
       <div id="box1">
@@ -82,7 +189,6 @@
       </div>
       
       
-      <!--
       <div id="box8" class="b-filler">
         <h4>###</h4>
         <p>### <br />
@@ -124,10 +230,9 @@
           ###</p>
         <div><a ui-sref="#">#</a></div> 
       </div>
--->
-   
- </div>
-<!--   end grid-cell-left    -->
+
+ </aside>
+
     
     <div class="grid-cell-right">
       <span class="logout" style="float: left; margin-top: 20px;">
@@ -141,6 +246,8 @@
       <div id="content" ui-view></div>
     </div>
  
-</div>  <!-- end grid -->
+</div>  
   
-</div>  <!-- end wrapper -->
+</div> 
+-->
+   

@@ -1,4 +1,4 @@
-<div id="users" style="width: 90%;">
+<div id="users" style="width: 90%; margin-right: 0;">
   <h2 style="font-weight: bold; color: black;">Create Users</h2>
   
   <form name="usersForm" role="form">     
@@ -25,7 +25,7 @@
     
     <div class="form-group" style="font-weight: bold; font-size: 18px;">Users</div>
     
-    <div ng-repeat="user in users track by $index">
+    <div ng-repeat="user in users track by $index" style="height: 160px;">
       <div class="form-group">
         <label for="user">User Name</label>
         <input type="text" class="form-control" id="username" ng-model="name" required />
