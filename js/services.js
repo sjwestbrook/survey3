@@ -6,9 +6,12 @@
 //  
 //});
 //
-//app.service('adminServ', function(){
-//  
-//});
+app.service('adminServ', function(){
+  
+  this.auth = function() {
+    
+  };
+});
 
 
 
@@ -56,11 +59,11 @@ app.service('groupServ', function($http){
     return $http.post('api/recipientGroups', groups);
   } 
   
-  // adding users
-  this.updateGroup = function(group, users) {
-//    console.log(group);
-    return $http.put('api/recipientGroups?id=' + group.groupName._id, users);
-  }
+  // adding users - back end not set up to add users
+//  this.updateGroup = function(group, users) {
+////    console.log(group);
+//    return $http.put('api/recipientGroups?id=' + group.groupName._id, users);
+//  }
   
   this.getGroups = function() {
     return $http.get('api/recipientGroups');
@@ -74,10 +77,26 @@ app.service('groupServ', function($http){
 
 app.service('userServ', function($http){
   
-  this.getUsers = function() {
-    return $http.get('api/recipientGroups');
-  }
+//  this.getUsers = function() {
+//    return $http.get('api/recipientGroups');
+//  }
+
   
+//  this.users = [
+//    {name: 'Jane Doe', email: 'jane@test.com'}
+//    {name: 'John Doe', email: 'john@test.com'}
+//    {name: 'Jack Doe', email: 'jack@test.com'}
+//  ];
+//  
+//  this.addUser = function(user) {
+//    this.users.push(user);
+//  };
+//  
+//  this.form={
+//    name: '',
+//    email: '',
+//  };
+//  
 });
 
 

@@ -2,15 +2,35 @@
 <!-- if logged in, show student surveys section AND show logout button-->
 
 
-<!--<div id="studentswrapper" ng-show="authData">-->
-<div class="studentswrapper" style="position: relative;">
+<!--  LOGIN -->
+
+<div ng-hide="user == 'test'" style="width=80%;">
+
+  <h2 style="font-weight: bold; color: black;">Login</h2>
+
+  <form name="templateForm">     
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="username" value="test@test.com" ng-model="user" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="email" ng-model="user" required />
+    </div>
+
+    <button ng-click="submit()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
+
+</div>
+
+
+
+<div class="studentswrapper" style="position: relative;"  ng-show="user == 'test'">
   
   <div class="studentscontent">    
-
-<!--  <h2>New &nbsp; Surveys</h2>-->
   
+    <!-- fix sign out show/hide -->
   <span class="logout" style="float: left; margin-top: 20px;">
-    <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em; position: absolute; top: 20px; right: 50px;" ng-click="logout()">Sign Out</button>
+    <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em; position: absolute; top: 20px; right: 50px;" ng-hide="">Sign Out</button>
   </span>
   
   <br />

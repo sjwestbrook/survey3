@@ -29,9 +29,6 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 
 app.controller('adminCtrl', function($scope,$stateParams,$state) {
 
-      
-//    $scope.login = false;
-
 });
 
 
@@ -125,32 +122,57 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
       })
     };
 
- // add/remove users -- not possible due to back end setup
-  // errors
-  $scope.addUser = function() {
-    $scope.groups.data.push({
-      name: $scope.name,
-      email: $scope.email      
-    });
-    console.log($scope.group.users);
-  };
-    
-  $scope.removeUser = function() {
-    $scope.group.users.pop('');
-    console.log($scope.group.users);
-  };
+// add/remove users -- not possible due to back end setup
+//  $scope.addUser = function() {
+//    $scope.groups.data.push({
+//      name: $scope.name,
+//      email: $scope.email      
+//    });
+//    console.log($scope.group.users);
+//  };
+//    
+//  $scope.removeUser = function() {
+//    $scope.group.users.pop('');
+//    console.log($scope.group.users);
+//  };
   
   
-   $scope.updateGroup = function() {
-     console.log($scope.group);
-     groupServ.updateGroup($scope.group, $scope.users).then(function(res){
-       console.log(res);
-     });
-     console.log($scope.users.email, $scope.users.name );
-     $scope.groupsArray = '';
-     $scope.users = '';
-   };
-   
+ 
+  
+  
+  
+  
+
+
+  $scope.users = [
+    {name: 'Jane Doe', email: 'jane@test.com'},
+    {name: 'John Doe', email: 'john@test.com'},
+    {name: 'Jack Doe', email: 'jack@test.com'}
+  ];
+
+    $scope.addUser = function() {
+        $scope.users.push('');
+        console.log($scope.users);
+    };
+  
+    $scope.removeUser = function() {
+        $scope.users.pop();
+        console.log($scope.users);
+    };
+
+  
+  
+//  
+//   $scope.updateGroup = function() {
+//     console.log($scope.group);
+//     groupServ.updateGroup($scope.group, $scope.users).then(function(res){
+//       console.log(res);
+//     });
+//     console.log($scope.users.email, $scope.users.name );
+//     $scope.groupsArray = '';
+//     $scope.users = '';
+//   };
+//   
 });
 
 

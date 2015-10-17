@@ -1,13 +1,31 @@
 <!-- if logged out, hide admin section -->
 <!-- if logged in, show admin section AND show logout button-->
 
-<!--  LOGIN
+<!--  LOGIN -->
 
--->
+<div ng-hide="user == 'test'" style="width=80%;">
+
+  <h2 style="font-weight: bold; color: black;">Login</h2>
+
+  <form name="templateForm">     
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="username" value="test@test.com" ng-model="user" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="email" ng-model="user" required />
+    </div>
+
+      <button ng-click="submit()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
+
+</div>
+  
+  
 
 <!--<div class="wrapper" ng-show="authData">  -->
 
-<div class="wrapper">  
+<div class="wrapper" ng-show="user == 'test'">  
   
   <div class="grid">
     
