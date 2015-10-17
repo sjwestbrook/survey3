@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('admin', {
       url: '/admin',
-      templateUrl: 'js/templates/admin2.html',
+      templateUrl: 'js/templates/admin3.html',
       controller: 'adminCtrl'   
     })
   
@@ -61,7 +61,6 @@ templateUrl: 'js/templates/topic.html',
             templateUrl: 'js/templates/template.html',
             controller: 'templateCtrl'
           })
-  
   
           // send a survey
           .state('admin.createsurvey', {

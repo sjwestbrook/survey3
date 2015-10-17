@@ -1,97 +1,100 @@
-<div id="template" style="width: 90%;">
+<div class="body">
+<div class="wrapper">
 
-<h2 style="font-weight: bold; color: black;">Create a Template</h2>
+  <div id="template" style="width: 90%;">
 
-<form name="templateForm">     
-  <div class="form-group">
-    <label for="surveyname">Survey Name</label>
-    <input type="text" class="form-control" id="name" ng-model="template.name" required />
-  </div>
-  <div class="form-group">
-    <label for="description">Survey Description</label>
-    <input type="text" class="form-control" id="description" ng-model="template.description" required />
-  </div>
-  
-  
-  <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view --> 
-  <div class="form-group">  
-    <label for="variables">Variables</label> 
-    <div ng-repeat="varName in template.varNames track by $index">
-      <input type="text" ng-model="template.varNames[$index]"  class="form-control"  id="varnames"   required  />
+  <h2 style="font-weight: bold; color: black;">Create a Template</h2>
+
+  <form name="templateForm">     
+    <div class="form-group">
+      <label for="surveyname">Survey Name</label>
+      <input type="text" class="form-control" id="name" ng-model="template.name" required />
     </div>
-    
-    <hr>
-    
-     <button ng-click="addNewVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-     <button ng-click="removeVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-  </div>
-  
-  
+    <div class="form-group">
+      <label for="description">Survey Description</label>
+      <input type="text" class="form-control" id="description" ng-model="template.description" required />
+    </div>
 
-    <div class="form-group" style="font-weight: bold; font-size: 18px;">Questions</div>
-  
-<!--    additional input sections to be repeated as necessary  -->
-    <div ng-repeat="question in template.questions track by $index">
-      <div class="form-group">
-        <label for="titletext">Question Title Text</label>
-        <input type="text" class="form-control" id="titletext" ng-model="question.titleText" required />
+    <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view --> 
+    <div class="form-group">  
+      <label for="variables">Variables</label> 
+      <div ng-repeat="varName in template.varNames track by $index">
+        <input type="text" ng-model="template.varNames[$index]"  class="form-control"  id="varnames"   required  />
       </div>
-      <div class="form-group">
-        <label for="helptext">Question Help Text</label>
-        <input type="text" class="form-control" id="helptext" ng-model="question.helpText" required />
-      </div>
-      <div class="form-group">
-        <label>Question Type</label>
-        <label>
-    <!--      adjust [0]-->
-          <input type="radio" ng-model="template.questions[$index].questionType" value="multiple choice">Multiple choice
-        </label>
-        <label>
-          <input type="radio" ng-model="template.questions[$index].questionType" value="checkbox">Checkbox
-        </label>
-        <label>
-          <input type="radio" ng-model="template.questions[$index].questionType" value="short">Short answer
-        </label>    
-      </div>
-      
-<!--      <hr style="border-top: dashed 1px white;" /> -->
-      
-      <div class="form-group">
-        <label for="answer">Answer</label>
-        <input type="text" class="form-control" id="answer" ng-model="question.answers" required />
-      </div>
-      
+
       <hr>
-      
-    </div>  
-    <!-- end section to repeat -->
-  
-    <button ng-click="addQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-  
-    <button ng-click="removeQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
 
-  
-  <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view  --> 
-  <!--
-  <div class="form-group" >
-    <label for="answers">Answers</label>
-    <div>
-      <input type="text" class="form-control" id="answers2" ng-model="question.answers" ng-repeat="question in template.questions track by $index" required />  
+       <button ng-click="addNewVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+       <button ng-click="removeVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
     </div>
-    <button ng-click="addAnswer()">Add Answer</button>
-    <button ng-click="removeAnswer()">Remove Answer</button>
-  </div>
-  -->
-  
-  <br />
-  <br />
-  
-  <div id="buttons">
-      <button type="submit" ng-click="addTemplate(template)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
-      
-    <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
-  </div>       
 
-  
-</form> 
-</div>
+      <div class="form-group" style="font-weight: bold; font-size: 18px;">Questions</div>
+
+    <br />
+
+  <!--    additional input sections to be repeated as necessary  -->
+      <div ng-repeat="question in template.questions track by $index">
+        <div class="form-group">
+          <label for="titletext">Question Title Text</label>
+          <input type="text" class="form-control" id="titletext" ng-model="question.titleText" required />
+        </div>
+        <div class="form-group">
+          <label for="helptext">Question Help Text</label>
+          <input type="text" class="form-control" id="helptext" ng-model="question.helpText" required />
+        </div>
+        <div class="form-group">
+          <label>Question Type</label>
+          <label>
+      <!--      adjust [0]-->
+            <input type="radio" ng-model="template.questions[$index].questionType" value="multiple choice">Multiple choice
+          </label>
+          <label>
+            <input type="radio" ng-model="template.questions[$index].questionType" value="checkbox">Checkbox
+          </label>
+          <label>
+            <input type="radio" ng-model="template.questions[$index].questionType" value="short">Short answer
+          </label>    
+        </div>
+
+        <div class="form-group">
+          <label for="answer">Answer</label>
+          <input type="text" class="form-control" id="answer" ng-model="question.answers" required />
+        </div>
+
+        <hr>
+
+      </div>  
+      <!-- end section to repeat -->
+
+      <button ng-click="addQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+      <button ng-click="removeQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
+
+
+    <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view  --> 
+    <!--
+    <div class="form-group" >
+      <label for="answers">Answers</label>
+      <div>
+        <input type="text" class="form-control" id="answers2" ng-model="question.answers" ng-repeat="question in template.questions track by $index" required />  
+      </div>
+      <button ng-click="addAnswer()">Add Answer</button>
+      <button ng-click="removeAnswer()">Remove Answer</button>
+    </div>
+    -->
+
+    <br />
+    <br />
+
+    <div id="buttons">
+        <button type="submit" ng-click="addTemplate(template)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+
+      <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
+    </div>       
+
+
+  </form> 
+  </div>
+
+</div><!-- end wrapper-->
+</div><!-- end body -->

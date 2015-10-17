@@ -1,6 +1,10 @@
 <!-- if logged out, hide admin section -->
 <!-- if logged in, show admin section AND show logout button-->
 
+<!--  LOGIN
+
+-->
+
 <!--<div class="wrapper" ng-show="authData">  -->
 
 <div class="wrapper">  
@@ -14,55 +18,96 @@
           to the available topics</p>
         <div class="info"><a ui-sref="admin.topic">Topic</a></div>  
       </div>
-      <div id="box5">
-        <h4>Create</h4>
-        <p>Create users and add <br />
-          them to a specific group</p>
-        <div class="info"><a ui-sref="admin.users">Users</a></div>
-      </div>
-      <div id="box7">
-        <h4>Create</h4>
-        <p>Create a survey to send <br />
-          to a specific group</p>
-        <div class="info"><a ui-sref="admin.template">Template</a></div>
-      </div>
-      <div id="box3" class="b-filler">
-<!--        <img src="images/mtn10.2.jpg" />-->
-        <h4>###</h4>
-        <p>### <br />
-          ###</p>
-        <div><a ui-sref="#">#</a></div> 
-      </div> 
-    </div><!-- end grid cell left -->
-    
-    
-    <div class="grid-cell-mid">
+      
       <div id="box2">
         <h4>Create</h4>
         <p>Add lecture subjects to <br />
           the available subjects</p>
         <div class="info"><a ui-sref="admin.subject">Subject</a></div>
-      </div>   
-      <div id="box4">
+      </div> 
+      
+      <div id="box3">
         <h4>Create</h4>
         <p>Create a recipient <br />
           group (cohort)</p>
         <div class="info"><a ui-sref="admin.group">Group</a></div>
-      </div>  
-      <div id="box8">
+      </div> 
+      
+      <div id="box4">
+        <h4>Create</h4>
+        <p>Create users and add <br />
+          them to a specific group</p>
+        <div class="info"><a ui-sref="admin.users">Users</a></div>
+      </div>      
+      
+      <div id="box5">
+        <h4>Create</h4>
+        <p>Create a survey to send <br />
+          to a specific group</p>
+        <div class="info"><a ui-sref="admin.template">Template</a></div>
+      </div>
+      
+      <div id="box6">
         <h4>Send</h4>
         <p>Send a survey to <br />
           a specific group</p>
         <div class="info"><a ui-sref="admin.createsurvey">Survey</a></div>
-      </div>      
-      <div id="box10">
+      </div>  
+      
+      <div id="box7">
         <h4>View</h4>
         <p>View results of <br />
             completed surveys</p>
         <div class="info"><a ui-sref="admin.surveys" >Surveys</a></div>
+      </div>
+      
+      
+      <!--
+      <div id="box8" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <div><a ui-sref="#">#</a></div> 
       </div> 
-    </div>
-    <!-- end grid cell left -->
+      
+      <div id="box9" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <div><a ui-sref="#">#</a></div> 
+      </div>
+      
+      <div id="box10" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <div><a ui-sref="#">#</a></div> 
+      </div>
+      
+      <div id="box11" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <div><a ui-sref="#">#</a></div> 
+      </div>
+      
+      <div id="box12" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <div><a ui-sref="#">#</a></div> 
+      </div>
+      
+      <div id="box13" class="b-filler">
+        <h4>###</h4>
+        <p>### <br />
+          ###</p>
+        <div><a ui-sref="#">#</a></div> 
+      </div>
+-->
+   
+ </div>
+<!--   end grid-cell-left    -->
     
     <div class="grid-cell-right">
       <span class="logout" style="float: left; margin-top: 20px;">
@@ -75,6 +120,7 @@
       
       <div id="content" ui-view></div>
     </div>
-  </div>
+ 
+</div>  <!-- end grid -->
   
 </div>  <!-- end wrapper -->
