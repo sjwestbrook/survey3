@@ -142,26 +142,26 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
   
   
   
-
-
-  $scope.users = [
-    {}
-//    {name: 'Jane Doe', email: 'jane@test.com'},
-//    {name: 'John Doe', email: 'john@test.com'},
-//    {name: 'Jack Doe', email: 'jack@test.com'}
-  ];
-
-    $scope.addUser = function() {
-        $scope.users.push('');
-        console.log($scope.users);
-    };
-  
-    $scope.removeUser = function() {
-        $scope.users.pop();
-        console.log($scope.users);
-    };
-
-  
+//
+//
+//  $scope.users = [
+//    {}
+////    {name: 'Jane Doe', email: 'jane@test.com'},
+////    {name: 'John Doe', email: 'john@test.com'},
+////    {name: 'Jack Doe', email: 'jack@test.com'}
+//  ];
+//
+//    $scope.addUser = function() {
+//        $scope.users.push('');
+//        console.log($scope.users);
+//    };
+//  
+//    $scope.removeUser = function() {
+//        $scope.users.pop();
+//        console.log($scope.users);
+//    };
+//
+//  
   
 //  
 //   $scope.updateGroup = function() {
@@ -177,9 +177,6 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
 });
 
 
-
-//uib modal bootstrap ui ==========================================
-//https://angular-ui.github.io/bootstrap/
 
 
 // CREATE TEMPLATE ==========================
@@ -275,6 +272,10 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
       $scope.templatesArray = res.data;       
     })
   }
+  
+  
+  
+  // not working
   
 //  // add/remove variable replacements
 //  $scope.addReplacement = function() {

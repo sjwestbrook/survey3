@@ -85,9 +85,6 @@ templateUrl: 'js/templates/topic.html',
             resolve: {
               topics: function(topicServ){
                 return topicServ.getTopics();
-              },
-              subjects: function(subjectServ){
-                return subjectServ.getSubjects();
               }
             }
           })
