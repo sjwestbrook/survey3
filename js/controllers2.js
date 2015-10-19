@@ -315,9 +315,7 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
     })                            
   }  
   
-  
-    
-  //not field select?
+
   $scope.getSurveyResults = function() {
     surveysServ.getSurveyResults().then(function(res) {
       $scope.surveysArray = res.data;  

@@ -371,36 +371,18 @@ html.ng-scope {
     }  // end boxes
   }
   // end sidebar styles
-  
-  
-  
 
 }  // end body styles
 
 
 
 .main {
-  outline: 1px dotted red;
   margin-left: 20px;
-  border-right: 1px solid #999;
-  outline: 1px dotted red;
+  border-right: 1px solid @color4;
   float: right;
   height: 1000px;
   width: 600px;
-//  position: relative;
-//  max-width: 100%;
-    overflow: hidden;
-  
-//  .noscroll {
-//    position: absolute;
-//    left: 0;
-//    overflow-x: hidden;
-//    overflow-y: scroll;
-//  }
-  
-//    .noscroll::webkit-scrollbar {
-//      display: none;
-//      }  
+  overflow: hidden;
     
   div#content {
     width: 620px;
@@ -409,8 +391,7 @@ html.ng-scope {
     
     .ng-scope{
       width: 100%;
-      height: 100%; //?
-//      overflow: auto;
+      height: 100%; 
       margin: 0;
     }
   }
@@ -422,62 +403,111 @@ html.ng-scope {
   
 
 // STUDENT CONTENT STYLES =======================================================
+html.ng-scope {
+  height: 800px;
+  width: 100%;
+}
 
-//div.studentswrapper {
-// .clear;
-// width: 100%;
-//
-//  div.studentscontent {
-//    flex-wrap: nowrap;
-//    justify-content: flex-start;
-//    
-//    
-//    .clear;
-//    width: 100%;
-//    .flex;
-//    border-left: 10px solid @color4;
-//    border-right: 10px solid @color4;
-//    margin-bottom: -30px;
-//    
-//    h3 {
-//      font-weight: bold; 
-//      font-weight: bold; 
-//      color: @color4; 
-//      font-family: @font1;
-//      font-size: @fontsize * 1.8;
-//    }
-//          
-////    h2 {
-////      color: @color1;
-////      text-shadow: 1.5px 1.5px @color4;
-////      font-family: @font1;
-////      font-size: @fontsize * 2;
-////      font-weight: 700;
-////      text-transform: uppercase;
-////      text-align: center;
-////      padding: 20px;
-////      background-color: rgba(0,0,0,0.5);
-////    }
-//
-//    #list {
-//      flex: 1;
-//      background-image: url(../images/waterfall.jpg);
-//      .studentsurveys;
-//      .bg-lg;
-//      border-right: 10px solid @color4;
-//      border-bottom: 10px solid @color4;
-//      text-align: center;
-//    }
-//
-//    #workspace {
-//      flex: 2;
-//      overflow: scroll;
-//      .studentsurveys;
-//      border-bottom: 10px solid @color4;
-//      background-color: @color3;
-//      background-image: url("https://devmounta.in/img/aboutstudents.png");
-//    }
-//  }  
-//  // end student content
-//}
-// end wrapper
+.body {
+  clear: both;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding-top: 5px;
+  
+  .ng-scope {
+    height: 1500px;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .sidebar {
+    width: 40%;
+    height: 1000px;
+    float: left;
+    text-align: center;
+    background-color: transparent;
+    background-image: url(../images/waterfall.jpg);
+    background-size: cover;
+    border-right: 10px solid @color4;
+    border-left: 10px solid @color4;
+    border-bottom: 10px solid @color4;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all 1s ease;
+  
+
+  &:hover {
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    transition: 0.25s ease;
+  }
+    
+    button {
+      width: 80%; 
+      color: @color1; 
+      text-shadow: 1.5px 1.5px @color4; 
+      font-family: sans-serif; 
+      font-size: 2em; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      text-align: center; 
+      padding: 10px; 
+      background-color: rgba(0,0,0,0.5); 
+      border-color: rgba(0,0,0,0.5); 
+      margin: 20px 0 0 10px;
+    }
+    
+    a {
+      text-decoration: none;
+      color:  @color1;
+      font-size: @fontsize * 1.5;
+      font-weight: bold;
+      text-shadow: 1.5px 1.5px @color4;
+      transition: color .2s linear;
+
+      &:hover {
+        color: @color8;
+        text-shadow: 1.5px 1.5px @color4;
+      }
+    }
+  }
+  // end sidebar styles
+
+}  // end body styles
+
+
+
+.main {
+  margin-left: 20px;
+  border-right: 1px solid @color4;
+  float: right;
+  height: 1000px;
+  width: 600px;
+  overflow: hidden;
+    
+  div#workspace {
+    width: 620px;
+    overflow: scroll;
+    height: 100%;
+    
+    .ng-scope{
+      width: 100%;
+      height: 100%; 
+      margin: 0;
+    }
+    
+    h3 {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+}  // end main styles
+
+

@@ -4,57 +4,64 @@
 
 <!--  LOGIN -->
 
-<div ng-hide="user == 'test'" style="width=80%;">
+<div ng-hide="user == 'test'" style="width=80%;" class="auth-container">
 
-  <h2 style="font-weight: bold; color: black;">Login</h2>
-
-  <form name="templateForm">     
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" id="username" value="test@test.com" ng-model="user" required />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="text" class="form-control" id="email" ng-model="user" required />
-    </div>
-
-    <button ng-click="submit()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
-
-</div>
-
-
-
-<div class="studentswrapper" style="position: relative;"  ng-show="user == 'test'">
-  
-  <div class="studentscontent">    
-  
-    <!-- fix sign out show/hide -->
-  <span class="logout" style="float: left; margin-top: 20px;">
-    <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em; position: absolute; top: 20px; right: 50px;" ng-hide="">Sign Out</button>
-  </span>
-  
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-          
-  <div id="list">  
+  <div class="auth">
     
-    <button type="submit" ng-click="getSurveys()" style="width: 80%; color: white; text-shadow: 1.5px 1.5px black; font-family: sans-serif; font-size: 2em; font-weight: 700; text-transform: uppercase; text-align: center; padding: 10px; background-color: rgba(0,0,0,0.5); border-color: rgba(0,0,0,0.5); margin: 10px auto;" >New Surveys</button>
+    <h2 style="font-weight: bold; color: black;">Login</h2>
+
+    <form name="templateForm">     
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="username" value="test@test.com" ng-model="user" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="email" ng-model="user" required />
+      </div>
+
+      <button ng-click="submit()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
+
+    </div>
+    
+</div>
+  
+  <!--  =====================================================  -->
+
+  
+  <div class="body" ng-show="user == 'test'">
+
+  <div class="sidebar">  
+    
+    <button type="submit" ng-click="getSurveys()">New Surveys</button>
     <br />
     <br />
     
     <!-- ng-repeat (?) list of surveys -->
     
-    <a ui-sref="students.opensurvey" style="color: black; font-weight: bold; font-size: 16px; background-color: white;">survey 1</a>
-  </div>
+    <a ui-sref="students.opensurvey">survey 1</a>
+  </div>  <!-- end sidebar -->
+    
+    
+    
 
 <!--    how to get surveys to open here need ui-sref in #list? configure that in the controller? (all surveys clicked have ui-sref="students.opensurvey" and open below?-->
-    
-  <div id="workspace">
-    <!-- student takes survey here-->
-    <div id="opensurvey" ui-view>  </div>      
-  </div>
+  
+  <div class="main">
+      
+    <span class="logout" style="float: left; margin-top: 20px;">
+      <button type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" ng-click="logout()">
+        Sign Out
+      </button>
+    </span>
+
+    <br />
+    <br />
+    <br />
+
+    <div id="workspace" ui-view></div>
+
+  </div> <!-- end main -->
+  
 
 </div>
