@@ -96,65 +96,65 @@ app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupSer
 
 // CREATE USERS ===================================
 
-app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupServ, userServ, groups) {
-  
-//  console.log(1111111111, groups.data);
+app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupServ, groups ) {
+  // groups --> groups dropdown, from getGroups
+  // group --> passed in from userServ
+//  userServ, , email, password, userType, group
   
   $scope.group = {};
-  $scope.group.users = [{}];
+//  $scope.group.users = [{}];
 
   $scope.groupsArray = groups.data;
-  $scope.users = [{}];
   
-  
-   $scope.getGroups = function() {
-      groupServ.getGroups().then(function(res) {
-        $scope.groupsArray = res.data;        
-      })
-    };
+  $scope.users = [{
+//    email: '',
+//    password: '',
+//    userType: '',
+//    group: ''
+  }];
 
-// add/remove users -- not possible due to back end setup
-//  $scope.addUser = function() {
-//    $scope.groups.data.push({
-//      name: $scope.name,
-//      email: $scope.email      
-//    });
-//    console.log($scope.group.users);
-//  };
-//    
-//  $scope.removeUser = function() {
-//    $scope.group.users.pop('');
-//    console.log($scope.group.users);
-//  };
+//  $scope.email = {};
+//  $scope.password = {};
+//  $scope.userType = {};
+//  $scope.group = {};
+
   
+  $scope.getGroups = function() {
+    groupServ.getGroups().then(function(res) {
+      $scope.groupsArray = res.data;        
+    })
+  };
+
+  // add multiple users at once?
+  $scope.addUser = function() {
+    userServ.addUser ($scope.email, $scope.password, $scope.userType, $scope.group);
+    console.log($scope.users)
+  }
+ 
+  
+  // add and remove user(s) as in template.html? 
+  $scope.newUser = function() {
+    $scope.users.push('');
+    console.log($scope.users);
+  };
+    
+//  $scope.removeAnswer = function() {
+//    $scope.questions.pop();
+//    console.log($scope.template.questions);
+//  };
   
  
   
   
+  // submit
   
   
-//
-//
-//  $scope.users = [
-//    {}
-////    {name: 'Jane Doe', email: 'jane@test.com'},
-////    {name: 'John Doe', email: 'john@test.com'},
-////    {name: 'Jack Doe', email: 'jack@test.com'}
-//  ];
-//
-//    $scope.addUser = function() {
-//        $scope.users.push('');
-//        console.log($scope.users);
-//    };
-//  
-//    $scope.removeUser = function() {
-//        $scope.users.pop();
-//        console.log($scope.users);
-//    };
-//
-//  
   
-//  
+  
+  
+  
+  
+ 
 //   $scope.updateGroup = function() {
 //     console.log($scope.group);
 //     groupServ.updateGroup($scope.group, $scope.users).then(function(res){

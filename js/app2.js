@@ -47,7 +47,7 @@ templateUrl: 'js/templates/topic.html',
 
           .state('admin.users', {
             url: '/users',
-            templateUrl: 'js/templates/users.html',
+            templateUrl: 'js/templates/users2.html',
             controller: 'usersCtrl',
             resolve: {
               groups: function(groupServ){

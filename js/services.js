@@ -76,27 +76,22 @@ app.service('groupServ', function($http){
     
 
 app.service('userServ', function($http){
-  
-//  this.getUsers = function() {
-//    return $http.get('api/recipientGroups');
-//  }
 
+  this.addUser = function(email, password, userType, group) {    
+    var newUser = new userServ.NewUser(email, password, userType, group);  
+    return $http.post('api/signup', recipientGroup_id);
+  }
   
-//  this.users = [
-//    {name: 'Jane Doe', email: 'jane@test.com'}
-//    {name: 'John Doe', email: 'john@test.com'}
-//    {name: 'Jack Doe', email: 'jack@test.com'}
-//  ];
-//  
-//  this.addUser = function(user) {
-//    this.users.push(user);
-//  };
-//  
-//  this.form={
-//    name: '',
-//    email: '',
-//  };
-//  
+  
+  	this.postSurveyTemplate = function( name, description, questions, varNames ) {
+
+		var newSurvey = new surveyService.SurveyTemplate( name, description, questions, varNames );
+
+		return $http.post(connectionInfo.url + '/api/surveyTemplates', newSurvey)
+
+	}
+  
+  
 });
 
 
