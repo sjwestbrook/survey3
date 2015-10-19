@@ -99,22 +99,9 @@ app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupSer
 app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupServ, groups, userServ, newUserServ, userServ ) {
   
   $scope.group = {};
-//  $scope.group.users = [{}];
-
   $scope.groupsArray = groups.data;
   
-  $scope.users = [{
-//    email: '',
-//    password: '',
-//    userType: '',
-//    group: ''
-  }];
-
-//  $scope.email = {};
-//  $scope.password = {};
-//  $scope.userType = {};
-//  $scope.group = {};
-
+  $scope.users = [{}];
   
   $scope.getGroups = function() {
     groupServ.getGroups().then(function(res) {
@@ -125,7 +112,7 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
 
   // add and remove user(s) as in template.html? 
   $scope.newUser = function() {
-    $scope.users.push('');
+    $scope.users.push({});
     console.log($scope.users);
   };
     

@@ -3,7 +3,7 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	bodyParser = require('body-parser'),
 	passport = require('passport'),
-	ession = require('express-session'),
+	session = require('express-session'),
 	cors = require('cors'),
 	port = process.env.port || 8000,
 	mongoUri = 'mongodb://localhost:27017/topicSurveys';
@@ -74,19 +74,24 @@ app.delete('/api/parsedSurveys', parsedSurveyCtrl.deleteSurvey);
 
 //AUTH
 
-app.post('/api/signup', passport.authenticate('local-signup', function ( req, res ){
-	if(!req.user){
-		res.redirect('/#/');
-	}
-    res.send(req.user);
-}));
+//app.post('/api/signup', passport.authenticate('local-signup', function ( req, res ){
+//  console.log(req, 'testststs');
+//	if(!req.user){
+//		res.redirect('/#/');
+//	}
+//    res.send(req.user);
+//}));
 
-app.post('/api/login', passport.authenticate('local-login'), function (req, res ){
-	if(!req.user){
-		res.redirect('/#/');
-	}
-    res.send(req.user);
-});
+app.post('/api/signup', passport.authenticate('local-signup', {
+  successRedirect: '/#/success',
+  failureRedirect: '/#/failure'
+}))
+
+//
+//app.post('/api/login', passport.authenticate('local-login', {
+//  successRedirect: '/#/',
+//  failureRedirect: '/#/tests'
+//});
 
 
 

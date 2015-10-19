@@ -88,9 +88,9 @@ app.service('userServ', function($http, newUserServ){
 
   this.addUser = function(users) { 
     
-    for (var i = 0; i < users.length - 1; i++) {
+    for (var i = 0; i < users.length; i++) {
       var newUser = new newUserServ.NewUser(users[i]); 
-      return $http.post('/api/signup', newUser);
+      $http.post('/api/signup', newUser);
     }
     
   }
