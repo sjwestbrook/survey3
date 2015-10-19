@@ -8,14 +8,16 @@
 //
 app.service('adminServ', function(){
   
-  this.auth = function() {
-    
-  };
+//  this.auth = function() {
+//    
+//  };
 });
 
 
 
 
+    
+// TOPIC SERVICE ===================================
 
 app.service('topicServ', function($http){
   
@@ -34,36 +36,15 @@ app.service('topicServ', function($http){
   }
 });
 
-    
-//    
-//
-//
-//app.service('subjectServ', function($http){
-// 
-//// add subject = update topic
-//  
-//// access results array in topic model
-//  this.getSubjects = function() {
-//    return $http.get('/api/topic');
-//  }                                                 
-//});
-//    
-//    
-//    
-    
-    
 
+    
+    
+// GROUP SERVICE ===================================
 app.service('groupServ', function($http){
   
   this.addGroup = function(groups) {
     return $http.post('api/recipientGroups', groups);
   } 
-  
-  // adding users - back end not set up to add users
-//  this.updateGroup = function(group, users) {
-////    console.log(group);
-//    return $http.put('api/recipientGroups?id=' + group.groupName._id, users);
-//  }
   
   this.getGroups = function() {
     return $http.get('api/recipientGroups');
@@ -72,7 +53,9 @@ app.service('groupServ', function($http){
 });
 
     
-//USER CONSTRUCTOR FUNCTION ========================
+
+
+// USER CONSTRUCTOR FUNCTION ========================
     
 app.service('newUserServ', function($http){
 this.NewUser = function(user) {
@@ -83,7 +66,10 @@ this.NewUser = function(user) {
     }
 });
 
-//===========================
+
+
+
+// NEW USER =========================================
 app.service('userServ', function($http, newUserServ){
 
   this.addUser = function(users) { 
@@ -100,29 +86,42 @@ app.service('userServ', function($http, newUserServ){
 
 
 
-//===============================================   
+// TEMPLATE CONSTRUCTOR FUNCTIONS ========================
+
+// inject service into templateServ?  Or is service below ok?  Does send to robomongo
+
+//app.service('newTemplateServ', function($http){
+//  this.NewTemplate = function(template) {
+//    this.name = template.name;
+//    this.description = template.description;
+//  };
+//
+//  // varNames array
+//  this.VarNames = function(varNames) {
+//    this.varNames = varNames.varName;
+//  };
+//   
+//  // questions array
+//  this.Questions = function(questions) {
+//    this.titleText: questions.titleText,
+//    this.helpText: questions.helpText,
+//    this.questionType: questions.questionType,
+//    this.answer: questions.answer
+//  };
+//  
+//});
+
+
+
+
+// TEMPLATE SERV ===========================================   
 
 app.service('templateServ', function($http){
   
-  this.postSurveyTemplate = function( name, description, questions, varNames ) {
-    
-    this.name = name;
-    this.description = description;
-    this.questions = questions; 
-    this.varNames = varNames;
-    
-    
-    
-		var newSurvey = new surveyService.SurveyTemplate( name, description, questions, varNames );
-
-		return $http.post(connectionInfo.url + '/api/surveyTemplates', newSurvey)
   
-  };
-  
-  
-//  this.addTemplate = function(template) {
-//    return $http.post('api/surveyTemplates', template);
-//  } 
+  this.addTemplate = function(template) {
+    return $http.post('api/surveyTemplates', template);
+  } 
   
   this.getTemplates = function() {
     return $http.get('api/surveyTemplates');
