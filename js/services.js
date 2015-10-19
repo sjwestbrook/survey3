@@ -72,40 +72,77 @@ app.service('groupServ', function($http){
 });
 
     
-
+//USER CONSTRUCTOR FUNCTION ========================
     
+app.service('newUserServ', function($http){
+this.NewUser = function(user) {
+      this.email = user.email;
+      this.password = user.password;
+      this.userType = user.userType;
+      this.group = user.group._id;
+    }
+});
 
-app.service('userServ', function($http){
+//===========================
+app.service('userServ', function($http, newUserServ){
 
-  this.addUser = function(email, password, userType, group) {    
-    var newUser = new userServ.NewUser(email, password, userType, group);  
-    return $http.post('api/signup', recipientGroup_id);
+  this.addUser = function(users) { 
+    
+    for (var i = 0; i < users.length - 1; i++) {
+      var newUser = new newUserServ.NewUser(users[i]); 
+      return $http.post('/api/signup', newUser);
+    }
+    
   }
-  
-  
-  	this.postSurveyTemplate = function( name, description, questions, varNames ) {
-
-		var newSurvey = new surveyService.SurveyTemplate( name, description, questions, varNames );
-
-		return $http.post(connectionInfo.url + '/api/surveyTemplates', newSurvey)
-
-	}
-  
-  
+    
 });
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//===============================================   
 
 app.service('templateServ', function($http){
   
-  this.addTemplate = function(template) {
-    return $http.post('api/surveyTemplates', template);
-  } 
+  this.postSurveyTemplate = function( name, description, questions, varNames ) {
+    
+    this.name = name;
+    this.description = description;
+    this.questions = questions; 
+    this.varNames = varNames;
+    
+    
+    
+		var newSurvey = new surveyService.SurveyTemplate( name, description, questions, varNames );
+
+		return $http.post(connectionInfo.url + '/api/surveyTemplates', newSurvey)
+  
+  };
+  
+  
+//  this.addTemplate = function(template) {
+//    return $http.post('api/surveyTemplates', template);
+//  } 
   
   this.getTemplates = function() {
     return $http.get('api/surveyTemplates');
-  }
+  };
+
   
 });
 

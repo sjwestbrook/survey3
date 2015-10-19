@@ -5,7 +5,7 @@
 
   <h2 style="font-weight: bold; color: black;">Create a Template</h2>
 
-  <form name="templateForm">     
+  <form name="templateForm" >     
     <div class="form-group">
       <label for="surveyname">Survey Name</label>
       <input type="text" class="form-control" id="name" ng-model="template.name" required />
@@ -18,20 +18,23 @@
     <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view --> 
     <div class="form-group">  
       <label for="variables">Variables</label> 
-      <div ng-repeat="varName in template.varNames track by $index" style="height: 47px;">
+      <div ng-repeat="varName in template.varNames track by $index" style="height: 35px;">
         <input type="text" ng-model="template.varNames[$index]"  class="form-control"  id="varnames"   required  />
       </div>
-
+      
+      <hr>
+      
        <button ng-click="addNewVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
        <button ng-click="removeVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
       
-      <hr>
     </div>
+    
+    <br />
 
       <div class="form-group" style="font-weight: bold; font-size: 18px;">Questions</div>
 
   <!--    additional input sections to be repeated as necessary  -->
-      <div ng-repeat="question in template.questions track by $index" style="height: 265px;">
+      <div ng-repeat="question in template.questions track by $index" style="height: 280px;">
         <div class="form-group">
           <label for="titletext">Question Title Text</label>
           <input type="text" class="form-control" id="titletext" ng-model="question.titleText" required />
@@ -53,14 +56,13 @@
             <input type="radio" ng-model="template.questions[$index].questionType" value="short">Short answer
           </label>    
         </div>
-
         <div class="form-group">
           <label for="answer">Answer</label>
           <input type="text" class="form-control" id="answer" ng-model="question.answers" required />
         </div>
 
-        
-
+        <hr>
+        <br />
       </div>  
       <!-- end section to repeat -->
 
@@ -68,7 +70,8 @@
 
       <button ng-click="removeQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
 
-    <hr>
+    <br />
+    <br />
 
     <div id="buttons">
         <button type="submit" ng-click="addTemplate(template)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>

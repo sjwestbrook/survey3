@@ -1,54 +1,48 @@
-<div id="users" style="width: 90%; margin-right: 0;">
+<div id="users" style="width: 90%; height: 4000px; margin-right: 0;">
+  
   <h2 style="font-weight: bold; color: black;">Create Users</h2>
   
-  <form name="usersForm" role="form">     
+  <form name="usersForm" role="form">   
     <!--
-    <div class="form-group" id="users">
-      <label>Group</label>
-      <select class="form-control" ng-model="group.groupName"  ng-options="group.groupName for group in groupsArray" required>
-      </select>
-    </div>
-    -->
-   
     <div class="form-group" style="font-weight: bold; font-size: 18px;">Users</div>
+-->
     
-    <div ng-repeat="user in users track by $index" style="height: 250px;">
+    <div ng-repeat="user in users track by $index" style="height: 310px;">
       <div class="form-group">
         <label for="email">User Email</label>
-        <input type="text" class="form-control" id="email" ng-model="name" required />
+        <input type="text" class="form-control" id="email" ng-model="users[$index].email" required />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="text" class="form-control" id="password" ng-model="email" required />
+        <input type="text" class="form-control" id="password" ng-model="users[$index].password" required />
       </div>
       <div class="form-group">
         <label for="userType">User Type</label>
-        <input type="text" class="form-control" id="usertype" ng-model="email" required />
+        <input type="text" class="form-control" id="usertype" ng-model="users[$index].userType" required />
       </div>
-      <div class="form-group">
-        <label for="group">Group</label>
-        <input type="text" class="form-control" id="group" ng-model="email" required />
+      <div class="form-group" id="users">
+        <label>Group</label>
+        <select class="form-control" ng-model="users[$index].group"  ng-options="group.groupName for group in groupsArray" required>
+        </select>
       </div>
+      
+      <hr>
+      <br />
+    </div>  <!-- end section to repeat -->
+    
+    <br />
     
       <button ng-click="newUser()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
     
     <button ng-click="removeUser()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
     
     <hr>
-    </div>
-    
-     <br />
-    <br />
-     <br />
-    <br />
-    
-    
     
     <br />
     <br />
     
     <div id="buttons">
-      <button type="submit" ng-click="updateGroup(users)" style="height:30px; width:100px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+      <button type="submit" ng-click="addUser(users)" style="height:30px; width:100px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
       <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Reset</button>     
     </div>    
     

@@ -96,10 +96,7 @@ app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupSer
 
 // CREATE USERS ===================================
 
-app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupServ, groups ) {
-  // groups --> groups dropdown, from getGroups
-  // group --> passed in from userServ
-//  userServ, , email, password, userType, group
+app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupServ, groups, userServ, newUserServ, userServ ) {
   
   $scope.group = {};
 //  $scope.group.users = [{}];
@@ -125,46 +122,27 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
     })
   };
 
-  // add multiple users at once?
-  $scope.addUser = function() {
-    userServ.addUser ($scope.email, $scope.password, $scope.userType, $scope.group);
-    console.log($scope.users)
-  }
- 
-  
+
   // add and remove user(s) as in template.html? 
   $scope.newUser = function() {
     $scope.users.push('');
     console.log($scope.users);
   };
     
+  
 //  $scope.removeAnswer = function() {
 //    $scope.questions.pop();
 //    console.log($scope.template.questions);
 //  };
   
  
+  // ie 'submit' add multiple users at once?
+  $scope.addUser = function() {
+    userServ.addUser ($scope.users);
+    console.log($scope.users)
+  }
   
   
-  // submit
-  
-  
-  
-  
-  
-  
-  
- 
-//   $scope.updateGroup = function() {
-//     console.log($scope.group);
-//     groupServ.updateGroup($scope.group, $scope.users).then(function(res){
-//       console.log(res);
-//     });
-//     console.log($scope.users.email, $scope.users.name );
-//     $scope.groupsArray = '';
-//     $scope.users = '';
-//   };
-//   
 });
 
 
