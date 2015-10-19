@@ -2,13 +2,22 @@ var express = require('express'),
 	app = express(),
 	mongoose = require('mongoose'),
 	bodyParser = require('body-parser'),
+	passport = require('passport'),
+	ession = require('express-session'),
 	cors = require('cors'),
 	port = process.env.port || 8000,
 	mongoUri = 'mongodb://localhost:27017/topicSurveys';
 // 
+
+require('./config/passport.js')(passport);
+
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(__dirname + '/'))
+app.use(express.static(__dirname + '/'));
+app.use(session({ secret: 'igetsoboredwhenidonthavethingstoprogram' }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
 	console.log('connected to mongo at ' + mongoUri);
@@ -60,6 +69,24 @@ app.post('/api/parsedSurveys', parsedSurveyCtrl.addSurvey);
 app.put('/api/parsedSurveys/takenBy', parsedSurveyCtrl.updateSurvey);
 
 app.delete('/api/parsedSurveys', parsedSurveyCtrl.deleteSurvey);
+
+
+
+//AUTH
+
+app.post('/api/signup', passport.authenticate('local-signup', function ( req, res ){
+	if(!req.user){
+		res.redirect('/#/');
+	}
+    res.send(req.user);
+}));
+
+app.post('/api/login', passport.authenticate('local-login'), function (req, res ){
+	if(!req.user){
+		res.redirect('/#/');
+	}
+    res.send(req.user);
+});
 
 
 
