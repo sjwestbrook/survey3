@@ -117,10 +117,10 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
   };
     
   
-//  $scope.removeAnswer = function() {
-//    $scope.questions.pop();
-//    console.log($scope.template.questions);
-//  };
+  $scope.removeuser = function() {
+    $scope.users.pop();
+    console.log($scope.users);
+  };
   
  
   // ie 'submit' add multiple users at once?

@@ -100,21 +100,6 @@ app.service('userServ', function($http, newUserServ){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //===============================================   
 
 app.service('templateServ', function($http){
