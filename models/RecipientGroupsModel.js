@@ -3,11 +3,11 @@ var mongoose = require('mongoose'),
 	Topic = require('./TopicModel.js');
 
 var RecipientGroupsSchema = new Schema({
-	groupName: String,
-	users: [{
-		name: String,
-		email: String
-	}]
+	groupName: String
+	// users: [{
+	// 	name: String,
+	// 	email: String
+	// }]
 });
 
 
