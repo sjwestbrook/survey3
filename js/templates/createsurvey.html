@@ -32,10 +32,11 @@
   <div class="form-group">
     <label for="variables">Variable Replacements</label>
     <div>
-      <input type="text" class="form-control" id="variables" ng-model="template.replacement" ng-repeat="replacement in template.replacement" required />
+      <input type="text" class="form-control" id="variables" ng-model="template.replacement" ng-repeat="replacement in template.replacement" style="height: 35px; margin: 5px;" required />
     </div>
-    <button ng-click="addReplacement()">Add Replacement</button>
-    <button ng-click="removeReplacement()">Remove Replacement</button> 
+    <button ng-click="addReplacement()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+     
+    <button ng-click="removeReplacement()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
   </div>
 
   

@@ -268,16 +268,16 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
   
   // not working
   
-//  // add/remove variable replacements
-//  $scope.addReplacement = function() {
-//  $scope.template.replacement.push('');
-////    console.log($scope.template.questions);
-//  };
-//    
-//  $scope.removeReplacement = function() {
-//    $scope.template.replacement.pop();
-////    console.log($scope.template.questions);
-//  };
+  // add/remove variable replacements
+  $scope.addReplacement = function() {
+  $scope.template.replacement.push('');
+    console.log($scope.template.questions);
+  };
+    
+  $scope.removeReplacement = function() {
+    $scope.template.replacement.pop();
+    console.log($scope.template.questions);
+  };
   
   $scope.addSurvey = function() {
     createSurveyServ.addSurvey($scope.survey);
