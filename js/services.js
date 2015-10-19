@@ -124,6 +124,9 @@ app.service('createSurveyServ', function($http){
    this.addSurvey = function(survey) {
     return $http.post('api/parsedSurveys', survey);
   } 
+   
+   
+   
 });
 
     
@@ -137,6 +140,10 @@ app.service('surveysServ', function($http){
   this.getSurveyResults = function() {
     $http.get('api/parsedSurveys');
   }
+  
+  
+  // string parser to get variable replacements
+  
   
 });
 

@@ -1,0 +1,30 @@
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigaton</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">
+        <img src="images/logowhiteblue.png" alt="Home" title="Home" width="255px" height="47px"/>
+      </a>
+    </div>  <!-- end navbar-header -->
+    
+<!--    when the browser is collapsed and the jquery kicks in, its going to reference the contents that are in this div-->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="admin">Admin</a></li>
+        <li><a ui-sref="students">Students</a></li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+div.navbar.navbar-default.navbar-static-top {
+  border-bottom: 10px solid black;
+}

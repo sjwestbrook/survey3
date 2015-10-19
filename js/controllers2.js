@@ -16,16 +16,7 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 
 
 
-
 // PARENT ADMIN CONTROLLER ============================================
-
-
-//  SET UP AUTH
-//    - show login form when switching to admin view
-//    - hide main content until authenticated  
-//    - after authentication
-//      - show main content
-//      - show logout button
 
 app.controller('adminCtrl', function($scope,$stateParams,$state) {
 

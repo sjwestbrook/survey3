@@ -18,17 +18,52 @@
 <body ng-controller="mainCtrl">
 
   <header>
+    
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigaton</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">
+        <img src="images/logowhiteblue.png" alt="Home" title="Home" width="200px" />
+      </a>
+    </div>  <!-- end navbar-header -->    
+<!--    when the browser is collapsed and the jquery kicks in, its going to reference the contents that are in this div-->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="admin">Admin</a></li>
+        <li><a ui-sref="students">Students</a></li>
+      </ul>
+    </div>    
+  </div>
+</div> <!-- end navigation -->
+    
+    <!--
     <div id="logo">
       <a ui-sref="home">
         <img src="images/logowhiteblue.png" alt="Home" title="Home" width="255px" height="47px"/>
       </a>
     </div>
+    -->
+    
+    <!--    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>  -->
+    
+    <!--
     <div id="login">
-      <ul>
-        <li><a ui-sref="students">Students</a></li>
-        <li><a ui-sref="admin">Admin</a></li>        
+      <ul class="nav">        
+        <li class="nav-item"><a ui-sref="students">Students</a></li>
+        <li class="nav-item"><a ui-sref="admin">Admin</a></li>    
+        <li class="nav-item"><a ui-sref="home">Home</a></li>
       </ul>
     </div>
+    -->
+    
+    
   </header>
 
   <div id="maincontent">
@@ -46,14 +81,15 @@
 <!-- <script src="js/bundle.js"></script> -->
 
 <script src="bower_components/angular/angular.js" type="text/javascript"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js" type="text/javascript"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/api-check/dist/api-check.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js" type="text/javascript"></script>
+<script src="bower_components/api-check/dist/api-check.min.js"></script>
 <script src="bower_components/angular-formly/dist/formly.min.js"></script>
 <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js"></script>
+  
 <script src="js/app2.js"></script>
 <script src="js/controllers2.js"></script>
 <script src="js/services.js"></script>

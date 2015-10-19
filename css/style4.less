@@ -38,7 +38,6 @@
 }
 
 
-
 .image {
   position: relative;
   color: @color4;
@@ -60,11 +59,6 @@
     -webkit-filter: grayscale(0%);
     filter: none;
     transition: 0.25s ease;
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
   }
   
   .text {
@@ -177,10 +171,10 @@ div.auth {
 
 
 // GLOBAL STYLES ===============================================================
-
- * {
-   outline: 1px dotted red;
- }
+//
+// * {
+//   outline: 1px dotted red;
+// }
 
 html{
     height: 100%
@@ -211,50 +205,94 @@ div#maincontent {
 // HEADER ========================================================
 
 header {
-  color: @color2;
-  background-color: @color1;
-  height: 75px;
-  border-bottom: 10px solid @color4;
-
-  div#logo {
-    float: left;
-    margin-left: 12px;
+  
+  div.navbar.navbar-default.navbar-static-top {
+    border-bottom: 10px solid black;
+    margin-bottom: 10px;
     padding-top: 10px;
-    padding-left: 50px;
-  }
+   
+  
+//    .navbar.navbar-default.navbar-static-top {
+      .container {
+        .navbar-header {
 
-  div#login {
-    float: right;
-    position: relative;
-    padding-top: 25px;
-
-    ul {
-      padding-right: 50px;
-      
-
-      li {
-        display: inline-block;
-        padding: 0 15px;
-        float: right;
-        position: relative;
-        list-style: none;
-
-        a {
-          color: lighten(@color2, 10%);
-          text-decoration: none;
-          letter-spacing: 2px;
-          font-family: @font1;
-
-          &:hover {
-            transition: .5s ease;
-            color: @color3;
+          a.navbar-brand {
+            float: left;
+            margin-left: 12px;
+//            padding-bottom: 10px;
+            padding-left: 50px;
           }
         }
       }
-    }
-  }
-}
-// end header styles
+//    }
+
+    
+    .navbar-collapse.collapse {
+      padding-top: 20px;
+      ul {
+        li {
+          a {
+            color: lighten(@color2, 10%);
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-family: @font1;
+            cursor: pointer;
+
+            &:hover {
+              transition: .5s ease;
+              color: @color3;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }  // end navbar-collapse.collapse
+    
+  }  // end div.navbar.navbar-default.navbar-static-top
+}  // end header styles
+  
+
+//  div#logo {
+//    float: left;
+//    margin-left: 12px;
+//    padding-top: 10px;
+//    padding-left: 50px;
+//  }
+
+//  div#login {
+//    float: right;
+//    position: relative;
+//    padding-top: 15px;
+//    
+//
+//    .nav {
+//      padding-right: 50px;
+//      
+//
+//      .nav-item {
+//        display: inline-block;
+//        padding: 0 15px;
+//        float: right;
+//        position: relative;
+//        list-style: none;
+//
+//        a {
+//          color: lighten(@color2, 10%);
+//          text-decoration: none;
+//          letter-spacing: 2px;
+//          font-family: @font1;
+//          cursor: pointer;
+//
+//          &:hover {
+//            transition: .5s ease;
+//            color: @color3;
+//            background-color: transparent;
+//          }
+//        }
+//      }
+//    }
+//  }
+
 
 
 
@@ -328,7 +366,7 @@ html.ng-scope {
   }
   
   .sidebar {
-    width: 40%;
+    width: 35%;
     height: 1000px;
     float: left;
     
@@ -378,7 +416,6 @@ html.ng-scope {
 
 .main {
   margin-left: 20px;
-  border-right: 1px solid @color4;
   float: right;
   height: 1000px;
   width: 600px;
@@ -424,8 +461,8 @@ html.ng-scope {
     padding: 0;
   }
   
-  .sidebar {
-    width: 40%;
+  .studentsidebar {
+    width: 35%;
     height: 1000px;
     float: left;
     text-align: center;
@@ -485,7 +522,6 @@ html.ng-scope {
 
 .main {
   margin-left: 20px;
-  border-right: 1px solid @color4;
   float: right;
   height: 1000px;
   width: 600px;
@@ -511,3 +547,16 @@ html.ng-scope {
 }  // end main styles
 
 
+
+
+// MEDIA QUERIES =================================
+//
+//@media only screen and (min-width: 320px) and (max-width: 768px) {
+//  .nav {
+//    width:100%;
+//  }
+//  .nav-item {
+//    width:100%;
+//    float:none;
+//  }
+//}
