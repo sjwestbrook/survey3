@@ -122,25 +122,25 @@
 }
 
 
-div.auth-container {
-  width: 80%;
-  height: 100%;
-  margin: 0 auto;
-  padding: 50px 0;
-  
-}
-
-div.auth {
-  width: 70%;
-  height: 100%;
-  margin: 0 auto;
-  padding: 20px 45px;
-  border: 10px solid black;
-  background-color: @color1;
-  button {
-    .button;
-  }
-}
+//div.auth-container {
+//  width: 80%;
+//  height: 100%;
+//  margin: 0 auto;
+//  padding: 50px 0;
+//  
+//}
+//
+//div.auth {
+//  width: 70%;
+//  height: 100%;
+//  margin: 0 auto;
+//  padding: 20px 45px;
+//  border: 10px solid black;
+//  background-color: @color1;
+//  button {
+//    .button;
+//  }
+//}
 
 
 // center vertically -- http://learnlayout.com/flexbox.html
@@ -484,8 +484,6 @@ html.ng-scope {
 
 }  // end body styles
 
-
-
 .main {
   margin-left: 20px;
   float: right;
@@ -520,25 +518,10 @@ html.ng-scope {
 
 
 
-
-
-
-
-
-
-// MEDIA QUERIES =================================
-
-/* Landscape iPhone 5 */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-
-    /*
-    
+ /*    
       home.html
         -reduce font size
+        -vertically align text
     
       student
         -"new surveys" smaller font size
@@ -550,9 +533,23 @@ html.ng-scope {
         -reduce all font sizes in secodary 'menu'
         -change form max width (ca. 200px smaller)
     */
-    
 
-  // HOME.HTML STYLES ======================================================== 
+
+// MEDIA QUERIES =================================
+
+/* Landscape iPhone 5 */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+  body {
+    ng-scope: 400px;
+  }
+   
+
+  // HOME.HTML STYLES ======================== 
 
   div#home {
     .clear;
@@ -560,150 +557,94 @@ html.ng-scope {
     max-height: 400px;
 
     .ng-scope {
-      height: 100px;
+      height: 50px;
     }
 
+    // must change home.html template to vertically align text
     p {
       font-family: @font1;
       text-transform: uppercase;
       font-size: 2em;
       color: black;
       text-align: center;
-      max-height: 200px;
+      max-height: 75px;
+      padding: 0;
     }
+  } // end div#home
+
+    
+    
+// IMAGE STYLES ==========================
+    
+.image {
+  a {
+    font-size: 1em;
+    
+    div.text {
+      h4 {
+        font-size: 1em;
+        color: @color1;
+        text-shadow: 1px 1px @color4;
+       }
+       p {
+         font-size: 0;
+         padding: 0;
+         margin: 0;
+        }
+     }
   }
+}
 
-
-  // IMAGE STYLES =======================================================
-//  .image2 {
-//    position: relative;
-//    color: @color4;
-//    height: auto;
-//    width: 100%;
-//    background-size: cover;
-//    border-right: 5px solid @color4;
-//    border-left: 5px solid @color4;
-//    border-bottom: 5px solid @color4;
-//
-//    filter: grayscale(100%);
-//    -webkit-filter: grayscale(100%);
-//    -webkit-transition: all 1s ease;
-//
-//
-//    &:hover {
-//      filter: grayscale(0%);
-//      filter: gray;
-//      -webkit-filter: grayscale(0%);
-//      filter: none;
-//      transition: 0.25s ease;
-//    }
-//
-//    a {
-//      text-decoration: none;
-//      color:  @color1;
-//      font-size: 12px;
-//      font-weight: bold;
-//      text-shadow: 1.5px 1.5px @color4;
-//      transition: color .2s linear;
-//
-//      &:hover {
-//        color: @color8;
-//        text-shadow: 1.5px 1.5px @color4;
-//      }
-//
-//      div.text {
-//        h4 {
-//          color: @color1;
-//          font-size: 12px;
-//          font-weight: bold;
-//          text-align: center;
-//          width: 100%;
-//          margin: 0;
-//          text-shadow: 1.5px 1.5px @color4;
-//         }
-//
-//         p {
-//           font-size: 0;
-//           margin: 0;
-//           padding: 0;
-//          }
-//
-//  //        div {
-//  //          text-align: center;
-//  //          padding-bottom: 10px;
-//  //        }
-//       }
-//    }
-
-  // end image styles
-
-
-
-      // ADMIN CONTENT STYLES ======================================================== 
-
-  html.ng-scope {
-    width: 100%;
-  }
-
+    
+  // ADMIN CONTENT STYLES ============================= 
 
   .body {
-    clear: both;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-//    font-size: 12px;
-
-    .ng-scope {
-      height: 4500px;
-      width: 100%;
-      padding: -10px;
-      margin: 0;
-    }
-
     .sidebar {
-      width: 28%;
-//      height: 100%;
-      float: left;
-      padding-top: 10px;
+      width: 20%;
+      height: 100%;
       
       .boxes {
-        #box1 {
-          .text {
-            h4 {
-              font-size: 12px;
-            }
-            p {
-              font-size: 0px;
-            }
-            a {
-              font-size: 12px;
-            }
-          }
-          
+       div#box1 {
+        .image;     
+       } // end div box 1
+
+       div#box2 {
+          .image;
         }
-        
-      }
-      
-    }
-    // end sidebar styles
 
-  }  // end body styles
+        div#box3 {
+          .image;
+        }
 
+        div#box4 {
+          .image;
+        }
+
+        div#box5 {
+          .image;
+        }
+
+        div#box6 {
+          .image;
+        }    
+
+        div#box7 {
+          .image;
+        }
+    }  // end boxes
+  } // end sidebar     
 
 
   .main {
     margin-left: 10px;
     float: right;
-//    height: 100%;
-    width: 390px;
+    width: 380px;
     overflow: hidden;
     padding-top: 20px;
+    height: 100%;
 
     div#content {
-      width: 410px;
+      width: 400px;
       overflow: scroll;
       height: 100%;
 
@@ -715,10 +656,72 @@ html.ng-scope {
     }
 
   }  // end main styles
+}  // end body styles
+    
+  // STUDENTS ============================  
+    
+  // STUDENT CONTENT STYLES =======================================================
+html.ng-scope {
+  height: 800px;
+  width: 100%;
+}
+
+.body {
+  clear: both;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding-top: 5px;
+  
+  .ng-scope {
+    height: 1500px;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .studentsidebar {
+    width: 30%;
+    
+    h3 {
+      font-size: 1em; 
+    }
+        
+    a {
+      font-size: 1em;
+    }
+  } // end sidebar styles
+
+
+  .main {
+    margin-left: 20px;
+    float: right;
+    height: 100%;
+    width: 390px;
+
+    div#workspace {
+      width: 410px;
+      overflow: scroll;
+      height: 100%;
+
+      .ng-scope{
+        width: 100%;
+        height: 100%; 
+        margin: 0;
+      }
+
+      h3 {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+
+  }  // end main styles
     
     
-    
-    
+} // end body styles
     
 } // END MEDIA QUERY PHONE ============================
 
