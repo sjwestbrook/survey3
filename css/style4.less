@@ -144,7 +144,7 @@ div.auth {
 
 
 // center vertically -- http://learnlayout.com/flexbox.html
-// used on home page
+// no longer used on home page ?
 .vertical-container {
   height: 50%;
   display: -webkit-flex;
@@ -263,7 +263,16 @@ header {
 
 div#home {
   .clear;
-  width: 98%; 
+  width: 98%;   
+  background-image: url(../images/mtns_lg_bw.jpg); 
+  width: 100%; 
+  height: 550px; 
+  display: -webkit-flex; 
+  display: flex; 
+  -webkit-align-items: center; 
+  align-items: center; 
+  -webkit-justify-content: center; 
+  justify-content: center;
 
   p {
     font-family: @font1;
@@ -273,7 +282,7 @@ div#home {
     text-align: center;
     .vertical-container;
     vertical-align: text-bottom;
-    background-color: transparent;
+    padding: 200px;
   }
 }
 
@@ -402,8 +411,8 @@ html.ng-scope {
   }
   
   .studentsidebar {
-    width: 35%;
-    height: 800px;
+    width: 30%;
+    height: 100%;
     float: left;
     text-align: center;
     background-color: transparent;
@@ -480,7 +489,7 @@ html.ng-scope {
 .main {
   margin-left: 20px;
   float: right;
-  height: 800px;
+  height: 100%;
   width: 600px;
 //  overflow: hidden;
     
@@ -506,18 +515,18 @@ html.ng-scope {
 
 
 
-// MEDIA QUERIES =================================
-//
-//@media only screen and (min-width: 320px) and (max-width: 768px) {
-//  .nav {
-//    width:100%;
-//  }
-//  .nav-item {
-//    width:100%;
-//    float:none;
-//  }
-//}
 
+
+
+
+
+
+
+
+
+
+
+// MEDIA QUERIES =================================
 
 /* Landscape iPhone 5 */
 @media only screen 
@@ -526,5 +535,200 @@ html.ng-scope {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) {
 
-}
+    /*
+    
+      home.html
+        -reduce font size
+    
+      student
+        -"new surveys" smaller font size
+        -survey title smaller font size
+        -change survey form max width (ca. 220px smaller)
+          -test/set after backend and frontend are linked
+    
+      admin
+        -reduce all font sizes in secodary 'menu'
+        -change form max width (ca. 200px smaller)
+    */
+    
+
+  // HOME.HTML STYLES ======================================================== 
+
+  div#home {
+    .clear;
+    max-width: 568px; 
+    max-height: 400px;
+
+    .ng-scope {
+      height: 100px;
+    }
+
+    p {
+      font-family: @font1;
+      text-transform: uppercase;
+      font-size: 2em;
+      color: black;
+      text-align: center;
+      max-height: 200px;
+    }
+  }
+
+
+  // IMAGE STYLES =======================================================
+//  .image2 {
+//    position: relative;
+//    color: @color4;
+//    height: auto;
+//    width: 100%;
+//    background-size: cover;
+//    border-right: 5px solid @color4;
+//    border-left: 5px solid @color4;
+//    border-bottom: 5px solid @color4;
+//
+//    filter: grayscale(100%);
+//    -webkit-filter: grayscale(100%);
+//    -webkit-transition: all 1s ease;
+//
+//
+//    &:hover {
+//      filter: grayscale(0%);
+//      filter: gray;
+//      -webkit-filter: grayscale(0%);
+//      filter: none;
+//      transition: 0.25s ease;
+//    }
+//
+//    a {
+//      text-decoration: none;
+//      color:  @color1;
+//      font-size: 12px;
+//      font-weight: bold;
+//      text-shadow: 1.5px 1.5px @color4;
+//      transition: color .2s linear;
+//
+//      &:hover {
+//        color: @color8;
+//        text-shadow: 1.5px 1.5px @color4;
+//      }
+//
+//      div.text {
+//        h4 {
+//          color: @color1;
+//          font-size: 12px;
+//          font-weight: bold;
+//          text-align: center;
+//          width: 100%;
+//          margin: 0;
+//          text-shadow: 1.5px 1.5px @color4;
+//         }
+//
+//         p {
+//           font-size: 0;
+//           margin: 0;
+//           padding: 0;
+//          }
+//
+//  //        div {
+//  //          text-align: center;
+//  //          padding-bottom: 10px;
+//  //        }
+//       }
+//    }
+
+  // end image styles
+
+
+
+      // ADMIN CONTENT STYLES ======================================================== 
+
+  html.ng-scope {
+    width: 100%;
+  }
+
+
+  .body {
+    clear: both;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+//    font-size: 12px;
+
+    .ng-scope {
+      height: 4500px;
+      width: 100%;
+      padding: -10px;
+      margin: 0;
+    }
+
+    .sidebar {
+      width: 28%;
+//      height: 100%;
+      float: left;
+      padding-top: 10px;
+      
+      .boxes {
+        #box1 {
+          .text {
+            h4 {
+              font-size: 12px;
+            }
+            p {
+              font-size: 0px;
+            }
+            a {
+              font-size: 12px;
+            }
+          }
+          
+        }
+        
+      }
+      
+    }
+    // end sidebar styles
+
+  }  // end body styles
+
+
+
+  .main {
+    margin-left: 10px;
+    float: right;
+//    height: 100%;
+    width: 390px;
+    overflow: hidden;
+    padding-top: 20px;
+
+    div#content {
+      width: 410px;
+      overflow: scroll;
+      height: 100%;
+
+      .ng-scope{
+        width: 100%;
+        height: 100%; 
+        margin: 0;
+      }
+    }
+
+  }  // end main styles
+    
+    
+    
+    
+    
+} // END MEDIA QUERY PHONE ============================
+
+/* Landscape iPad 3 & 4 */
+//@media only screen 
+//  and (min-device-width: 768px) 
+//  and (max-device-width: 1024px) 
+//  and (orientation: landscape) 
+//  and (-webkit-min-device-pixel-ratio: 2) {
+//
+//    // no changes necessary
+//}
 
