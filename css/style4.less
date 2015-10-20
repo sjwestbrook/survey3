@@ -145,15 +145,15 @@
 
 // center vertically -- http://learnlayout.com/flexbox.html
 // no longer used on home page ?
-.vertical-container {
-  height: 50%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-}
+//.vertical-container {
+//  height: 50%;
+//  display: -webkit-flex;
+//  display: flex;
+//  -webkit-align-items: center;
+//          align-items: center;
+//  -webkit-justify-content: center;
+//          justify-content: center;
+//}
 
 .bg-lg {
   color: @color4;
@@ -262,27 +262,29 @@ header {
 // HOME.HTML STYLES ======================================================== 
 
 div#home {
-  .clear;
-  width: 98%;   
+  .clear; 
+  background-color:rgba(0,0,0,0);
   background-image: url(../images/mtns_lg_bw.jpg); 
   width: 100%; 
-  height: 550px; 
+  height: 100%; 
+  padding: 50px;
   display: -webkit-flex; 
   display: flex; 
   -webkit-align-items: center; 
   align-items: center; 
   -webkit-justify-content: center; 
   justify-content: center;
-
+  
   p {
     font-family: @font1;
+    background-color:rgba(0,0,0,0);
     text-transform: uppercase;
     font-size: @fontsize * 5;
     color: black;
     text-align: center;
-    .vertical-container;
-    vertical-align: text-bottom;
-    padding: 200px;
+//    .vertical-container;
+//    vertical-align: text-bottom;
+    margin-top: 150px;
   }
 }
 
@@ -516,7 +518,7 @@ html.ng-scope {
 
 
 
-
+// MEDIA QUERY TO-DO ==================================
 
  /*    
       home.html
@@ -545,7 +547,9 @@ html.ng-scope {
   and (orientation: landscape) {
 
   body {
-    ng-scope: 400px;
+    .ng-scope {
+      max-height: 400px;
+    }
   }
    
 
@@ -557,18 +561,15 @@ html.ng-scope {
     max-height: 400px;
 
     .ng-scope {
-      height: 50px;
+      max-height: 500px;
     }
 
     // must change home.html template to vertically align text
     p {
-      font-family: @font1;
-      text-transform: uppercase;
-      font-size: 2em;
-      color: black;
-      text-align: center;
-      max-height: 75px;
+      font-size: 3.5em;
       padding: 0;
+      margin: 0 auto;
+      background-color:rgba(0,0,0,0);
     }
   } // end div#home
 
@@ -590,6 +591,7 @@ html.ng-scope {
          font-size: 0;
          padding: 0;
          margin: 0;
+         max-height: 300px;
         }
      }
   }
