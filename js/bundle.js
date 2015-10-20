@@ -45,8 +45,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackMissingModule() { throw new Error("Cannot find module \"./index.js\""); }());
-	(function webpackMissingModule() { throw new Error("Cannot find module \"c:\\Users\\SarahJoy\\src\\survey3\\js\\index2.js\""); }());
-	(function webpackMissingModule() { throw new Error("Cannot find module \"bundle2.js\""); }());
+	(function webpackMissingModule() { throw new Error("Cannot find module \"c:\\Users\\SarahJoy\\src\\survey3\\js\\index.js\""); }());
+	(function webpackMissingModule() { throw new Error("Cannot find module \"c:\\Users\\SarahJoy\\src\\survey3\\js\\bundle.js\""); }());
 
 
 /***/ }
