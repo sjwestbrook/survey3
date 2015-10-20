@@ -209,30 +209,30 @@ header {
   
   div.navbar.navbar-default.navbar-static-top {
     border-bottom: 10px solid black;
-//    margin-bottom: 10px;
     padding-top: 10px;
    
   
-//    .navbar.navbar-default.navbar-static-top {
       .container {
         .navbar-header {
 
           a.navbar-brand {
             float: left;
-            margin-left: 12px;
             margin-bottom: 20px;
-//            padding-bottom: 10px;
-            padding-left: 50px;
           }
         }
       }
-//    }
 
     
     .navbar-collapse.collapse {
       padding-top: 10px;
+      margin: 0;
+      width: 100%;
       ul {
         li {
+          &:first-child {
+            padding-right: 40px;
+          }
+          
           a {
             color: lighten(@color2, 10%);
             text-decoration: none;
@@ -284,7 +284,6 @@ div#home {
 // ADMIN CONTENT STYLES ======================================================== 
 
 html.ng-scope {
-//  height: 800px;
   width: 100%;
 }
 
@@ -296,8 +295,6 @@ html.ng-scope {
   bottom: 0;
   left: 0;
   display: flex;
-//  padding: 20px 0 0 20px;
-//  padding-top: 5px;
   
   .ng-scope {
     height: 4500px;
