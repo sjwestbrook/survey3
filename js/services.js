@@ -27,7 +27,6 @@ app.service('topicServ', function($http){
   
   // 'add subject'
   this.updateTopic = function(topic, subjects) {
-    console.log(topic);
     return $http.put('api/topic?id=' + topic.topicName._id, subjects);
   }
   
