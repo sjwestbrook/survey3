@@ -269,9 +269,11 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
   $scope.addSurvey = function() {
     createSurveyServ.addSurvey($scope.survey);
     console.log($scope.survey);
+    $scope.survey = '';
     $scope.topicsArray = '';
     $scope.subjectsArray = '';
     $scope.templatesArray = '';
+    $scope.groupsArray = '';
    }
     
 });
