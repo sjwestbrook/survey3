@@ -203,7 +203,7 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates) {
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups) {
   
 
 //  console.log(1111111, topics.data)
@@ -212,11 +212,22 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
   
   $scope.topicsArray = topics.data;
   $scope.templatesArray = templates.data;
+  $scope.groupsArray = groups.data;
   
+  // necessary?
   $scope.template = {};
+  
+  
+  // variable replacements?
   $scope.template.replacement = [{}];
   
   
+  $scope.getGroups = function() {
+    groupServ.getGroups().then(function(res) {
+      $scope.groupsArray = res.data;        
+    })
+  };
+
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;

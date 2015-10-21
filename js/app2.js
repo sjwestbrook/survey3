@@ -37,12 +37,7 @@ templateUrl: 'js/templates/topic.html',
           .state('admin.group', {
             url: '/group',
             templateUrl: 'js/templates/group.html',
-            controller: 'groupCtrl',
-            resolve: {
-              topics: function(topicServ){
-                return topicServ.getTopics();
-              }
-            }
+            controller: 'groupCtrl'
           })
 
           .state('admin.users', {
@@ -73,6 +68,9 @@ templateUrl: 'js/templates/topic.html',
               },
               templates: function(templateServ){
                 return templateServ.getTemplates();
+              },
+              groups: function(groupServ){
+                return groupServ.getGroups();
               }
             }
           })

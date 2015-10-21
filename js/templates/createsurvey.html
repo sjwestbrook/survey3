@@ -17,17 +17,29 @@
   
   <div class="form-group">
     <label>Select Subject</label>
-    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject as (subject.subjectName + ', ' + (subject.date |date) + ', ' + subject.recipientGroup.groupName) for subject in selectedTopic.subjects">
-    </select>
-    <!-- //subject name, date, recipient group -->
+    <!-- adjust to remove date, recipient group -->
+    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject.subjectName for subject in subjectsArray">
+    </select>    
   </div>  
   
   <div class="form-group">
     <label>Select Template</label>
+    <!-- change ng-model etc -->
     <select class="form-control" ng-model="template.name" required  ng-options="template.name for template in templatesArray">
     </select>
   </div>  
   
+  <div class="form-group">
+    <label>Select Group</label>
+    <!-- change ng-model etc -->
+    <select class="form-control" ng-model="group.groupName" required  ng-options="group.groupName for group in groupsArray">
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="date">Date (MM-DD-YYYY)</label>
+    <input type="text" class="form-control" id="subjectname" value="MM-DD-YY" ng-model="subject.date" required />
+  </div>
   
   <div class="form-group">
     <label for="variables">Variable Replacements</label>
@@ -40,7 +52,7 @@
     <button ng-click="addReplacement()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
      
     <button ng-click="removeReplacement()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
-  </div>
+  </div> <!-- end add/remove buttons form group -->
 
   
   
