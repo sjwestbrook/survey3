@@ -5,13 +5,7 @@ var mongoose = require('mongoose'),
 var TopicSchema = new Schema({
 
 	topicName: String,
-	subjects: [{
-		subjectName: String,
-		date: Date,
-		sessionId: String,
-		recipientGroup: { type: mongoose.Schema.Types.ObjectId, ref: 'RecipientGroup' },
-		results:  Array
-	}]
+	subjects: [String]
 		
 });
 

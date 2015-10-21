@@ -8,20 +8,10 @@ var ParsedSurveySchema = new Schema({
 	topicId: String,
 	description: String,
 	takenBy: Array,
-	subject: {
-		subjectName: String,
-		date: Date,
-		sessionId: String,
-		_id: String,
-		recipientGroup: {
-			groupName: String,
-			users: [{
-				name: String,
-				email: String
-			}]
-		},
-		results:  Array
-	},
+  results:  Array,
+  date: Date,
+  recipientGroup: { type: mongoose.Schema.Types.ObjectId, ref:'RecipientGroup' },
+	subject: String,
 	questions: [{
 		titleText: String,
 		helpText: String,

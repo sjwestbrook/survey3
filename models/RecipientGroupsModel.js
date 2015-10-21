@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 	Topic = require('./TopicModel.js');
 
 var RecipientGroupsSchema = new Schema({
-	groupName: String
+	groupName: String,
+  cohortId: Number
 	// users: [{
 	// 	name: String,
 	// 	email: String
