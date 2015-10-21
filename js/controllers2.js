@@ -197,7 +197,7 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups, subjectServ) {    
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, surveyService, topics, templates, groupServ, groups, subjectServ) {    
   
   $scope.topicsArray = topics.data;
   console.log(topics);
@@ -223,15 +223,34 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })
   }
   
-  $scope.addSurvey = function() {
-    createSurveyServ.addSurvey($scope.survey);
-    console.log($scope.survey);
-    $scope.survey = '';
-
-   }
-  
-  // add survey -- adminctrl + admin serv -- noted 
     
+    //controller for submit button on create/send survey  -- adminctrl + admin serv -- noted
+	$scope.sendSurvey = function(name, description, subject, varReplacement) {
+		
+    var stringParseObject = {};
+
+		for (var i = 0; i < $scope.selectedTemplate.varNames.length; i++) {
+			stringParseObject[$scope.selectedTemplate.varNames[i]] = varReplacement[i];
+		}
+
+		$scope.questions = $scope.selectedTemplate.questions.slice();
+    
+    //what to console log to see entire survey?
+    console.log($scope.survey);
+
+//		$scope.confirmNewSurvey = adminService.parseSurvey( $scope.selectedTopic._id, $scope.selectedTopic.topicName, name, description, subject, $scope.questions, stringParseObject );
+//
+//		$scope.questions = $scope.confirmNewSurvey.questions;
+	}
+  
+  
+  //========================================================
+  
+  
+  
+  
+  
+  
 });
 
 

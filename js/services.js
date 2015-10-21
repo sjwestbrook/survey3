@@ -144,19 +144,90 @@ app.service('templateServ', function($http){
 });
 
     
-    
-    
-    
 
-// create and send survey =======================================
 
-app.service('createSurveyServ', function($http){
-  
-   this.addSurvey = function(survey) {
-    return $http.post('api/parsedSurveys', survey);
-  } 
-   
+// SEND SURVEY ==========================
+
+
+app.factory('surveyService', function() {
+
+	return {
+		
+		SurveyTemplate: function( name, description, questions, varNames ) {
+			this.name = name;
+			this.description = description;
+			this.questions = questions;
+			this.varNames = varNames;
+		},
+
+		ParsedSurveyTemplate: function( topicId, topicName, name, description, subject, questions ) {
+			this.publicName = name;
+			this.topicName = topicName;
+			this.topicId = topicId;
+			this.description = description;
+			this.subject = subject;
+			this.questions = questions;
+		},
+
+	}
+
 });
+
+
+
+
+app.service('varReplaceServ', function() { 
+// this is used in parseSurvey controller (variable replacement)
+  
+  this.replaceVar = function(topicId, topicName, name, description, subject, questions, parseObject) {
+    
+    function stringParser(match) {
+			return parseObject[match];
+		}
+    
+    
+		for (var i = 0; i < questions.length; i++) {
+			for (var key in questions[i]) {
+// if key is an array, look in the array for the variable & replace
+				if ( Array.isArray(questions[i][key]) ) {
+					for (var j = 0; j < questions[i][key].length; j++) {
+						questions[i][key][j] = questions[i][key][j].replace(/\$\$.*?\$\$/g, stringParser)
+					}
+				} 
+ // if key isn't an array, just replace the variable in the string
+        else {
+					questions[i][key] = questions[i][key].replace(/\$\$.*?\$\$/g, stringParser)
+				}
+			}
+		}
+    
+    description = description.replace(/\$\$.*?\$\$/g, stringParser);
+
+		var newParsedSurvey = new surveyService.ParsedSurveyTemplate( topicId, topicName, name, description, subject, questions );
+
+		return newParsedSurvey;
+  
+};
+});
+    
+    
+
+  
+  
+  
+  
+  
+  
+  
+// create and send survey =======================================
+//
+//app.service('createSurveyServ', function($http){
+//  
+//   this.addSurvey = function(survey) {
+//    return $http.post('api/parsedSurveys', survey);
+//  } 
+//   
+//});
 
     
     
@@ -164,29 +235,29 @@ app.service('createSurveyServ', function($http){
     
 
 // view survey results =======================================
-
-app.service('surveysServ', function($http){
-  
-  this.getSurveyResults = function() {
-    $http.get('api/parsedSurveys');
-  }
-  
-});
-
-
-    
-    
-    
-// student - surveys to take
-app.service('studentsServ', function($http){
-  
-  this.getSurveys= function() {
-    return $http.get('/api/parsedSurveys/takenBy');
-  }
-
-});
-
-
-app.service('studentData', function() {
-  
-})
+//
+//app.service('surveysServ', function($http){
+//  
+//  this.getSurveyResults = function() {
+//    $http.get('api/parsedSurveys');
+//  }
+//  
+//});
+//
+//
+//    
+//    
+//    
+//// student - surveys to take
+//app.service('studentsServ', function($http){
+//  
+//  this.getSurveys= function() {
+//    return $http.get('/api/parsedSurveys/takenBy');
+//  }
+//
+//});
+//
+//
+//app.service('studentData', function() {
+//  
+//})

@@ -1,4 +1,4 @@
-<div id="survey" style="width: 90%; margin-right: 0;">
+<div style="width: 90%; margin-right: 0;">
 
 <h2 style="font-weight: bold; color: black;">Send a Survey</h2>
 
@@ -17,7 +17,7 @@
   
   <div class="form-group">
     <label>Select Subject</label>
-    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject for subject in survey.selectedTopic.subjects">
+    <select class="form-control" ng-model="survey.subject" required  ng-options="subject for subject in survey.selectedTopic.subjects">
 <!--      we're passing 'subject' to the code; the user sees the name of each subject that is attached to the selected topic-->
     </select>    
   </div>  
@@ -41,7 +41,7 @@
     <div class="form-group" ng-repeat="varName in selectedTemplate.varNames track by $index">
     <label for="variables">Replacement value for {{ varName }} </label>
     <div>
-      <input ng-model="varReplacement[$index]" id="var-replacements" class="form-control" type="text" required style="height: 35px;" />
+      <input ng-model="survey.varReplacement[$index]" id="var-replacements" class="form-control" type="text" required style="height: 35px;" />
     </div>
   </div>
     
@@ -51,7 +51,8 @@
 <!-- doesn't work yet-->
   <div id="buttons">
     <div id="buttons">
-      <button type="submit" ng-click="addSurvey(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
+      <!-- parameter ? -->
+      <button type="submit"   ng-click="sendSurvey(survey.name, survey.selectedTemplate, survey.subject, survey.varReplacement)"     style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
       
     <!--
       Ryan's code
