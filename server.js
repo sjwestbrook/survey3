@@ -35,7 +35,6 @@ app.post('/api/topic', topicCtrl.addTopic);
 
 app.put('/api/topic', topicCtrl.updateTopic);
 
-app.put('/api/topic/results', topicCtrl.pushResults)
 
 app.delete('/api/topic', topicCtrl.deleteTopic);
 

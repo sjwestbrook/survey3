@@ -11,13 +11,13 @@
   
   <div class="form-group">
     <label>Select Topic</label>
-    <select class="form-control" ng-model="survey.selectedTopic" required  ng-options="topic.topicName for topic in topicsArray" >
+    <select class="form-control" ng-change="ryansTest()" ng-model="survey.selectedTopic" required  ng-options="topic.topicName for topic in topicsArray" >
     </select>
   </div>  
   
   <div class="form-group">
     <label>Select Subject</label>
-    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject as (subject.subjectName) for subject in survey.selectedTopic.subjects">
+    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject for subject in survey.selectedTopic.subjects">
 <!--      we're passing 'subject' to the code; the user sees the name of each subject that is attached to the selected topic-->
     </select>    
   </div>  
@@ -27,18 +27,25 @@
     <select class="form-control" ng-model="survey.group" required  ng-options="group.groupName for group in groupsArray"  >
     </select>
   </div>
-<!--  ng-options="group.groupName for group.groupName in groupsArray"-->
   
   <div class="form-group">
-    <label for="date">Date (MM-DD-YYYY)</label>
+    <label for="date">Date (MM-DD-YY)</label>
     <input type="text" class="form-control" id="date" value="MM-DD-YY" ng-model="survey.date" required />
   </div>
   
   <div class="form-group">
     <label>Select Template</label>
-    <select class="form-control" ng-model="survey.template" required  ng-options="template.name for template in templatesArray">      
+    <select class="form-control" ng-options="template as template.name for template in templatesArray" ng-model="selectedTemplate" required > 
     </select>
-  </div>  
+    
+    <div class="form-group" ng-repeat="varName in selectedTemplate.varNames track by $index">
+    <label for="variables">Replacement value for {{ varName }} </label>
+    <div>
+      <input ng-model="varReplacement[$index]" id="var-replacements" class="form-control" type="text" required style="height: 35px;" />
+    </div>
+  </div>
+    
+  </div>  <!-- end template/var replace div -->
   
   
 <!-- doesn't work yet-->
@@ -46,36 +53,15 @@
     <div id="buttons">
       <button type="submit" ng-click="addSurvey(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>
       
+    <!--
+      Ryan's code
+      <button ng-click="parseSurvey(publicName, selectedSurvey.description, selectedSubject, replacementText)" class="btn-primary btn">Submit</button>
+      -->
+      
       <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
     </div>       
   </div> 
-  
-  
-  
-  
-  <!-- not ng-repeating -->
-  <div class="form-group" ng-repeat="varName in selectedSurvey.varNames track by $index">
-    <label for="variables">Replacement value for {{ varName }}</label>
-    <div>
-      <input ng-model="varReplacement[$index]" id="var-replacements" class="form-control"  type="text" required style="height: 35px;" />
-    </div>
-  </div>
     
-      
- 
-    
-    
-  <!--  
-    
-    <hr>
-    
-    <button ng-click="addReplacement(varReplacement)" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-     
-    <button ng-click="removeReplacement()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
- -->
-
-
-  
 
 </form> 
 </div>

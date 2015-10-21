@@ -197,9 +197,10 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups) {    
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups, subjectServ) {    
   
   $scope.topicsArray = topics.data;
+  console.log(topics);
   $scope.templatesArray = templates.data;
   $scope.groupsArray = groups.data;
   
@@ -222,26 +223,14 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })
   }
   
-  
-  
-  // not working
-  
-  // add/remove variable replacements
-  $scope.addReplacement = function() {
-  $scope.template.replacement.push('');
-    console.log($scope.template.questions);
-  };
-    
-  $scope.removeReplacement = function() {
-    $scope.template.replacement.pop();
-    console.log($scope.template.questions);
-  };
-  
   $scope.addSurvey = function() {
     createSurveyServ.addSurvey($scope.survey);
     console.log($scope.survey);
     $scope.survey = '';
+
    }
+  
+  // add survey -- adminctrl + admin serv -- noted 
     
 });
 
@@ -250,6 +239,9 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 // VIEW SURVEY RESULTS ========================
 
 app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicServ, topics, surveysServ, survey) {
+  
+//  console.log(1111111, topics.data)
+//  console.log(1111111, subjects.data)
   
   $scope.topicsArray = topics.data;
   $scope.surveysArray = [];
@@ -260,6 +252,7 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
     })                            
   }  
   
+
   $scope.getSurveyResults = function() {
     surveysServ.getSurveyResults().then(function(res) {
       $scope.surveysArray = res.data;  
@@ -278,9 +271,10 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 
 app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
   
-  // inject studentsServ when ready
+  // inject studentsServ
   
   //  display list of surveys yet to take on page load
+  // not field select?
   // filter based on student logged in and 'takenBy' array
   
   // not field select?
@@ -291,7 +285,7 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
   }
   
   
-// SUBMIT COMPLETED SURVEY ===============================
+  //  student submits completed survey
 
   $scope.addCompletedSurvey = function() {
     studentsServ.addCompletedSurvey($scope.model);

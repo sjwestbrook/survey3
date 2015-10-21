@@ -26,7 +26,8 @@ module.exports = {
 
 	updateTopic: function(req, res) {
 	
-		Topic.update({ '_id': req.query.id }, { $push: {'subjects': req.body} }, function(err, data) {
+		Topic.update({ '_id': req.query.id }, { $push: {'subjects': req.body.subjectName} }, function(err, data) {
+      console.log(req.body);
 			if ( err ) {
 				res.status(500).send(err);
 			} else {
