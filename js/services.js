@@ -148,11 +148,14 @@ app.service('templateServ', function($http){
     
     
 
-// create and send survey
+// create and send survey =======================================
+
 app.service('createSurveyServ', function($http){
+  
    this.addSurvey = function(survey) {
     return $http.post('api/parsedSurveys', survey);
   } 
+   
 });
 
     

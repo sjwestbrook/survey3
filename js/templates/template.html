@@ -17,17 +17,19 @@
 
     <!-- ng repeat track by index - "+" "x" - ng-repeat removes field from view --> 
     <div class="form-group">  
-      <label for="variables">Variables</label> 
+      <label for="variables">Variable Names</label> 
       <div ng-repeat="varName in template.varNames track by $index" style="height: 35px;">
         <input type="text" ng-model="template.varNames[$index]"  class="form-control"  id="varnames"   required  />
       </div>
       
       <hr>
       
-       <button ng-click="addNewVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-       <button ng-click="removeVar()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+       <button ng-click="addNewVar(template.varNames)" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+      
+       <button ng-click="removeVar($index, template.varNames)" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
       
     </div>
+<!--    end variable names div-->
     
     <br />
 

@@ -19,15 +19,7 @@
     <label>Select Subject</label>
     <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject as (subject.subjectName) for subject in survey.selectedTopic.subjects">
 <!--      we're passing 'subject' to the code; the user sees the name of each subject that is attached to the selected topic-->
-      
     </select>    
-  </div>  
-  
-  <div class="form-group">
-    <label>Select Template</label>
-    <select class="form-control" ng-model="survey.template" required  ng-options="template.name for template in templatesArray">
-      
-    </select>
   </div>  
   
   <div class="form-group">
@@ -41,6 +33,12 @@
     <label for="date">Date (MM-DD-YYYY)</label>
     <input type="text" class="form-control" id="date" value="MM-DD-YY" ng-model="survey.date" required />
   </div>
+  
+   <div class="form-group">
+    <label>Select Template</label>
+    <select class="form-control" ng-model="survey.template" required  ng-options="template.name for template in templatesArray">      
+    </select>
+  </div>  
   
   <div class="form-group">
     <label for="variables">Variable Replacements</label>

@@ -197,27 +197,11 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups, subjectServ) {
-  
-
-//  console.log(1111111, topics.data)
-//  console.log(1111111, templates.data)
-    
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups) {    
   
   $scope.topicsArray = topics.data;
   $scope.templatesArray = templates.data;
   $scope.groupsArray = groups.data;
-  
-  // not correct
-  $scope.subjectsArray = topics.data.subjectName;
-  
-  // necessary?
-  $scope.template = {};
-  
-  
-  // variable replacements?
-//  $scope.replacementText = [];
-  
   
   $scope.getGroups = function() {
     groupServ.getGroups().then(function(res) {
@@ -230,13 +214,7 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
       $scope.topicsArray = res.data;
     })                            
   }; 
-  
-  // ??
-  $scope.getSubjects = function() {
-    subjectServ.getSubjects().then(function(res){
-      $scope.subjectsArray = res.data;
-    })                            
-  }; 
+
   
   $scope.getTemplates = function() {
     templateServ.getTemplates().then(function(res) {
@@ -263,10 +241,6 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     createSurveyServ.addSurvey($scope.survey);
     console.log($scope.survey);
     $scope.survey = '';
-    $scope.topicsArray = '';
-    $scope.subjectsArray = '';
-    $scope.templatesArray = '';
-    $scope.groupsArray = '';
    }
     
 });
@@ -277,9 +251,6 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 
 app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicServ, topics, surveysServ, survey) {
   
-//  console.log(1111111, topics.data)
-//  console.log(1111111, subjects.data)
-  
   $scope.topicsArray = topics.data;
   $scope.surveysArray = [];
   
@@ -289,7 +260,6 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
     })                            
   }  
   
-
   $scope.getSurveyResults = function() {
     surveysServ.getSurveyResults().then(function(res) {
       $scope.surveysArray = res.data;  
@@ -308,10 +278,9 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 
 app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
   
-  // inject studentsServ
+  // inject studentsServ when ready
   
   //  display list of surveys yet to take on page load
-  // not field select?
   // filter based on student logged in and 'takenBy' array
   
   // not field select?
@@ -322,7 +291,7 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
   }
   
   
-  //  student submits completed survey
+// SUBMIT COMPLETED SURVEY ===============================
 
   $scope.addCompletedSurvey = function() {
     studentsServ.addCompletedSurvey($scope.model);
