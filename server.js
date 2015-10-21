@@ -66,6 +66,7 @@ app.get('/api/parsedSurveys', parsedSurveyCtrl.getSurveys);
 // jeremy sends new survey
 app.post('/api/parsedSurveys', parsedSurveyCtrl.addSurvey);
 
+// update surveys with student results
 app.put('/api/parsedSurveys/takenBy', parsedSurveyCtrl.updateSurvey);
 
 app.delete('/api/parsedSurveys', parsedSurveyCtrl.deleteSurvey);

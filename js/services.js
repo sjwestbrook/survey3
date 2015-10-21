@@ -34,9 +34,22 @@ app.service('topicServ', function($http){
   this.getTopics = function() {
     return $http.get('/api/topic');  
   }
+  
 });
 
 
+
+
+// SUBJECT SERVICE ===================================
+
+app.service('subjectServ', function($http) {
+  
+  // not correct ??
+  this.getSubjects = function() {
+    return $http.get('/api/topic');
+  }
+  
+});
     
     
 // GROUP SERVICE ===================================
@@ -58,12 +71,14 @@ app.service('groupServ', function($http){
 // USER CONSTRUCTOR FUNCTION ========================
     
 app.service('newUserServ', function($http){
-this.NewUser = function(user) {
+  
+  this.NewUser = function(user) {
       this.email = user.email;
       this.password = user.password;
       this.userType = user.userType;
       this.group = user.group._id;
     }
+  
 });
 
 
@@ -116,8 +131,7 @@ app.service('userServ', function($http, newUserServ){
 
 // TEMPLATE SERV ===========================================   
 
-app.service('templateServ', function($http){
-  
+app.service('templateServ', function($http){  
   
   this.addTemplate = function(template) {
     return $http.post('api/surveyTemplates', template);

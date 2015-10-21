@@ -50,6 +50,7 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicSer
 app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicServ, topics) {
   
   $scope.topicsArray = topics.data;
+  console.log($scope.topicsArray);
   $scope.subjects = [];
   
   $scope.getTopics = function() {
@@ -203,7 +204,7 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups) {
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, createSurveyServ, topics, templates, groupServ, groups, subjectServ) {
   
 
 //  console.log(1111111, topics.data)
@@ -214,12 +215,15 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
   $scope.templatesArray = templates.data;
   $scope.groupsArray = groups.data;
   
+  // not correct
+  $scope.subjectsArray = topics.data.subjectName;
+  
   // necessary?
   $scope.template = {};
   
   
   // variable replacements?
-  $scope.template.replacement = [{}];
+//  $scope.replacementText = [];
   
   
   $scope.getGroups = function() {
@@ -231,6 +235,13 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;
+    })                            
+  }; 
+  
+  // ??
+  $scope.getSubjects = function() {
+    subjectServ.getSubjects().then(function(res){
+      $scope.subjectsArray = res.data;
     })                            
   }; 
   
