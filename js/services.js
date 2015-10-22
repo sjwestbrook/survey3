@@ -205,21 +205,85 @@ app.service('surveysServ', function($http){
 
 
 
-//
-//
-//    
-//    
-//    
-//// student - surveys to take
-//app.service('studentsServ', function($http){
-//  
-//  this.getSurveys= function() {
-//    return $http.get('/api/parsedSurveys/takenBy');
+
+   
+// STUDENT SURVEYS ====================================
+
+// LOGIN ===========================
+app.service('studentLoginServ', function() {
+  
+  this.setCurrentUser = function(email) {
+		localStorage.setItem('currentUser', email);
+	}
+  
+});
+
+
+
+
+
+// GET SURVEYS TO TAKE ===============================
+app.service('studentsServ', function($http, surveysServ){
+  
+//  this.getStudentSurveys= function() {
+//    return $http.get('/api/parsedSurveys');
 //  }
+  
+  
+  this.getStudentSurveys = function() {
+		var user = localStorage.getItem('currentUser'),
+			openSurveys = [];
+
+		surveysServ.getSurveys()
+			.then(function( response ) {
+				var surveyData = response.data;
+
+				for (var i = 0; i < surveyData.length; i++) {
+					for (var j = 0; j < surveyData[i].users.length; j++) {
+						if (surveyData[i].users[j].email === user && surveyData[i].takenBy.indexOf(user) === -1) {
+							openSurveys.push(surveyData[i]);
+						}
+					}
+				}
+			})
+			return openSurveys;
+	};
+  
+  
+  
+  
+  
+  
+  
+  
+
+});
+
+
+
+// SUBMIT TAKEN SURVEYS ====================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
-//});
-//
-//
-//app.service('studentData', function() {
-//  
-//})

@@ -20,7 +20,6 @@
 			<td ng-repeat="answer in result.answers track by $index">{{ answer }}</td>
 		</tr>
 
-
 	</table>
 
 </div>
@@ -59,10 +58,9 @@
   	<table ng-show="survey.subject" class="table table-striped">		
 
 		<tr ng-repeat="question in survey.selectedTemplate.questions">
-			<th>{{ selectedTemplate.questions }}</th>
-			<td ng-repeat="answer in survey.question.answers track by $index">{{ answers }}</td>
+			<th>{{ survey.questions }}</th>
+			<td ng-repeat="answer in survey.questions.answers track by $index">{{ survey.question.answers }}</td>
 		</tr>
-
 
 	</table>
   

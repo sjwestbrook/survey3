@@ -157,7 +157,6 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
     console.log($scope.template.questions);
   };  
   
-  // add/remove questions
   $scope.addQuestion = function() {
     $scope.template.questions.push({
       titleText: $scope.titleText,
@@ -174,17 +173,14 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
   };
   
   
-  // add/remove answers 
   $scope.addAnswer = function(question) {
     console.log(question);
     question.answers.push('');
   };
     
-  // doesn't work
   $scope.removeAnswer = function(index, array) {
      array.splice(index, 1);
   };
-  
   
   $scope.addTemplate = function() {
     templateServ.addTemplate($scope.template);
@@ -200,13 +196,9 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 
 // CREATE & SEND SURVEY ========================
 
-// keys correct?
-// add Group dropdown?
-
 app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, surveyService, topics, templates, groupServ, groups, subjectServ, createSurveyServ) {    
   
   $scope.topicsArray = topics.data;
-//  console.log(topics);
   $scope.templatesArray = templates.data;
   $scope.groupsArray = groups.data;
   
@@ -268,11 +260,20 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
     })                            
   }  
   
+  //=============
+  
+  $scope.findQuestions = function( results, surveys ) {
+		$scope.formattedResults = surveysServ.findQuestions(results, surveys);
+	}
+  
+  
+  //=============
 
   $scope.getSurveys = function() {
     surveysServ.getSurveys().then(function(res) {
       $scope.surveysArray = res.data;  
       console.log($scope.surveysArray);
+      
     })
   }
  
@@ -281,34 +282,52 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 
 
 
-// MAIN STUDENTS CONTROLLER ============================================
+// STUDENT CONTROLLERS CONTROLLER ============================================
 
-// GET SURVEYS =========================================
+// LOGIN ======================================================
 
-app.controller('studentsCtrl', function($http, $scope,$stateParams,$state) {
-  
-  // inject studentsServ
+app.controller('studentLogin', function($scope, $location, $http, studentLoginServ) {
+
+	$scope.login = function(email, password) {
+		if ( (email === "bryan@isaid.hey" || email === "sarah@ilove.cats" || email === "ryan@so.cool") && password === "ialsoloveryan") {
+			$location.url('/students');
+		} else {
+			fakeAuthService.setCurrentUser(email);
+			$location.url('/open-surveys')
+		}
+    
+    // open student.html
+    
+    
+	}
+
+});
+
+
+// GET NEW SURVEYS =========================================
+
+app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, studentsServ) {
   
   //  display list of surveys yet to take on page load
-  // not field select?
   // filter based on student logged in and 'takenBy' array
   
-  // not field select?
-  $scope.getSurveys = function() {
-    surveysServ.getSurveys().then(function(res) {
-      $scope.fieldsSelect = res.data;       
+  $scope.newSurveys = [[]];
+  
+  $scope.takeSurveys = function() {
+    studentsServ.getStudentSurveys().then(function(res) {
+      $scope.newSurveys = res.data;       
     })
   }
   
   
   //  student submits completed survey
 
-  $scope.addCompletedSurvey = function() {
-    studentsServ.addCompletedSurvey($scope.model);
-    // empty the div 
-  }
-  
-  
+//  $scope.submitSurvey = function() {
+//    studentsServ.submitSurvey($scope.......);
+//    // empty the div 
+//  }
+//  
+//  
   
   
 

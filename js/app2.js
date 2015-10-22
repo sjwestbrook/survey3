@@ -91,22 +91,29 @@ templateUrl: 'js/templates/topic.html',
           })
   
   
-    .state('students', {
-      url: '/students',
-      templateUrl: 'js/templates/students.html',
-      controller: 'studentsCtrl',
-      resolve: {
-        surveys: function(surveysServ) {
-                return surveysServ.getSurveys();
-              }
-      }      
+  
+    .state('studentlogin', {
+      url: '/studentlogin',
+      templateUrl: 'js/templates/studentlogin.html',
+      controller: 'studentLogin'
     })
+  
+          .state('students', {
+              url: '/students',
+              templateUrl: 'js/templates/students.html',
+              controller: 'studentsCtrl',
+              resolve: {
+                surveys: function(surveysServ) {
+                        return surveysServ.getSurveys();
+                      }
+              }      
+            })
 
-        // open survey that the student has clicked on to complete
-    .state('students.opensurvey', {
-      url: '/opensurvey',
-      templateUrl: 'js/templates/opensurvey.html'
-    })
+              // open survey that the student has clicked on to complete
+          .state('students.opensurvey', {
+            url: '/opensurvey',
+            templateUrl: 'js/templates/opensurvey.html'
+          })
 
 });
 
