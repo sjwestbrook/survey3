@@ -112,6 +112,9 @@ app.service('templateServ', function($http){
     return $http.get('api/surveyTemplates');
   };
 
+  this.removeAnswer = function(index, array) {
+		array.splice(index, 1);
+	}
   
 });
 

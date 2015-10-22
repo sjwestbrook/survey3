@@ -138,9 +138,9 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
   $scope.template = {};
   $scope.template.questions = [{
     titleText: '',
-      helpText: '',
-      questionType: '',
-      answers: ['']
+    helpText: '',
+    questionType: '',
+    answers: ['']
   }];
  
   
@@ -162,7 +162,8 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
     $scope.template.questions.push({
       titleText: $scope.titleText,
       helpText: $scope.helpText,
-      questionType: $scope.questionType
+      questionType: $scope.questionType,
+      answers: ['']
     })
     console.log($scope.template.questions);
   };
@@ -180,9 +181,8 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
   };
     
   // doesn't work
-  $scope.removeAnswer = function() {
-    question.answers.pop('');
-    console.log(question);
+  $scope.removeAnswer = function(index, array) {
+     array.splice(index, 1);
   };
   
   

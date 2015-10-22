@@ -93,20 +93,20 @@ templateUrl: 'js/templates/topic.html',
   
     .state('students', {
       url: '/students',
-//      resolve: {
-//        newSurveys: function(surveysServ){
-//          return surveysServ.getSurveys();
-//        }
-//      },
       templateUrl: 'js/templates/students.html',
-      controller: 'studentsCtrl'
+      controller: 'studentsCtrl',
+      resolve: {
+        surveys: function(surveysServ) {
+                return surveysServ.getSurveys();
+              }
+      }      
     })
 
         // open survey that the student has clicked on to complete
-        .state('students.opensurvey', {
-          url: '/opensurvey',
-          templateUrl: 'js/templates/opensurvey.html'
-        })
+    .state('students.opensurvey', {
+      url: '/opensurvey',
+      templateUrl: 'js/templates/opensurvey.html'
+    })
 
 });
 

@@ -43,7 +43,6 @@
   <div class="form-group">
     <label>Select Subject</label>
     <select class="form-control" ng-model="survey.subject" required  ng-options="subject for subject in survey.selectedTopic.subjects">
-<!--      we're passing 'subject' to the code; the user sees the name of each subject that is attached to the selected topic-->
     </select>    
   </div> 
     
@@ -57,11 +56,11 @@
   
   
 <!--  display results here - not set up  -->
-  	<table ng-show="selectedSubject" class="table table-striped">		
+  	<table ng-show="survey.subject" class="table table-striped">		
 
-		<tr ng-repeat="result in formattedResults">
-			<th>{{ result.question }}</th>
-			<td ng-repeat="answer in result.answers track by $index">{{ answer }}</td>
+		<tr ng-repeat="question in survey.selectedTemplate.questions">
+			<th>{{ selectedTemplate.questions }}</th>
+			<td ng-repeat="answer in survey.question.answers track by $index">{{ answers }}</td>
 		</tr>
 
 
