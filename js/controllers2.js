@@ -221,34 +221,30 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     templateServ.getTemplates().then(function(res) {
       $scope.templatesArray = res.data;       
     })
-  }
+  };
   
     
-    //controller for submit button on create/send survey  -- adminctrl + admin serv -- noted
+// submit button on create/send survey  -- adminctrl + admin serv -- noted
+  
+// replace variables
 	$scope.sendSurvey = function(name, description, subject, varReplacement) {
 		
     var stringParseObject = {};
-
 		for (var i = 0; i < $scope.selectedTemplate.varNames.length; i++) {
 			stringParseObject[$scope.selectedTemplate.varNames[i]] = varReplacement[i];
 		}
-
-		$scope.questions = $scope.selectedTemplate.questions.slice();
-    
-    //what to console log to see entire survey?
+		$scope.questions = $scope.selectedTemplate.questions.slice();  
+   
     console.log($scope.survey);
 
 //		$scope.confirmNewSurvey = adminService.parseSurvey( $scope.selectedTopic._id, $scope.selectedTopic.topicName, name, description, subject, $scope.questions, stringParseObject );
 //
 //		$scope.questions = $scope.confirmNewSurvey.questions;
+    
+    $scope.postSurvey = function() {
+      sendSurveyServ.postParsedSurvey($scope.survey);
+    }
 	}
-  
-  
-  //========================================================
-  
-  
-  
-  
   
   
 });

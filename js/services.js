@@ -187,16 +187,17 @@ app.service('varReplaceServ', function() {
     
     
 		for (var i = 0; i < questions.length; i++) {
-			for (var key in questions[i]) {
+      var questions = questions[i];
+			for (var key in questions) {
 // if key is an array, look in the array for the variable & replace
-				if ( Array.isArray(questions[i][key]) ) {
-					for (var j = 0; j < questions[i][key].length; j++) {
-						questions[i][key][j] = questions[i][key][j].replace(/\$\$.*?\$\$/g, stringParser)
+				if ( Array.isArray(questions[key]) ) {
+					for (var j = 0; j < questions[key].length; j++) {
+						value = questions[key][j].replace(/\$\$.*?\$\$/g, stringParser)
 					}
 				} 
  // if key isn't an array, just replace the variable in the string
         else {
-					questions[i][key] = questions[i][key].replace(/\$\$.*?\$\$/g, stringParser)
+					value = value.replace(/\$\$.*?\$\$/g, stringParser)
 				}
 			}
 		}
@@ -207,11 +208,25 @@ app.service('varReplaceServ', function() {
 
 		return newParsedSurvey;
   
-};
+  };
+  
+  
+  
+  this.postParsedSurvey = function( parsedSurvey ) {
+		console.log(parsedSurvey)
+		return $http.post(connectionInfo.url + '/api/parsedSurveys', parsedSurvey)
+	}
+    
 });
     
-    
-
+//    
+//app.service('sendSurveyServ', function($http) {
+//  
+//  	this.postParsedSurvey = function( parsedSurvey ) {
+//		console.log(parsedSurvey)
+//		return $http.post(connectionInfo.url + '/api/parsedSurveys', parsedSurvey)
+//	}
+//})
   
   
   
