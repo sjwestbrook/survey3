@@ -179,9 +179,10 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
     question.answers.push('');
   };
     
+  // doesn't work
   $scope.removeAnswer = function() {
-    $scope.template.questions.answers.pop();
-    console.log($scope.template.questions.answers);
+    question.answers.pop('');
+    console.log(question);
   };
   
   
@@ -255,13 +256,11 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 
 // ADMIN - VIEW SURVEY RESULTS ========================
 
-app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicServ, topics, surveysServ, survey) {
+app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicServ, topics, surveysServ) {
   
-//  console.log(1111111, topics.data)
-//  console.log(1111111, subjects.data)
   
   $scope.topicsArray = topics.data;
-  $scope.surveysArray = [];
+  $scope.surveysArray = [{}]; 
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
@@ -270,13 +269,13 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
   }  
   
 
-  $scope.getSurveyResults = function() {
-    surveysServ.getSurveyResults().then(function(res) {
+  $scope.getSurveys = function() {
+    surveysServ.getSurveys().then(function(res) {
       $scope.surveysArray = res.data;  
       console.log($scope.surveysArray);
     })
   }
-
+ 
 });
 
 

@@ -36,19 +36,19 @@
     
    <div class="form-group">
     <label>Select Topic</label>
-    <select class="form-control" ng-model="selectedTopic" required  ng-options="topic.topicName for topic in topicsArray" >
+    <select class="form-control" ng-model="survey.selectedTopic" required  ng-options="topic.topicName for topic in topicsArray" >
     </select>
   </div>  
   
   <div class="form-group">
     <label>Select Subject</label>
-    <select class="form-control" ng-model="subject.subjectName" required  ng-options="subject as (subject.subjectName + ', ' + (subject.date |date) + ', ' + subject.recipientGroup.groupName) for subject in selectedTopic.subjects">
-    </select>
-
-  </div>
+    <select class="form-control" ng-model="survey.subject" required  ng-options="subject for subject in survey.selectedTopic.subjects">
+<!--      we're passing 'subject' to the code; the user sees the name of each subject that is attached to the selected topic-->
+    </select>    
+  </div> 
     
   <div id="buttons">
-    <button type="submit" ng-click="getSurveyResults(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>     
+    <button type="submit" ng-click="getSurveys()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Submit</button>     
   </div>    
     
   </form> 
@@ -57,7 +57,15 @@
   
   
 <!--  display results here - not set up  -->
-  
+  	<table ng-show="selectedSubject" class="table table-striped">		
+
+		<tr ng-repeat="result in formattedResults">
+			<th>{{ result.question }}</th>
+			<td ng-repeat="answer in result.answers track by $index">{{ answer }}</td>
+		</tr>
+
+
+	</table>
   
   
 </div>

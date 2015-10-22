@@ -186,11 +186,6 @@ app.service('createSurveyServ', function($http, surveyService) {
     
 
   
-  
-  
-  
-
-    
     
     
 
@@ -198,11 +193,15 @@ app.service('createSurveyServ', function($http, surveyService) {
 
 app.service('surveysServ', function($http){
   
-  this.getSurveyResults = function() {
-    $http.get('api/parsedSurveys');
-  }
+  this.getSurveys = function() {
+		return $http.get('/api/parsedSurveys')
+	}
   
 });
+
+
+
+
 //
 //
 //    

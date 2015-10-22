@@ -83,8 +83,10 @@ templateUrl: 'js/templates/topic.html',
             resolve: {
               topics: function(topicServ){
                 return topicServ.getTopics();
+              },
+              surveys: function(surveysServ) {
+                return surveysServ.getSurveys();
               }
-              // add parsed surveys get request?
             }
           })
   
