@@ -1,10 +1,3 @@
-/*
-  LESS stylesheet
-  Sarah Westbrook
-  Personal Project
-  10-2-15; 10-10-15
-*/
-
 // VARIABLES, MIXINS, FUNCTIONS ===============================
 
 @font1: proxima-nova, sans-serif;                       //headers
@@ -18,8 +11,8 @@
 @color6: #EDEDED;             // very light grey
 @color7: #66c3ea;             // button hover background
 @color8: #FE9916;             // box styles
-@bordercolor: #0069A0;
-@bordercolor2: #66c3ea;       // button hover border
+//@bordercolor: #0069A0;
+//@bordercolor2: #66c3ea;       // button hover border
 
 
 //===================================================
@@ -37,6 +30,19 @@
   float: right;
 }
 
+.filter {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: all 1s ease;
+}
+
+.img-hover {
+  filter: grayscale(0%);
+  filter: gray;
+  -webkit-filter: grayscale(0%);
+  filter: none;
+  transition: 0.25s ease;
+}
 
 .image {
   position: relative;
@@ -48,17 +54,10 @@
   border-left: 10px solid @color4;
   border-bottom: 10px solid @color4;
   
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-  -webkit-transition: all 1s ease;
+  .filter; 
   
-
   &:hover {
-    filter: grayscale(0%);
-    filter: gray;
-    -webkit-filter: grayscale(0%);
-    filter: none;
-    transition: 0.25s ease;
+    .img-hover
   }
   
   a {
@@ -116,31 +115,10 @@
   border: 1px solid #0069A0; 
   font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; 
   text-transform: uppercase; 
-  color: white; 
+  color: @color1; 
   font-weight: bold; 
   letter-spacing: 0.0625em
 }
-
-
-//div.auth-container {
-//  width: 80%;
-//  height: 100%;
-//  margin: 0 auto;
-//  padding: 50px 0;
-//  
-//}
-//
-//div.auth {
-//  width: 70%;
-//  height: 100%;
-//  margin: 0 auto;
-//  padding: 20px 45px;
-//  border: 10px solid black;
-//  background-color: @color1;
-//  button {
-//    .button;
-//  }
-//}
 
 
 // center vertically -- http://learnlayout.com/flexbox.html
@@ -155,11 +133,11 @@
 //          justify-content: center;
 //}
 
+
 .bg-lg {
   color: @color4;
   background-size: cover;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
+  .filter;
 }
 
 .studentsurveys {
@@ -193,13 +171,11 @@ body {
 
 .ng-scope {
     min-height: 100%;
-//    background-color:red;    
-//    overflow: hidden;
 }
 
 
 div#maincontent {
-  clear: both;
+  .clear;
 }
   
   
@@ -216,7 +192,7 @@ header {
         .navbar-header {
 
           a.navbar-brand {
-            float: left;
+            .left;
             margin-bottom: 20px;
           }
         }
@@ -290,6 +266,10 @@ div#home {
 
 
 
+
+
+
+
 // ADMIN CONTENT STYLES ======================================================== 
 
 html.ng-scope {
@@ -297,7 +277,7 @@ html.ng-scope {
 }
 
 .body {
-  clear: both;
+  .clear;
   position: absolute;
   top: 70px;
   right: 0;
@@ -315,7 +295,7 @@ html.ng-scope {
   .sidebar {
     width: 35%;
     height: 1000px;
-    float: left;
+    .left;
     padding-top: 10px;
     
   
@@ -364,7 +344,7 @@ html.ng-scope {
 
 .main {
   margin-left: 20px;
-  float: right;
+  .right;
   height: 1000px;
   width: 600px;
   overflow: hidden;
@@ -395,7 +375,7 @@ html.ng-scope {
 }
 
 .body {
-  clear: both;
+  .clear;
   position: absolute;
   top: 70px;
   right: 0;
@@ -413,7 +393,7 @@ html.ng-scope {
   .studentsidebar {
     width: 30%;
     height: 100%;
-    float: left;
+    .left;
     text-align: center;
     background-color: transparent;
     background-image: url(../images/waterfall.jpg);
@@ -422,16 +402,10 @@ html.ng-scope {
     border-left: 10px solid @color4;
     border-bottom: 10px solid @color4;
     padding-top: 20px;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -webkit-transition: all 1s ease;
+    .filter; 
   
     &:hover {
-      filter: grayscale(0%);
-      filter: gray;
-      -webkit-filter: grayscale(0%);
-      filter: none;
-      transition: 0.25s ease;
+      .img-hover
     }
     
     h3 {
@@ -664,7 +638,7 @@ html.ng-scope {
 }
 
 .body {
-  clear: both;
+  .clear;
   position: absolute;
   top: 70px;
   right: 0;

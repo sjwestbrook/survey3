@@ -1,51 +1,9 @@
-<!-- if logged out, hide student surveys section -->
-<!-- if logged in, show student surveys section AND show logout button-->
-
-
-<!--  LOGIN -->
-
-
-
-
-
-
-<!--=========================-->
-
-
-
-<!--
-<div ng-hide="user == 'test'" style="width=80%;" class="auth-container">
-
-  <div class="auth">
-    
-    <h2 style="font-weight: bold; color: black;">Login</h2>
-
-    <form name="templateForm">     
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="username" value="test@test.com" ng-model="user" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="text" class="form-control" id="email" ng-model="user" required />
-      </div>
-
-      <button ng-click="submit()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
-
-    </div>
-    
-</div>
-  -->
-
-  <!--  =====================================================  -->
-
-  
   <div class="body">   
     
     <div class="studentsidebar">  
 
       <div>   
-        <button ng-click="takeSurveys()" style="height:70px; width:150px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; font-size: 15px; letter-spacing: 0.0625em">New Surveys</button>
+        <button ng-click="takeSurveys()" style="color: white; font-weight:bold; font-size: 1.5em; text-align: center; background-color: rgba(0,0,0,0.5); border: rgba(0,0,0,0.5); height:3em; width: 80%; text-transform: uppercase;">New Surveys</button>
       </div>
       
       <br />
@@ -53,7 +11,7 @@
 
       <!-- ng-repeat (?) list of surveys -- add ui-sref to each to open in right pane -->
 
-      <!-- placeholder data -->
+      <!-- placeholder data
       <a ui-sref="students.opensurvey">JavaScript 101</a>
       <br />
       <a ui-sref="students.opensurvey">AngularJS</a>
@@ -61,7 +19,7 @@
       <a ui-sref="students.opensurvey">Firebase</a>
       <br />
       <a ui-sref="students.opensurvey">Mongo DB</a>
-
+      -->
  
     </div>  <!-- end sidebar -->
     
@@ -81,15 +39,7 @@
     <br />
 
     
-    
-    <form name="takeSurvey">
-      <h2>{{ selectedSurvey.publicName }}</h2>
-      <h4>{{ selectedSurvey.description }}</h4>
-
-      <formly-form model="response" fields="formlyData">
-        <button ng-click="postResponse()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
-      </formly-form>
-	  </form>
+    <div ui-view></div>
       
 
   </div> <!-- end main -->  

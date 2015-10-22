@@ -15,12 +15,19 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 });
 
 
+// LOGOUT ====================================================
 
-// PARENT ADMIN CONTROLLER ============================================
-
-//app.controller('adminCtrl', function($scope,$stateParams,$state) {
+//app.controller('logout', function($scope, $stateParams,$state, $location) {
+//
+//	$scope.logout = function(email, password) {
+//		logoutServ.logout();
+//	}
 //
 //});
+
+
+// ADMIN CONTROLLERS ============================================
+
 
 // ADMIN LOGIN ======================================================
 
@@ -38,10 +45,6 @@ app.controller('adminLogin', function($scope, $stateParams,$state, $location, $h
 
 
 
-
-// CHILD ADMIN CONTROLLERS ============================================
-
-
 // CREATE TOPIC ===================================
 app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicServ) {
   
@@ -52,9 +55,6 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicSer
   }
     
 });
-
-
-
 
 
 
@@ -141,14 +141,10 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
 });
 
 
-
-
 // CREATE TEMPLATE ==========================
 
 app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, templateServ) {
-  
-  
-  
+    
   $scope.template = {};
   $scope.template.questions = [{
     titleText: '',
@@ -203,8 +199,6 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
    };
   
 });
-
-
 
 
 
@@ -321,23 +315,14 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, stude
   //  display list of surveys yet to take on page load
   // filter based on student logged in and 'takenBy' array
   
-  $scope.newSurveys = [[]];
+  $scope.newSurveys = [{}];
   
   $scope.takeSurveys = function() {
     studentsServ.getStudentSurveys().then(function(res) {
       $scope.newSurveys = res.data;       
     })
-  }
+  };
   
-  
-  //  student submits completed survey
-
-//  $scope.submitSurvey = function() {
-//    studentsServ.submitSurvey($scope.......);
-//    // empty the div 
-//  }
-//  
-//  
   
   
 

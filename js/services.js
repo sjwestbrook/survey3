@@ -1,3 +1,18 @@
+// LOGOUT ======================================
+//
+//app.service('logoutServ', function() {
+//  
+//  this.logout = function() {
+//		localStorage.setItem('');
+//	}
+//  
+//});
+
+
+
+
+
+
 // ADMIN LOGIN (currently using fake student credentials)  ====
 app.service('adminLoginServ', function() {
   
@@ -185,7 +200,7 @@ app.service('createSurveyServ', function($http, surveyService) {
     
     
 
-// admin view survey results ==================================
+// VIEW SURVEY RESULTS ==================================
 
 app.service('surveysServ', function($http){
   
@@ -216,19 +231,14 @@ app.service('studentLoginServ', function() {
 
 
 // GET SURVEYS TO TAKE ===============================
-app.service('studentsServ', function($http, surveysServ){
-  
-//  this.getStudentSurveys= function() {
-//    return $http.get('/api/parsedSurveys');
-//  }
-  
+app.service('studentsServ', function($http, surveysServ){  
   
   this.getStudentSurveys = function() {
 		var user = localStorage.getItem('currentUser'),
 			openSurveys = [];
 
 		surveysServ.getSurveys()
-			.then(function( response ) {
+			.then(function(response) {
 				var surveyData = response.data;
 
 				for (var i = 0; i < surveyData.length; i++) {
@@ -241,21 +251,67 @@ app.service('studentsServ', function($http, surveysServ){
 			})
 			return openSurveys;
 	};
+  
+  
+  //===========
+  
+  
+  this.parseToFormlyData = function( survey ) {
+		if (!survey) {
+			return;
+		}
+		
+		var questions = survey.questions,
+			formlyArray = [];
 
+		for (var i = 0; i < questions.length; i++) {
+			
+			formlyArray.push({
+				key: questions[i]._id,
+				type: questions[i].questionType,
+				templateOptions: {
+					label: questions[i].titleText,
+					description: questions[i].helpText,
+				}
+			})
+
+			if (questions[i].questionType === 'radio' || questions[i].questionType === 'multiCheckbox') {
+				formlyArray[i].templateOptions.options = [];
+				for (var j = 0; j < questions[i].answers.length; j++) {
+					formlyArray[i].templateOptions.options.push({
+						name: questions[i].answers[j],
+						value: questions[i].answers[j]
+					})
+
+					formlyArray[i].templateOptions.labelProp = 'name';
+					formlyArray[i].templateOptions.valueProp = 'value';
+
+				}
+			}
+		}
+		return formlyArray;
+	}
+
+  
+  // SUBMIT TAKEN SURVEYS ====================================
+
+  this.postCompletedSurvey = function( response, selectedSurvey ) {
+      response.surveyId = selectedSurvey._id;
+      var user = localStorage.getItem('currentUser');
+
+      $http.put(connectionInfo.url + '/api/topic/results?id=' + selectedSurvey.topicId + '&subjectId=' + selectedSurvey.subject._id, response)
+        .then(function(res) {
+          console.log(res);
+        })
+
+      $http.put(connectionInfo.url + '/api/parsedSurveys/takenBy?id=' + selectedSurvey._id, {user: user})
+        .then(function(res) {
+          console.log(res);
+        })
+    }
+
+  
 });
-
-
-
-// SUBMIT TAKEN SURVEYS ====================================
-
-
-
-
-
-
-
-
-
 
 
 
