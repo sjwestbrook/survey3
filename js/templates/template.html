@@ -58,10 +58,23 @@
             <input type="radio" ng-model="template.questions[$index].questionType" value="short">Short answer
           </label>    
         </div>
+        <!--
         <div class="form-group">
           <label for="answer">Answer</label>
           <input type="text" class="form-control" id="answer" ng-model="question.answers" required />
         </div>
+        -->
+        
+        <div class="form-group">
+				<div id="answers-container">
+					<label for="answers">Answers</label>
+					<div ng-repeat="item in question.answers track by $index" class="repeatable-input-wrapper">
+						<input ng-model="question.answers[$index]" type="text" class="form-control repeatable-input">
+						<button ng-click="removeInput($index, question.answers)" class="btn btn-default remove-input"><span class="glyphicon glyphicon-remove"></span></button>
+					</div>
+				</div>
+				<button ng-click="addAnswer(question)" class="btn btn-default add-new"><span class="glyphicon glyphicon-plus"></span></button>
+			</div>
 
         <hr>
         <br />

@@ -136,8 +136,13 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
   
   
   $scope.template = {};
-  $scope.template.questions = [{}];
-  $scope.template.questions.answers = [];
+  $scope.template.questions = [{
+    titleText: '',
+      helpText: '',
+      questionType: '',
+      answers: ['']
+  }];
+ 
   
   // add/remove variables
   $scope.template.varNames = [''];
@@ -169,14 +174,14 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
   
   
   // add/remove answers 
-  $scope.addAnswer = function() {
-    $scope.questions.push('');
-    console.log($scope.template.questions);
+  $scope.addAnswer = function(question) {
+    console.log(question);
+    question.answers.push('');
   };
     
   $scope.removeAnswer = function() {
-    $scope.questions.pop();
-    console.log($scope.template.questions);
+    $scope.template.questions.answers.pop();
+    console.log($scope.template.questions.answers);
   };
   
   
