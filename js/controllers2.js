@@ -18,7 +18,21 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 
 // PARENT ADMIN CONTROLLER ============================================
 
-app.controller('adminCtrl', function($scope,$stateParams,$state) {
+//app.controller('adminCtrl', function($scope,$stateParams,$state) {
+//
+//});
+
+// ADMIN LOGIN ======================================================
+
+app.controller('adminLogin', function($scope, $stateParams,$state, $location, $http, adminLoginServ) {
+
+	$scope.login = function(email, password) {
+		if ( (email === "bryan@isaid.hey" || email === "sarah@ilove.cats" || email === "ryan@so.cool") && password === "ialsoloveryan") {
+			$location.url('/admin');
+		} else {
+			$location.url('/home')
+		}
+	}
 
 });
 
@@ -284,21 +298,17 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 
 // STUDENT CONTROLLERS CONTROLLER ============================================
 
-// LOGIN ======================================================
+// STUDENT LOGIN ======================================================
 
-app.controller('studentLogin', function($scope, $location, $http, studentLoginServ) {
+app.controller('studentLogin', function($scope, $stateParams,$state, $location, $http, studentLoginServ) {
 
 	$scope.login = function(email, password) {
 		if ( (email === "bryan@isaid.hey" || email === "sarah@ilove.cats" || email === "ryan@so.cool") && password === "ialsoloveryan") {
 			$location.url('/students');
 		} else {
 			fakeAuthService.setCurrentUser(email);
-			$location.url('/open-surveys')
+			$location.url('/home')
 		}
-    
-    // open student.html
-    
-    
 	}
 
 });

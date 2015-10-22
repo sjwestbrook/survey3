@@ -3,7 +3,7 @@
         <br />
         <br />
         <br />
-      <form name="studentLoginForm">
+      <form name="adminloginForm">
         <div class="form-group">
           <label for="loginEmail">Email Address</label>
           <input ng-model="email" type="email" class="form-control" id="loginEmail" required />
@@ -14,7 +14,7 @@
           <input ng-model="password" type="password" class="form-control" id="loginPassword" required />
         </div>
         
-         <button ng-disabled="studentLoginForm.$invalid" ng-click="login(email, password)" type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Login</button>
+         <button ng-disabled="adminloginForm.$invalid" ng-click="login(email, password)" type="submit" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Login</button>
 
       </form>
     </div>

@@ -11,10 +11,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'homeCtrl'
     })
 
+    .state('adminLogin', {
+//      url: '/adminLogin',
+      templateUrl: 'js/templates/adminLogin.html',
+      controller: 'adminLogin'
+    })
+  
     .state('admin', {
       url: '/admin',
       templateUrl: 'js/templates/admin3.html',
-      controller: 'adminCtrl'   
+//      controller: 'adminCtrl'   
     })
   
           .state('admin.topic', {

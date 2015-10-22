@@ -1,18 +1,11 @@
-//app.service('mainServ', function(){
-//  
-//});
-//
-//app.service('homeServ', function(){
-//  
-//});
-//
-app.service('adminServ', function(){
+// ADMIN LOGIN (currently using fake student credentials)  ====
+app.service('adminLoginServ', function() {
   
-//  this.auth = function() {
-//    
-//  };
+  this.setCurrentUser = function(email) {
+		localStorage.setItem('currentUser', email);
+	}
+  
 });
-
 
 
 
@@ -248,14 +241,6 @@ app.service('studentsServ', function($http, surveysServ){
 			})
 			return openSurveys;
 	};
-  
-  
-  
-  
-  
-  
-  
-  
 
 });
 
