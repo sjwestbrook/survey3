@@ -200,7 +200,7 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, surveyService, topics, templates, groupServ, groups, subjectServ, createSurveyServ) {    
   
   $scope.topicsArray = topics.data;
-  console.log(topics);
+//  console.log(topics);
   $scope.templatesArray = templates.data;
   $scope.groupsArray = groups.data;
   
@@ -222,28 +222,26 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })
   };
   
+  
+
       
 // submit button on create/send survey  -- adminctrl + admin serv -- noted
   
 // replace variables
 	$scope.sendSurvey = function(name, description, subject, varReplacement) {
+    console.log($scope.selectedTemplate.questions);
 		
     var stringParseObject = {};
 		for (var i = 0; i < $scope.selectedTemplate.varNames.length; i++) {
 			stringParseObject[$scope.selectedTemplate.varNames[i]] = varReplacement[i];
 		}
 		$scope.questions = $scope.selectedTemplate.questions.slice();  
-   
-    console.log($scope.survey);
 
-//		$scope.confirmNewSurvey = adminService.parseSurvey( $scope.selectedTopic._id, $scope.selectedTopic.topicName, name, description, subject, $scope.questions, stringParseObject );
-//
-//		$scope.questions = $scope.confirmNewSurvey.questions;
     
-    $scope.postSurvey = function() {
-      createSurveyServ.postParsedSurvey($scope.survey);
-    }
-    
+  // ng-models
+    console.log($scope.questions);
+    createSurveyServ.replaceVar($scope.survey.selectedTopic._id, $scope.survey.selectedTopic.topicName, $scope.survey.name, $scope.selectedTemplate.description, $scope.survey.subject, $scope.questions, stringParseObject);
+
 	}  
   
 });

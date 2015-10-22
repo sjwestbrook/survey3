@@ -100,34 +100,6 @@ app.service('userServ', function($http, newUserServ){
 
 
 
-// TEMPLATE CONSTRUCTOR FUNCTIONS ========================
-
-// inject service into templateServ?  Or is service below ok?  Does send to robomongo
-
-//app.service('newTemplateServ', function($http){
-//  this.NewTemplate = function(template) {
-//    this.name = template.name;
-//    this.description = template.description;
-//  };
-//
-//  // varNames array
-//  this.VarNames = function(varNames) {
-//    this.varNames = varNames.varName;
-//  };
-//   
-//  // questions array
-//  this.Questions = function(questions) {
-//    this.titleText: questions.titleText,
-//    this.helpText: questions.helpText,
-//    this.questionType: questions.questionType,
-//    this.answer: questions.answer
-//  };
-//  
-//});
-
-
-
-
 // TEMPLATE SERV ===========================================   
 
 app.service('templateServ', function($http){  
@@ -177,43 +149,38 @@ app.factory('surveyService', function() {
 
 app.service('createSurveyServ', function($http, surveyService) { 
   
-  // replace variables
-  this.replaceVar = function(topicId, topicName, name, description, subject, questions, parseObject) {
+  // replace variables & parse survey
+  this.replaceVar = function(topicId, topicName, name, description, subject, questions, parseObject) {  // parse object 
+    console.log(questions);
     
     function stringParser(match) {
 			return parseObject[match];
 		}
     
 		for (var i = 0; i < questions.length; i++) {
-      var questions = questions[i];
-			for (var key in questions) {
+      var question = questions[i];
+			for (var key in question) {
 // if key is an array, look in the array for the variable & replace
-				if ( Array.isArray(questions[key]) ) {
-					for (var j = 0; j < questions[key].length; j++) {
-						questions[key][j] = questions[key][j].replace(/\$\$.*?\$\$/g, stringParser)
+				if ( Array.isArray(question[key]) ) {
+					for (var j = 0; j < question[key].length; j++) {
+						question[key][j] = question[key][j].replace(/\$\$.*?\$\$/g, stringParser)
 					}
 				} 
  // if key isn't an array, just replace the variable in the string
         else {
-					questions[key] = questions[key].replace(/\$\$.*?\$\$/g, stringParser)
+					question[key] = question[key].replace(/\$\$.*?\$\$/g, stringParser)
 				}
 			}
 		}
     
     description = description.replace(/\$\$.*?\$\$/g, stringParser);
 
-		var newSurvey = new surveyService.ParsedSurveyTemplate( topicId, topicName, name, description, subject, questions);
+		var newSurvey = new surveyService.ParsedSurveyTemplate( topicId, topicName, name, description, subject, questions);;
 
-		return newSurvey;  // 'newParsedSurvey
+
+		return $http.post('/api/parsedSurveys', newSurvey)
   
   };   // end replaceVar
-
-  
-  
-  this.addSurvey = function( newSurvey ) {
-		console.log(newSurvey)
-		return $http.post(connectionInfo.url + '/api/parsedSurveys', newSurvey)
-	}  
     
 });
     
