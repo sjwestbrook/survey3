@@ -148,7 +148,6 @@ app.service('templateServ', function($http){
 
 // SEND SURVEY ==========================
 
-
 app.factory('surveyService', function() {
 
 	return {
@@ -176,15 +175,14 @@ app.factory('surveyService', function() {
 
 
 
-app.service('varReplaceServ', function() { 
-// this is used in parseSurvey controller (variable replacement)
+app.service('createSurveyServ', function($http, surveyService) { 
   
+  // replace variables
   this.replaceVar = function(topicId, topicName, name, description, subject, questions, parseObject) {
     
     function stringParser(match) {
 			return parseObject[match];
 		}
-    
     
 		for (var i = 0; i < questions.length; i++) {
       var questions = questions[i];
@@ -192,72 +190,52 @@ app.service('varReplaceServ', function() {
 // if key is an array, look in the array for the variable & replace
 				if ( Array.isArray(questions[key]) ) {
 					for (var j = 0; j < questions[key].length; j++) {
-						value = questions[key][j].replace(/\$\$.*?\$\$/g, stringParser)
+						questions[key][j] = questions[key][j].replace(/\$\$.*?\$\$/g, stringParser)
 					}
 				} 
  // if key isn't an array, just replace the variable in the string
         else {
-					value = value.replace(/\$\$.*?\$\$/g, stringParser)
+					questions[key] = questions[key].replace(/\$\$.*?\$\$/g, stringParser)
 				}
 			}
 		}
     
     description = description.replace(/\$\$.*?\$\$/g, stringParser);
 
-		var newParsedSurvey = new surveyService.ParsedSurveyTemplate( topicId, topicName, name, description, subject, questions );
+		var newSurvey = new surveyService.ParsedSurveyTemplate( topicId, topicName, name, description, subject, questions);
 
-		return newParsedSurvey;
+		return newSurvey;  // 'newParsedSurvey
   
-  };
+  };   // end replaceVar
+
   
   
-  
-  this.postParsedSurvey = function( parsedSurvey ) {
-		console.log(parsedSurvey)
-		return $http.post(connectionInfo.url + '/api/parsedSurveys', parsedSurvey)
-	}
+  this.addSurvey = function( newSurvey ) {
+		console.log(newSurvey)
+		return $http.post(connectionInfo.url + '/api/parsedSurveys', newSurvey)
+	}  
     
 });
     
-//    
-//app.service('sendSurveyServ', function($http) {
-//  
-//  	this.postParsedSurvey = function( parsedSurvey ) {
-//		console.log(parsedSurvey)
-//		return $http.post(connectionInfo.url + '/api/parsedSurveys', parsedSurvey)
-//	}
-//})
+
   
   
   
   
-  
-  
-  
-// create and send survey =======================================
-//
-//app.service('createSurveyServ', function($http){
-//  
-//   this.addSurvey = function(survey) {
-//    return $http.post('api/parsedSurveys', survey);
-//  } 
-//   
-//});
 
     
     
     
-    
 
-// view survey results =======================================
-//
-//app.service('surveysServ', function($http){
-//  
-//  this.getSurveyResults = function() {
-//    $http.get('api/parsedSurveys');
-//  }
-//  
-//});
+// admin view survey results ==================================
+
+app.service('surveysServ', function($http){
+  
+  this.getSurveyResults = function() {
+    $http.get('api/parsedSurveys');
+  }
+  
+});
 //
 //
 //    

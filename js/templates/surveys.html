@@ -1,3 +1,33 @@
+<!--
+
+<div class="wrapper">
+	
+	<div class="form-group">
+		<label for="topic-select">Topic</label>
+		<select ng-model="selectedTopic" ng-options="topic as topic.topicName for topic in topics" name="topic-select" class="form-control"></select>
+
+		<div ng-show="selectedTopic" class="form-group">
+			<label for="subject-selection">Subject</label>
+			<select ng-change="findQuestions(selectedSubject.results, parsedSurveys)" ng-model="selectedSubject" ng-options="subject as (subject.subjectName + ', ' + (subject.date | date) + ', ' + subject.recipientGroup.groupName) for subject in selectedTopic.subjects" class="form-control" name="subject-selection"></select>
+		</div>
+
+	</div>
+
+	<table ng-show="selectedSubject" class="table table-striped">		
+
+		<tr ng-repeat="result in formattedResults">
+			<th>{{ result.question }}</th>
+			<td ng-repeat="answer in result.answers track by $index">{{ answer }}</td>
+		</tr>
+
+
+	</table>
+
+</div>
+
+-->
+
+
 <div id="subject" style="width: 90%; margin-right: 0;">
   
   <h2 style="font-weight: bold; color: black;">View Survey Results</h2>

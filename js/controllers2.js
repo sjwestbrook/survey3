@@ -197,7 +197,7 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
 // keys correct?
 // add Group dropdown?
 
-app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, surveyService, topics, templates, groupServ, groups, subjectServ) {    
+app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, topicServ, templateServ, surveyService, topics, templates, groupServ, groups, subjectServ, createSurveyServ) {    
   
   $scope.topicsArray = topics.data;
   console.log(topics);
@@ -215,7 +215,6 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
       $scope.topicsArray = res.data;
     })                            
   }; 
-
   
   $scope.getTemplates = function() {
     templateServ.getTemplates().then(function(res) {
@@ -223,7 +222,7 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
     })
   };
   
-    
+      
 // submit button on create/send survey  -- adminctrl + admin serv -- noted
   
 // replace variables
@@ -242,16 +241,16 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 //		$scope.questions = $scope.confirmNewSurvey.questions;
     
     $scope.postSurvey = function() {
-      sendSurveyServ.postParsedSurvey($scope.survey);
+      createSurveyServ.postParsedSurvey($scope.survey);
     }
-	}
-  
+    
+	}  
   
 });
 
 
 
-// VIEW SURVEY RESULTS ========================
+// ADMIN - VIEW SURVEY RESULTS ========================
 
 app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicServ, topics, surveysServ, survey) {
   
