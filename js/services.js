@@ -235,7 +235,7 @@ app.service('studentsServ', function($http, surveysServ){
 			.then(function(response) {
 				var surveyData = response.data;
 
-				for (var i = 0; i < surveyData.length; i++) { debugger;
+				for (var i = 0; i < surveyData.length; i++) { 
 
 						if (surveyData[i].recipientGroup.groupName === group && surveyData[i].takenBy.indexOf(user) === -1) {
 							openSurveys.push(surveyData[i]);

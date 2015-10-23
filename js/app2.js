@@ -120,12 +120,12 @@ templateUrl: 'js/templates/topic.html',
               }      
             })
 
-//              // open survey that the student has clicked on to complete
-//          .state('students.opensurvey', {
-//            url: '/opensurvey',
-//            templateUrl: 'js/templates/opensurvey.html'
-//          })
-//
+              // open survey that the student has clicked on to complete
+          .state('students.opensurvey', {
+            url: '/opensurvey',
+            templateUrl: 'js/templates/opensurvey.html'
+          })
+
 });
 
 

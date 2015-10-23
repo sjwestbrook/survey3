@@ -391,6 +391,7 @@ html.ng-scope {
   }
   
   .studentsidebar {
+    color: @color1;
     width: 30%;
     height: 100%;
     .left;
@@ -423,7 +424,9 @@ html.ng-scope {
       margin: 20px auto;
     }
 
-    
+    p {
+      color: @color1;
+    }
         
     button {
       width: 80%; 
@@ -443,8 +446,8 @@ html.ng-scope {
     a {
       text-decoration: none;
       color:  @color1;
-      font-size: @fontsize * 1.5;
-      font-weight: bold;
+//      font-size: @fontsize;
+//      font-weight: bold;
       text-shadow: 1.5px 1.5px @color4;
       transition: color .2s linear;
 
@@ -655,14 +658,24 @@ html.ng-scope {
   
   .studentsidebar {
     width: 30%;
+    color: @color1;
     
-    h3 {
-      font-size: 1em; 
+    .ng-binding.ng-scope {
+      p{
+        color: @color1;
+      }
+      
+      
+      
+      h3 {
+        font-size: 1em; 
+      }
+
+      a {
+        font-size: 1em;      
+      }
     }
-        
-    a {
-      font-size: 1em;
-    }
+    
   } // end sidebar styles
 
 
