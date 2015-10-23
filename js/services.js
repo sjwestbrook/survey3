@@ -241,15 +241,27 @@ app.service('studentsServ', function($http, surveysServ){
 							openSurveys.push(surveyData[i]);
 					}
 				}
+      console.log(openSurveys)
       return openSurveys;
 			})
-    console.log(openSurveys)
 			return openSurveys;
 	};
   
   
   //===========
   
+  
+  
+  
+  this.changeSelectedSurvey = function( survey ) {
+		localStorage.setItem('selectedSurvey', JSON.stringify(survey));
+    console.log(survey);    // nothing
+	}
+  
+  
+  
+  
+  //===========
   
   this.parseToFormlyData = function( survey ) {
 		if (!survey) {
@@ -266,7 +278,7 @@ app.service('studentsServ', function($http, surveysServ){
 				key: questions[i]._id,
 				type: questions[i].questionType,
 				templateOptions: {
-					label: questions[i].titleText,
+					label:  questions[i].titleText,
 					description: questions[i].helpText,
 				}
 			})
@@ -290,21 +302,20 @@ app.service('studentsServ', function($http, surveysServ){
   
   // SUBMIT TAKEN SURVEYS ====================================
 
-  this.postCompletedSurvey = function( response, selectedSurvey ) {
-      response.surveyId = selectedSurvey._id;
-      var user = localStorage.getItem('currentUser');
+ this.postCompletedSurvey = function( response, selectedSurvey ) {
+		response.surveyId = selectedSurvey._id;
+		var user = localStorage.getItem('currentUser');
 
-      $http.put(connectionInfo.url + '/api/topic/results?id=' + selectedSurvey.topicId + '&subjectId=' + selectedSurvey.subject._id, response)
-        .then(function(res) {
-          console.log(res);
-        })
+		$http.put(connectionInfo.url + '/api/topic/results?id=' + selectedSurvey.topicId + '&subjectId=' + selectedSurvey.subject._id, response)
+			.then(function(res) {
+				console.log(res);
+			})
 
-      $http.put(connectionInfo.url + '/api/parsedSurveys/takenBy?id=' + selectedSurvey._id, {user: user})
-        .then(function(res) {
-          console.log(res);
-        })
-    }
-
+		$http.put(connectionInfo.url + '/api/parsedSurveys/takenBy?id=' + selectedSurvey._id, {user: user})
+			.then(function(res) {
+				console.log(res);
+			})
+	}
   
 });
 

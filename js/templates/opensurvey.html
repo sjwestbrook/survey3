@@ -2,27 +2,29 @@
 
   <h2 style="font-weight: bold; color: black;">Complete the Survey</h2>  
   
-<!-- display open survey here -->
+<!-- display survey list here -->
   
 	<form name="takeSurvey">
 
-    <!--    selectedSurvey.publicName-->
 		<h2>{{ newSurvey.publicName }}</h2>
 
 		<p>{{ newSurvey.description }}</p>
 		
-		
-		<formly-form model="response" fields="formlyData">
-      <!-- <button ng-click="postResponse()" class="btn btn-primary">Submit</button>-->
-      
+
+		<formly-form model="response" fields="formly">
+       
+<!--      () or (response) ?-->
       <!-- reset and submit buttons - functions, etc -->
-      <button type="submit" ng-click="onSubmit(survey)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
+
+      <button type="submit" ng-click="postResponse(response)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
 
       <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
-  
+
+  <!--
+      <button style="height: 30px; width: 90px;" ng-click="postResponse(response)"></button>
+-->
 		</formly-form>
 
-	</form>
-  
+	</form>  
   
 </div>

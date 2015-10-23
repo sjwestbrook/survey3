@@ -1,4 +1,4 @@
-var app = angular.module('surveyApp', ['ui.router', 'formly', 'formlyBootstrap', 'ui.bootstrap', 'ui.bootstrap.modal']); 
+var app = angular.module('surveyApp', ['ui.router', 'formly', 'formlyBootstrap', 'ui.bootstrap']); 
 
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -123,7 +123,12 @@ templateUrl: 'js/templates/topic.html',
               // open survey that the student has clicked on to complete
           .state('students.opensurvey', {
             url: '/opensurvey',
-            templateUrl: 'js/templates/opensurvey.html'
+            templateUrl: 'js/templates/opensurvey.html',
+            resolve: {
+                surveys: function(surveysServ) {
+                        return surveysServ.getSurveys();
+                      }
+              }   
           })
 
 });

@@ -305,25 +305,35 @@ app.controller('studentLogin', function($scope, $stateParams,$state, $location, 
 // GET NEW SURVEYS =========================================
 
 app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, studentsServ) {
+  $scope.response = {};
+  $scope.newSurveys = [];
   
-  //  display list of surveys yet to take on page load
-  // filter based on student logged in and 'takenBy' array
-  
-  $scope.newSurveys = [{}];
-  $scope.survey = '';
-  
+  // click button to get list of new surveys
   $scope.takeSurveys = function() {
     $scope.newSurveys = studentsServ.takeSurveys();
     console.log($scope.newSurveys);
     
   };
   
-  $scope.opensurvey = function(survey) {
-    studentsServ.parseToFormlyData();
-    console.log($scope.survey);
-  };
   
-  $scope.submitSurvey = function() {
+  
+  // click survey to open in right pane
+  
+    $scope.opensurvey = function(survey) {
+      $scope.formly = studentsServ.parseToFormlyData(survey);
+      console.log($scope.formly);
+    };
+  
+  $scope.changeSelectedSurvey = function( survey ) {
+		studentsServ.changeSelectedSurvey( survey )
+    $scope.opensurvey(survey);
+    console.log(survey);  
+	}
+    
+
+  
+  // submit survey
+  $scope.postResponse = function() {
     studentsServ.postCompletedSurvey();
   }
   
