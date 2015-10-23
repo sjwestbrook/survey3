@@ -256,8 +256,9 @@ app.service('studentsServ', function($http, surveysServ){
 			return;
 		}
 		
-		var questions = survey.questions,
-			formlyArray = [];
+		var questions = survey.questions;
+    
+		var	formlyArray = [];
 
 		for (var i = 0; i < questions.length; i++) {
 			
@@ -286,7 +287,6 @@ app.service('studentsServ', function($http, surveysServ){
 		}
 		return formlyArray;
 	}
-
   
   // SUBMIT TAKEN SURVEYS ====================================
 

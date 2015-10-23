@@ -7,17 +7,16 @@
       </div>
       
        <br />
-       <br />
       
       <div style="color: white;">
-        <a ui-sref="students.opensurvey" ng-repeat="newSurvey in newSurveys">            
+        <a ng-click="changeSelectedSurvey(survey)" ui-sref="students.opensurvey" ng-repeat="newSurvey in newSurveys">            
           {{ newSurvey.publicName }}<br />
           {{ newSurvey.description }}<br />
           <br />
         </a>
       </div>
 
-      
+      <h1 ng-show="openSurveys.length === 0">You have no available surveys at this time</h1>
  
     </div>  <!-- end sidebar -->
     

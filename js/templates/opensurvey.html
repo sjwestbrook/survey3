@@ -7,9 +7,9 @@
 	<form name="takeSurvey">
 
     <!--    selectedSurvey.publicName-->
-		<h2>{{ selectedSurvey.name }}</h2>
+		<h2>{{ newSurvey.publicName }}</h2>
 
-		<h4>{{ selectedSurvey.description }}</h4>
+		<p>{{ newSurvey.description }}</p>
 		
 		
 		<formly-form model="response" fields="formlyData">

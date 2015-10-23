@@ -310,11 +310,17 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, stude
   // filter based on student logged in and 'takenBy' array
   
   $scope.newSurveys = [{}];
+  $scope.survey = '';
   
   $scope.takeSurveys = function() {
     $scope.newSurveys = studentsServ.takeSurveys();
     console.log($scope.newSurveys);
     
+  };
+  
+  $scope.opensurvey = function(survey) {
+    studentsServ.parseToFormlyData();
+    console.log($scope.survey);
   };
   
   $scope.submitSurvey = function() {
