@@ -6,20 +6,13 @@
         <button ng-click="takeSurveys()" style="color: white; font-weight:bold; font-size: 1.5em; text-align: center; background-color: rgba(0,0,0,0.5); border: rgba(0,0,0,0.5); height:3em; width: 80%; text-transform: uppercase;">New Surveys</button>
       </div>
       
-      <br />
-      <br />
+      <div ng-repeat="newSurvey in newSurveys">
+      
+        asdfasdfasfasdf
+        
+      </div>
 
-      <!-- ng-repeat (?) list of surveys -- add ui-sref to each to open in right pane -->
-
-      <!-- placeholder data
-      <a ui-sref="students.opensurvey">JavaScript 101</a>
-      <br />
-      <a ui-sref="students.opensurvey">AngularJS</a>
-      <br />
-      <a ui-sref="students.opensurvey">Firebase</a>
-      <br />
-      <a ui-sref="students.opensurvey">Mongo DB</a>
-      -->
+      
  
     </div>  <!-- end sidebar -->
     
@@ -38,8 +31,40 @@
     <br />
     <br />
 
-    
+
+    <!--
     <div ui-view></div>
+    -->
+    
+    
+    <div id="opensurvey" style="width: 100%; height: 4000px; margin-right: 0;">
+
+  <h2 style="font-weight: bold; color: black;">Complete the Survey</h2>  
+  
+<!-- display open survey here -->
+  
+	<form name="takeSurvey">
+
+    <!--    selectedSurvey.publicName-->
+		<h2>{{ selectedSurvey.name }}</h2>
+
+		<h4>{{ selectedSurvey.description }}</h4>
+		
+		
+		<formly-form model="response" fields="formlyData">
+      
+      <!-- reset and submit buttons - functions, etc -->
+      <button type="submit" ng-click="submitSurvey()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
+
+      <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>
+  
+		</formly-form>
+
+	</form>
+  
+  
+</div>
+
       
 
   </div> <!-- end main -->  

@@ -89,8 +89,6 @@ app.service('newUserServ', function($http){
 });
 
 
-
-
 // NEW USER =========================================
 app.service('userServ', function($http, newUserServ){
 
@@ -101,8 +99,7 @@ app.service('userServ', function($http, newUserServ){
       $http.post('/api/signup', newUser);
     }
     
-  }
-    
+  }    
 });
 
 
@@ -142,12 +139,14 @@ app.factory('surveyService', function() {
 			this.varNames = varNames;
 		},
 
-		ParsedSurveyTemplate: function( topicId, topicName, name, description, subject, questions ) {
+		ParsedSurveyTemplate: function( topicId, topicName, name, description, subject, group, date, questions ) {
 			this.publicName = name;
 			this.topicName = topicName;
 			this.topicId = topicId;
 			this.description = description;
 			this.subject = subject;
+      this.recipientGroup = group;
+      this.date = date;
 			this.questions = questions;
 		},
 
@@ -157,13 +156,11 @@ app.factory('surveyService', function() {
 
 
 
-
 app.service('createSurveyServ', function($http, surveyService) { 
   
   // replace variables & parse survey
-  this.replaceVar = function(topicId, topicName, name, description, subject, questions, parseObject) {  // parse object 
-    console.log(questions);
-    
+  this.replaceVar = function(topicId, topicName, name, description, subject, group, date, questions, parseObject) {  // parse object 
+
     function stringParser(match) {
 			return parseObject[match];
 		}
@@ -186,8 +183,7 @@ app.service('createSurveyServ', function($http, surveyService) {
     
     description = description.replace(/\$\$.*?\$\$/g, stringParser);
 
-		var newSurvey = new surveyService.ParsedSurveyTemplate( topicId, topicName, name, description, subject, questions);;
-
+		var newSurvey = new surveyService.ParsedSurveyTemplate( topicId, topicName, name, description, subject, group, date, questions);
 
 		return $http.post('/api/parsedSurveys', newSurvey)
   
@@ -196,11 +192,9 @@ app.service('createSurveyServ', function($http, surveyService) {
 });
     
 
-  
-    
-    
+      
 
-// VIEW SURVEY RESULTS ==================================
+// GET SURVEYS ==================================
 
 app.service('surveysServ', function($http){
   
@@ -212,16 +206,16 @@ app.service('surveysServ', function($http){
 
 
 
-
-
    
 // STUDENT SURVEYS ====================================
 
 // LOGIN ===========================
 app.service('studentLoginServ', function() {
   
-  this.setCurrentUser = function(email) {
+  this.setCurrentUser = function(email, group) {
+    var user = {email: email, group: group}
 		localStorage.setItem('currentUser', email);
+    localStorage.setItem('userGroup', group)
 	}
   
 });
@@ -229,26 +223,27 @@ app.service('studentLoginServ', function() {
 
 
 
-
-// GET SURVEYS TO TAKE ===============================
+// GET SURVEYS PER STUDENT ===============================
 app.service('studentsServ', function($http, surveysServ){  
   
-  this.getStudentSurveys = function() {
+  this.takeSurveys = function() {
 		var user = localStorage.getItem('currentUser'),
-			openSurveys = [];
-
+        group = localStorage.getItem('userGroup'),
+        openSurveys = [];
+    
 		surveysServ.getSurveys()
 			.then(function(response) {
 				var surveyData = response.data;
 
-				for (var i = 0; i < surveyData.length; i++) {
-					for (var j = 0; j < surveyData[i].users.length; j++) {
-						if (surveyData[i].users[j].email === user && surveyData[i].takenBy.indexOf(user) === -1) {
+				for (var i = 0; i < surveyData.length; i++) { debugger;
+
+						if (surveyData[i].recipientGroup.groupName === group && surveyData[i].takenBy.indexOf(user) === -1) {
 							openSurveys.push(surveyData[i]);
-						}
 					}
 				}
+      return openSurveys;
 			})
+    console.log(openSurveys)
 			return openSurveys;
 	};
   

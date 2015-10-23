@@ -26,6 +26,7 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 //});
 
 
+
 // ADMIN CONTROLLERS ============================================
 
 
@@ -50,7 +51,6 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicSer
   
   $scope.addTopic = function() {
     topicServ.addTopic($scope.topic);
-    console.log($scope.topic)
     $scope.topic = '';
   }
     
@@ -64,13 +64,11 @@ app.controller('topicCtrl', function($http, $scope,$stateParams,$state, topicSer
 app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicServ, topics) {
   
   $scope.topicsArray = topics.data;
-  console.log($scope.topicsArray);
   $scope.subjects = [];
   
   $scope.getTopics = function() {
     topicServ.getTopics().then(function(res){
       $scope.topicsArray = res.data;
-      console.log($scope.topicsArray)
     });                            
   }
 
@@ -79,8 +77,6 @@ app.controller('subjectCtrl', function($http, $scope,$stateParams,$state, topicS
      topicServ.updateTopic($scope.topic, $scope.subject).then(function(res){
           console.log(res);
      });
-     console.log($scope.topic);
-     console.log($scope.subject);
      $scope.topicsArray = '';
      $scope.subjects = '';
    }
@@ -95,7 +91,6 @@ app.controller('groupCtrl', function($http, $scope,$stateParams,$state, groupSer
 
    $scope.addGroup = function() {
      groupServ.addGroup($scope.group);
-     console.log($scope.group);
      $scope.group = '';
    }
    
@@ -118,25 +113,23 @@ app.controller('usersCtrl', function($http, $scope,$stateParams,$state, groupSer
   };
 
 
-  // add and remove user(s) as in template.html? 
+  // add and remove user(s) 
   $scope.newUser = function() {
     $scope.users.push({});
-    console.log($scope.users);
   };
-    
-  
-  $scope.removeuser = function() {
+     
+  $scope.removeUser = function() {
     $scope.users.pop();
-    console.log($scope.users);
-  };
-  
+  }; 
  
-  // ie 'submit' add multiple users at once?
+
+  // submit
   $scope.addUser = function() {
     userServ.addUser ($scope.users);
-    console.log($scope.users)
-  }
-  
+    
+  //correct? does clear form
+   $scope.users = [{}];
+  }  
   
 });
 
@@ -159,12 +152,10 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
   
   $scope.addNewVar = function() {
     $scope.template.varNames.push('');
-    console.log($scope.template.questions);
   };
     
   $scope.removeVar = function() {
     $scope.template.varNames.pop();
-    console.log($scope.template.questions);
   };  
   
   $scope.addQuestion = function() {
@@ -174,17 +165,14 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
       questionType: $scope.questionType,
       answers: ['']
     })
-    console.log($scope.template.questions);
   };
     
   $scope.removeQuestion = function() {
     $scope.template.questions.pop('');
-    console.log($scope.template.questions);
   };
   
   
   $scope.addAnswer = function(question) {
-    console.log(question);
     question.answers.push('');
   };
     
@@ -194,7 +182,6 @@ app.controller('templateCtrl', function($http,  $scope,$stateParams,$state, temp
   
   $scope.addTemplate = function() {
     templateServ.addTemplate($scope.template);
-    console.log($scope.template);
     $scope.template = '';
    };
   
@@ -234,8 +221,7 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 // submit button on create/send survey  -- adminctrl + admin serv -- noted
   
 // replace variables
-	$scope.sendSurvey = function(name, description, subject, varReplacement) {
-    console.log($scope.selectedTemplate.questions);
+	$scope.sendSurvey = function(name, description, subject, group, varReplacement) {
 		
     var stringParseObject = {};
 		for (var i = 0; i < $scope.selectedTemplate.varNames.length; i++) {
@@ -245,9 +231,11 @@ app.controller('createSurveyCtrl', function($http, $scope,$stateParams,$state, t
 
     
   // ng-models
-    console.log($scope.questions);
-    createSurveyServ.replaceVar($scope.survey.selectedTopic._id, $scope.survey.selectedTopic.topicName, $scope.survey.name, $scope.selectedTemplate.description, $scope.survey.subject, $scope.questions, stringParseObject);
+    console.log($scope.survey);
+    createSurveyServ.replaceVar($scope.survey.selectedTopic._id, $scope.survey.selectedTopic.topicName, $scope.survey.name, $scope.selectedTemplate.description, $scope.survey.subject, $scope.survey.group._id, $scope.survey.date, $scope.questions, stringParseObject);
 
+    $scope.survey = '';
+    $scope.selectedTemplate = '';
 	}  
   
 });
@@ -279,9 +267,7 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 
   $scope.getSurveys = function() {
     surveysServ.getSurveys().then(function(res) {
-      $scope.surveysArray = res.data;  
-      console.log($scope.surveysArray);
-      
+      $scope.surveysArray = res.data;        
     })
   }
  
@@ -294,13 +280,21 @@ app.controller('surveysCtrl', function($http, $scope,$stateParams,$state, topicS
 
 // STUDENT LOGIN ======================================================
 
-app.controller('studentLogin', function($scope, $stateParams,$state, $location, $http, studentLoginServ) {
+app.controller('studentLogin', function($scope, $stateParams,$state, $location, $http, studentLoginServ, groupServ, groups) {
+  
+  $scope.groupsArray = groups.data;
+  
+  $scope.getGroups = function() {
+    groupServ.getGroups().then(function(res) {
+      $scope.groupsArray = res.data;        
+    })
+  };
 
 	$scope.login = function(email, password) {
 		if ( (email === "bryan@isaid.hey" || email === "sarah@ilove.cats" || email === "ryan@so.cool") && password === "ialsoloveryan") {
+      studentLoginServ.setCurrentUser(email, $scope.selectedGroup);
 			$location.url('/students');
 		} else {
-			fakeAuthService.setCurrentUser(email);
 			$location.url('/home')
 		}
 	}
@@ -318,12 +312,14 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, stude
   $scope.newSurveys = [{}];
   
   $scope.takeSurveys = function() {
-    studentsServ.getStudentSurveys().then(function(res) {
-      $scope.newSurveys = res.data;       
-    })
+    $scope.newSurveys = studentsServ.takeSurveys();
+    console.log($scope.newSurveys);
+    
   };
   
-  
+  $scope.submitSurvey = function() {
+    studentsServ.postCompletedSurvey();
+  }
   
 
 });

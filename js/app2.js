@@ -101,7 +101,12 @@ templateUrl: 'js/templates/topic.html',
     .state('studentlogin', {
       url: '/studentlogin',
       templateUrl: 'js/templates/studentlogin.html',
-      controller: 'studentLogin'
+      controller: 'studentLogin',
+      resolve: {
+              groups: function(groupServ){
+                return groupServ.getGroups();
+              }
+      }
     })
   
           .state('students', {
@@ -115,12 +120,12 @@ templateUrl: 'js/templates/topic.html',
               }      
             })
 
-              // open survey that the student has clicked on to complete
-          .state('students.opensurvey', {
-            url: '/opensurvey',
-            templateUrl: 'js/templates/opensurvey.html'
-          })
-
+//              // open survey that the student has clicked on to complete
+//          .state('students.opensurvey', {
+//            url: '/opensurvey',
+//            templateUrl: 'js/templates/opensurvey.html'
+//          })
+//
 });
 
 
