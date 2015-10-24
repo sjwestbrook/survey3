@@ -305,33 +305,59 @@ app.controller('studentLogin', function($scope, $stateParams,$state, $location, 
 
 // GET NEW SURVEYS =========================================
 
-app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, studentsServ) {
+app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, studentsServ, $timeout) {
   $scope.response = {};
   $scope.newSurveys = [];
+  
+//  $scope.test = "This is the student Ctrl";
   
   // click button to get list of new surveys
   $scope.takeSurveys = function() {
     $scope.newSurveys = studentsServ.takeSurveys();
     console.log($scope.newSurveys);
     
-  };
+  };  
   
+  $scope.changeSelectedSurvey = function( survey ) {
+		 console.log(survey);  
+    //$locatin.url(to change the route)  - inject as depencency
+    //   /opensurvey/:surveyId
+	}
   
+  // submit survey
+  $scope.postResponse = function() {
+    studentsServ.postCompletedSurvey();
+  }
   
+
+});
+
+
+
+app.controller('openSurveyCtrl', function($http, $scope,$stateParams,$state, studentsServ, $timeout) {
+  $scope.response = {};
+  $scope.newSurveys = [];
+  
+  //A - Use $stateParams to get :surveyId
+  //B - Ask studentServ to change selectedSurvey 
+  //  - This needs to take in an id now and not a whole survey
+  //  - This should return the survey object
+  //Then invoke opensurvey with with returned survey object
+  
+  $scope.test = "This is the open survey Ctrl";
+
   // click survey to open in right pane
   
-    $scope.opensurvey = function(survey) {
-      $scope.formly = studentsServ.parseToFormlyData(survey);
-      console.log($scope.formly);
-    };
-  
+  $scope.opensurvey = function(survey) {
+    $scope.formly = studentsServ.parseToFormlyData(survey);
+    console.log($scope.formly);
+  };
+
   $scope.changeSelectedSurvey = function( survey ) {
 		studentsServ.changeSelectedSurvey( survey )
     $scope.opensurvey(survey);
     console.log(survey);  
 	}
-    
-
   
   // submit survey
   $scope.postResponse = function() {

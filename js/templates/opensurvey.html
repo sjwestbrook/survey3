@@ -10,8 +10,11 @@
 
 		<p>{{ newSurvey.description }}</p>
 		
-
-		<formly-form model="response" fields="formly">
+    <p>{{test}}</p>
+    
+    <div ng-repeat="field in formly4">Key : {{field.key}}</div>
+    
+		<formly-form model="response" fields="formly4">
        
 <!--      () or (response) ?-->
       <!-- reset and submit buttons - functions, etc -->

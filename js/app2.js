@@ -124,6 +124,7 @@ templateUrl: 'js/templates/topic.html',
           .state('students.opensurvey', {
             url: '/opensurvey',
             templateUrl: 'js/templates/opensurvey.html',
+            controller: 'openSurveyCtrl',
             resolve: {
                 surveys: function(surveysServ) {
                         return surveysServ.getSurveys();
