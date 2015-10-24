@@ -1,14 +1,13 @@
 // LOGOUT ======================================
-//
-//app.service('logoutServ', function() {
-//  
-//  this.logout = function() {
-//		localStorage.setItem('');
-//	}
-//  
-//});
 
 
+app.service('logoutServ', function() {
+  
+  this.logout = function(){
+    localStorage.removeItem('currentUser');
+  } 
+  
+});
 
 
 

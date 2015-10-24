@@ -17,13 +17,14 @@ app.controller('homeCtrl', function($scope,$stateParams,$state) {
 
 // LOGOUT ====================================================
 
-//app.controller('logout', function($scope, $stateParams,$state, $location) {
-//
-//	$scope.logout = function(email, password) {
-//		logoutServ.logout();
-//	}
-//
-//});
+app.controller('logout', function($scope, $stateParams,$state, $location, logoutServ) {
+
+	$scope.logout = function() {
+		logoutServ.logout();
+    $location.url('/home');
+	}
+
+});
 
 
 
