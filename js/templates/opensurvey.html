@@ -12,11 +12,10 @@
 		
     <p>{{test}}</p>
     
-    <div ng-repeat="field in formly4">Key : {{field.key}}</div>
+    <div ng-repeat="field in formly">Key : {{field.key}}</div>
     
-		<formly-form model="response" fields="formly4">
-       
-<!--      () or (response) ?-->
+		<formly-form model="response" fields="formly">
+
       <!-- reset and submit buttons - functions, etc -->
 
       <button type="submit" ng-click="postResponse(response)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>

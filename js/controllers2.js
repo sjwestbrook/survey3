@@ -305,7 +305,7 @@ app.controller('studentLogin', function($scope, $stateParams,$state, $location, 
 
 // GET NEW SURVEYS =========================================
 
-app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, studentsServ, $timeout) {
+app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, $location, studentsServ, $timeout) {
   $scope.response = {};
   $scope.newSurveys = [];
   
@@ -321,8 +321,28 @@ app.controller('studentsCtrl', function($http, $scope,$stateParams,$state, stude
   $scope.changeSelectedSurvey = function( survey ) {
 		 console.log(survey);  
     //$locatin.url(to change the route)  - inject as depencency
-    //   /opensurvey/:surveyId
+       //   /opensurvey/:surveyId
+    $location.url('/opensurvey/:surveyId')
+ 
 	}
+  
+  
+  app.controller('adminLogin', function($scope, $stateParams,$state, $location, $http, adminLoginServ) {
+
+	$scope.login = function(email, password) {
+		if ( (email === "bryan@isaid.hey" || email === "sarah@ilove.cats" || email === "ryan@so.cool") && password === "ialsoloveryan") {
+			$location.url('/admin');
+		} else {
+			$location.url('/home')
+		}
+	}
+
+});
+
+  
+  
+  
+  
   
   // submit survey
   $scope.postResponse = function() {

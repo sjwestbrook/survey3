@@ -310,7 +310,7 @@ app.service('studentsServ', function($http, surveysServ){
 				console.log(res);
 			})
 
-		$http.put(connectionInfo.url + '/api/parsedSurveys/takenBy?id=' + selectedSurvey._id, {user: user})
+		$http.put('/api/parsedSurveys/takenBy?id=' + selectedSurvey._id, {user: user})  // user: email?
 			.then(function(res) {
 				console.log(res);
 			})

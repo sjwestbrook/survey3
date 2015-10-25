@@ -131,7 +131,7 @@ templateUrl: 'js/templates/topic.html',
                       }
               }   
           })
-
+  
 });
 
 
