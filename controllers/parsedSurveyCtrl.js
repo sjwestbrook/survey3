@@ -8,6 +8,16 @@ module.exports = {
 			 res.send(data);
 		})
 	},
+  
+  getOneSurvey: function( req, res ) {
+    ParsedSurvey.findById(req.query.id, function( err, survey ) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.send(survey);
+      }
+    })
+  },
 
 	addSurvey: function(req, res) {
 		new ParsedSurvey(req.body).save(function(err, data) {

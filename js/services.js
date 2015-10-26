@@ -248,14 +248,15 @@ app.service('studentsServ', function($http, surveysServ){
   
   //==========  
   
-  this.changeSelectedSurvey = function( survey ) {
+  this.changeSelectedSurvey = function(survey) {
 		localStorage.setItem('selectedSurvey', JSON.stringify(survey));
-    console.log(survey);    // nothing
+   
 	}
     
   //===========
   
   this.parseToFormlyData = function( survey ) {
+    
     console.log(survey);
 		if (!survey) {
 			return;

@@ -62,6 +62,8 @@ app.delete('/api/surveyTemplates', surveyCtrl.deleteSurvey);
 // jeremy wants to view surveys
 app.get('/api/parsedSurveys', parsedSurveyCtrl.getSurveys);
 
+app.get('/api/parsedSurveys/one', parsedSurveyCtrl.getOneSurvey);
+
 // jeremy sends new survey
 app.post('/api/parsedSurveys', parsedSurveyCtrl.addSurvey);
 

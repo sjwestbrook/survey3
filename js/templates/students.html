@@ -9,7 +9,7 @@
        <br />
       
       <div style="color: white;">
-        <a ng-click="changeSelectedSurvey(newSurvey)" ui-sref="students.opensurvey" ng-repeat="newSurvey in newSurveys">            
+        <a ng-click="changeSelectedSurvey(newSurvey)" ui-sref="students.opensurveydetails" ng-repeat="newSurvey in newSurveys">                   
           {{ newSurvey.publicName }}<br />
           {{ newSurvey.description }}<br />
           <br />
@@ -29,9 +29,7 @@
       </button>
     </span>
 -->
-    <div id="newsurveycontent" ui-view> 
-<!-- display open survey here -->
-    </div>
+    <div id="newsurveycontent" ui-view></div>
   
 
   </div> <!-- end main -->  
