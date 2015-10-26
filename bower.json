@@ -1,30 +1,30 @@
 {
-  "name": "survey",
-  "version": "0.0.0",
-  "homepage": "https://github.com/sjwestbrook/survey",
-  "authors": [
-    "sjwestbrook <sawest4291@gmail.com>"
-  ],
-  "description": "",
-  "main": "",
-  "moduleType": [],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "jquery": "~2.1.4",
-    "angular": "~1.4.7",
-    "bootstrap": "~3.3.5",
-    "api-check": "~7.5.3",
-    "angular-bootstrap": "~0.14.1",
-    "angular-ui-router": "~0.2.15",
-    "angular-formly": "~7.1.2",
-    "angular-formly-templates-bootstrap": "~6.1.5",
-    "angular-route": "~1.4.7",
-  }
+    "name": "survey",
+    "version": "0.0.0",
+    "homepage": "https://github.com/sjwestbrook/survey",
+    "authors": [
+        "sjwestbrook <sawest4291@gmail.com>"
+    ],
+    "description": "",
+    "main": "",
+    "moduleType": [],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "~2.1.4",
+        "angular": "~1.4.7",
+        "bootstrap": "~3.3.5",
+        "api-check": "~7.5.3",
+        "angular-bootstrap": "~0.14.1",
+        "angular-ui-router": "~0.2.15",
+        "angular-formly": "~7.1.2",
+        "angular-formly-templates-bootstrap": "~6.1.5",
+        "angular-route": "~1.4.7"
+    }
 }

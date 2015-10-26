@@ -119,15 +119,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       }
     }
   })
-
   // open survey that the student has clicked on to complete
   .state('students.opensurveydetails', {
-    url: '/students/opensurvey/:surveyId',
+    url: '/opensurvey/:id',
     templateUrl: 'js/templates/opensurvey.html',
     controller: 'openSurveyCtrl'
   })
-
-
+  
   .state('students.opensurvey', {
     url: '/opensurvey',
     templateUrl: 'js/templates/opensurvey.html',
@@ -137,10 +135,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         return surveysServ.getSurveys();
       }
     }
-  })
-
-
-
-  //  // state to handle survey id  // controller = opensurveyctrl  // state params
+  });
 
 });

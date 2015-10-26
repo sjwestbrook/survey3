@@ -1,40 +1,40 @@
 <div id="opensurvey" style="width: 100%; height: 4000px; margin-right: 0;">
 
-  <h2 style="font-weight: bold; color: black;">Complete the Survey</h2> 
-  
-  <button ng-click="update()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Update</button>
-  
- 
-  
-<!-- display survey list here -->
-  
-	<form name="takeSurvey">
+    <h2 style="font-weight: bold; color: black;">Complete the Survey</h2>
 
-    <h2>{{ newSurvey._id.publicName }}</h2>
+    <button ng-click="update()" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Update</button>
 
-		<p>{{ newSurvey._id.description }}</p>
-		
-		
-    <p>{{test}}</p>
-    
-    <div ng-repeat="field in formly"></div>    
-    
-		<formly-form model="response" fields="fields">
 
-      <!-- reset and submit buttons - functions, etc -->
 
-      <button type="submit" ng-click="postResponse(response)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
+    <!-- display survey list here -->
 
-<!--      <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>-->
-<!--
+    <form name="takeSurvey">
+
+        <h2>{{ newSurvey._id.publicName }}</h2>
+
+        <p>{{ newSurvey._id.description }}</p>
+
+
+        <p>{{test}}</p>
+
+        <div ng-repeat="field in formly"></div>
+
+        <formly-form model="response" fields="fields">
+
+            <!-- reset and submit buttons - functions, etc -->
+
+            <button type="submit" ng-click="postResponse(response)" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em">Submit</button>
+
+            <!--      <button type="reset" style="height:30px; width:90px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em" >Reset</button>-->
+            <!--
 
   <button type="submit" style="height: 30px; width: 90px;" ng-click="postResponse(response)">Submit</button>
 -->
-      
-<!--class="btn btn-default" -->
-      
-		</formly-form>
 
-	</form>  
-  
+            <!--class="btn btn-default" -->
+
+        </formly-form>
+
+    </form>
+
 </div>
