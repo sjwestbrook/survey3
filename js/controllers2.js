@@ -310,7 +310,7 @@ app.controller('studentsCtrl', function ($http, $rootScope, $scope, $stateParams
 
 //OPEN SELECTED SURVEY
 
-app.controller('openSurveyCtrl', function ($http, $rootScope, $scope, $stateParams, $state, studentsServ, $timeout) {
+app.controller('openSurveyCtrl', function ($http, $rootScope, $scope, $stateParams, $location, $state, studentsServ, $timeout) {
     $scope.response = {};
     $scope.newSurveys = [];
     $scope.surveyid = $stateParams.id;
