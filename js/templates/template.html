@@ -24,6 +24,7 @@
       
       <hr>
       
+      
        <button ng-click="addNewVar(template.varNames)" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
       
        <button ng-click="removeVar($index, template.varNames)" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
@@ -49,13 +50,13 @@
           <label>Question Type</label>
           <label>
       <!--      adjust [0]-->
-            <input type="radio" ng-model="template.questions[$index].questionType" value="radio">Multiple choice
+            <input type="radio" ng-model="template.questions[$index].questionType" value="radio">Multiplechoice
           </label>
           <label>
             <input type="radio" ng-model="template.questions[$index].questionType" value="multiCheckbox">Checkbox
           </label>
           <label>
-            <input type="radio" ng-model="template.questions[$index].questionType" value="short">Short answer
+            <input type="radio" ng-model="template.questions[$index].questionType" value="input">Short answer
           </label>    
         </div>
         
@@ -76,6 +77,9 @@
        
  <!-- end question/answer section to repeat -->
 
+    <div class="form-group">
+      <label>Add Question</label>
+    </div>
       <button ng-click="addQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
       <button ng-click="removeQuestion()" style="height:30px; width:35px; background:#2AABE2; border: 1px solid #0069A0; font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif; text-transform: uppercase; color: white; font-weight: bold; letter-spacing: 0.0625em"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 

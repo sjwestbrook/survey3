@@ -4,7 +4,7 @@
 app.service('logoutServ', function() {
   
   this.logout = function(){
-    localStorage.removeItem('currentUser');
+    localStorage.clear('currentUser');
   } 
   
 });
@@ -240,29 +240,23 @@ app.service('studentsServ', function($http, surveysServ){
 							openSurveys.push(surveyData[i]);
 					}
 				}
-      console.log(openSurveys)
+//      console.log(openSurveys)
       return openSurveys;
 			})
 			return openSurveys;
 	};
   
-  
-  //===========
-  
-  
-  
+  //==========  
   
   this.changeSelectedSurvey = function( survey ) {
 		localStorage.setItem('selectedSurvey', JSON.stringify(survey));
     console.log(survey);    // nothing
 	}
-  
-  
-  
-  
+    
   //===========
   
   this.parseToFormlyData = function( survey ) {
+    console.log(survey);
 		if (!survey) {
 			return;
 		}
@@ -305,7 +299,7 @@ app.service('studentsServ', function($http, surveysServ){
 		response.surveyId = selectedSurvey._id;
 		var user = localStorage.getItem('currentUser');
 
-		$http.put(connectionInfo.url + '/api/topic/results?id=' + selectedSurvey.topicId + '&subjectId=' + selectedSurvey.subject._id, response)
+		$http.put('/api/topic/results?id=' + selectedSurvey.topicId + '&subjectId=' + selectedSurvey.subject._id, response)
 			.then(function(res) {
 				console.log(res);
 			})
