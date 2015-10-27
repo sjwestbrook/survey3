@@ -9,9 +9,9 @@
        <br />
       
       <div style="color: white;">
-        <a ng-click="changeSelectedSurvey(newSurvey)" ui-sref="students.opensurveydetails" ng-repeat="newSurvey in newSurveys">                   
-          {{ newSurvey.publicName }}<br />
-          {{ newSurvey.description }}<br />
+        <a ng-click="changeSelectedSurvey(newSurvey)" ui-sref="students.opensurveydetails" ng-repeat="newSurvey in newSurveys"> 
+          <span class="surveyname">  {{ newSurvey.publicName }}<br /></span>
+          <span class="description"> {{ newSurvey.description }}<br / ></span>
           <br />
         </a>
       </div>

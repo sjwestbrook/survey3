@@ -67,7 +67,7 @@ app.controller('subjectCtrl', function ($http, $scope, $stateParams, $state, top
             console.log(res);
         });
         $scope.topicsArray = '';
-        $scope.subjects = '';
+        $scope.subject = '';
     }
 
 });
@@ -255,6 +255,7 @@ app.controller('surveysCtrl', function ($http, $scope, $stateParams, $state, top
     $scope.getSurveys = function () {
         surveysServ.getSurveys().then(function (res) {
             $scope.surveysArray = res.data;
+          console.log(res.data);
         })
     }
 

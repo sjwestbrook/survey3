@@ -10,13 +10,19 @@
 @color5: #333333;             // box background color med-gray
 @color6: #EDEDED;             // very light grey
 @color7: #66c3ea;             // button hover background
-@color8: #FE9916;             // box styles
+@color8: #fa8e00;             // box styles
 //@bordercolor: #0069A0;
 //@bordercolor2: #66c3ea;       // button hover border
 
 
 //===================================================
 
+ .bg-color {
+      background-color: rgba(0,0,0,0.5); 
+      border-color: rgba(0,0,0,0.5); 
+//      padding: 10px;
+//      width: 100px;
+    }
 
 .clear {
   clear: both;
@@ -395,6 +401,7 @@ html.ng-scope {
     width: 30%;
     height: 100%;
     .left;
+    font-size: 20x;
     text-align: center;
     background-color: transparent;
     background-image: url(../images/waterfall.jpg);
@@ -443,21 +450,34 @@ html.ng-scope {
       margin: 20px 0 0 10px;
     }
     
+   
+    
     a {
       text-decoration: none;
-      color:  @color1;
-      font-size: 1.5em;
-//      font-size: @fontsize;
-//      font-weight: bold;
-      text-shadow: 1.5px 1.5px @color4;
+      color:  @color1;      
+      text-shadow: 2px 2px @color4;
       transition: color .2s linear;
-
+      
+      .surveyname {
+        font-size: 1.7em;
+        font-weight: 700;
+      }
+      
+      .description {
+        font-weight: 200;
+        font-style: italic;
+        font-size: 1.4em;
+      }
+      
       &:hover {
         color: @color8;
-        text-shadow: 1.5px 1.5px @color4;
+        text-shadow: 2px 2px @color4;
       }
+        
+      }
+      
     }
-  }
+
   // end sidebar styles
 
 }  // end body styles
