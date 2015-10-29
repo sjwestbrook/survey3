@@ -1,13 +1,13 @@
 // LOGOUT ======================================
 
-
-app.service('logoutServ', function() {
-  
-  this.logout = function(){
-    localStorage.clear('currentUser');
-  } 
-  
-});
+// doesn't work
+//app.service('logoutServ', function() {
+//  
+//  this.logout = function(){
+//    localStorage.clear('currentUser');
+//  } 
+//  
+//});
 
 
 

@@ -11,18 +11,10 @@
 @color6: #EDEDED;             // very light grey
 @color7: #66c3ea;             // button hover background
 @color8: #fa8e00;             // box styles
-//@bordercolor: #0069A0;
-//@bordercolor2: #66c3ea;       // button hover border
-
 
 //===================================================
 
- .bg-color {
-      background-color: rgba(0,0,0,0.5); 
-      border-color: rgba(0,0,0,0.5); 
-//      padding: 10px;
-//      width: 100px;
-    }
+ 
 
 .clear {
   clear: both;
@@ -40,6 +32,11 @@
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   -webkit-transition: all 1s ease;
+}
+
+.bg-color {
+  background-color: rgba(0,0,0,0.5); 
+  border-color: rgba(0,0,0,0.5); 
 }
 
 .img-hover {
@@ -128,7 +125,7 @@
 
 
 // center vertically -- http://learnlayout.com/flexbox.html
-// no longer used on home page ?
+// no longer used on home page 
 //.vertical-container {
 //  height: 50%;
 //  display: -webkit-flex;
@@ -157,10 +154,6 @@
 
 // GLOBAL STYLES ===============================================================
 
-// * {
-//   outline: 1px dotted red;
-// }
-
 html{
     height: 100%
       width: 100%;
@@ -174,11 +167,9 @@ body {
   background-image: url(../images/mtns_lg_bw.jpg);
 }
 
-
 .ng-scope {
     min-height: 100%;
 }
-
 
 div#maincontent {
   .clear;
@@ -262,8 +253,6 @@ div#home {
     font-size: @fontsize * 5;
     color: black;
     text-align: center;
-//    .vertical-container;
-//    vertical-align: text-bottom;
     margin-top: -200px;
   }
 }
@@ -340,10 +329,9 @@ html.ng-scope {
         background-image: url(../images/mtn7.1.jpg);
         .image;
       }
+    
     }  // end boxes
-  }
-  // end sidebar styles
-
+  }  // end sidebar styles
 }  // end body styles
 
 
@@ -366,7 +354,7 @@ html.ng-scope {
       height: 100%; 
       margin: 0;
     }
-  }
+  } // end div#content
 
 }  // end main styles
 
@@ -391,7 +379,7 @@ html.ng-scope {
   padding-top: 5px;
   
   .ng-scope {
-    height: 100%;  //1500
+    height: 100%;  //1500px
     width: 100%;
     padding: 0;
   }
@@ -448,9 +436,7 @@ html.ng-scope {
       background-color: rgba(0,0,0,0.5); 
       border-color: rgba(0,0,0,0.5); 
       margin: 20px 0 0 10px;
-    }
-    
-   
+    }   
     
     a {
       text-decoration: none;
@@ -474,11 +460,9 @@ html.ng-scope {
         text-shadow: 2px 2px @color4;
       }
         
-      }
+    } // end a styles
       
-    }
-
-  // end sidebar styles
+  } // end sidebar styles
 
 }  // end body styles
 
@@ -486,28 +470,7 @@ html.ng-scope {
   margin-left: 20px;
   float: right;
   height: 100%;
-  width: 600px;
-//  overflow: hidden;
-    
-//  #newsurveycontent {
-//    #opensurvey {
-//      #surveyForm {
-//        .formly.ng-pristine.ng-valid.ng-isolate-scope {
-//            .formly-field.ng-scope.ng-isolate-scope.formly-field-radio {
-//              height: 300px;
-//                .form-group.ng-scope {
-//                  div {
-//                    button {
-//                        height: 30px;
-//                      }
-//                  }
-//                }
-//            }
-//        }
-//      }
-//    }
-//}
-    
+  width: 600px;    
   
   div#workspace {
     width: 620px;
@@ -524,13 +487,9 @@ html.ng-scope {
       font-weight: bold;
       text-transform: uppercase;
     }
-  }
+  } // end workspace styles
 
 }  // end main styles
-
-
-
-
 
 
 
@@ -611,9 +570,9 @@ html.ng-scope {
          margin: 0;
          max-height: 300px;
         }
-     }
-  }
-}
+     }  // end text styles
+  } // end a styles
+}  // end image styles
 
     
   // ADMIN CONTENT STYLES ============================= 
@@ -625,7 +584,7 @@ html.ng-scope {
       .boxes {
        div#box1 {
         .image;     
-       } // end div box 1
+       } 
 
        div#box2 {
           .image;
@@ -650,6 +609,7 @@ html.ng-scope {
         div#box7 {
           .image;
         }
+        
     }  // end boxes
   } // end sidebar     
 
@@ -667,7 +627,7 @@ html.ng-scope {
       h2 {
         font-size: 20px;
       }
-    }
+    } // end content styles
 
   }  // end main styles
 }  // end body styles
@@ -710,8 +670,6 @@ html.ng-scope {
         color: @color1;
       }
       
-      
-      
       h3 {
         font-size: 1em; 
       }
@@ -719,7 +677,7 @@ html.ng-scope {
       a {
         font-size: 1em;      
       }
-    }
+    } // end ng-binding.ng-scope styles
     
   } // end sidebar styles
 
@@ -745,7 +703,7 @@ html.ng-scope {
         font-weight: bold;
         text-transform: uppercase;
       }
-    }
+    } // end workspace styles
 
   }  // end main styles
     
@@ -753,14 +711,3 @@ html.ng-scope {
 } // end body styles
     
 } // END MEDIA QUERY PHONE ============================
-
-/* Landscape iPad 3 & 4 */
-//@media only screen 
-//  and (min-device-width: 768px) 
-//  and (max-device-width: 1024px) 
-//  and (orientation: landscape) 
-//  and (-webkit-min-device-pixel-ratio: 2) {
-//
-//    // no changes necessary
-//}
-
