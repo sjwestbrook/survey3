@@ -8,14 +8,14 @@ app.controller('homeCtrl', function ($scope, $stateParams, $state) {
 
 // LOGOUT ====================================================
 
-app.controller('logout', function ($scope, $stateParams, $state, $location, logoutServ) {
-
-    $scope.logout = function () {
-        logoutServ.logout();
-        $location.url('/home');
-    }
-
-});
+//app.controller('logout', function ($scope, $stateParams, $state, $location, logoutServ) {
+//
+//    $scope.logout = function () {
+//        logoutServ.logout();
+//        $location.url('/home');
+//    }
+//
+//});
 
 // ADMIN CONTROLLERS ============================================
 
@@ -48,8 +48,6 @@ app.controller('topicCtrl', function ($http, $scope, $stateParams, $state, topic
 
 
 // CREATE SUBJECT ===================================
-
-
 app.controller('subjectCtrl', function ($http, $scope, $stateParams, $state, topicServ, topics) {
 
     $scope.topicsArray = topics.data;
@@ -342,6 +340,4 @@ app.controller('openSurveyCtrl', function ($http, $rootScope, $scope, $statePara
         studentsServ.postCompletedSurvey($scope.response, $scope.selectedSurvey);
         $location.url('/students');
     }
-
-
 });
